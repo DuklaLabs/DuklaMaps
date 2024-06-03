@@ -1,0 +1,210 @@
+/*desktop*/
+@media (min-width: 1024px) {
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: Inter, sans-serif;
+    }
+    .upbar {
+        background-color: #2f2f2f;
+        height: 10vh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .name {
+        color:#d3d3d3;
+        font-size:xxx-large;
+        font-weight:400;
+    }
+    .datetime {
+        color:#b2babc;
+        font-size:xx-large;
+        font-weight:400;
+    }
+    .center-container {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        height: 80vh; /* This makes the container take up the full viewport height */
+        flex-direction: row;
+    }
+    .map-scrollable {
+        display: none;
+    }
+    .patra-container {
+        width: 25vh;
+    }
+    .patra {
+        display: flex;
+        flex-direction: column;
+    }
+    .patro-number {
+        border: 1px solid black;
+        height: 60px;
+        width: 60px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: xxx-large;
+        font-weight: 700;
+    }
+    .patro {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 5px;
+        background-color: transparent;
+        border: 1px solid white;
+    }
+    .menu {
+        position: absolute;
+        height:100%;
+        width: 100%;
+        background-color: #2f2f2f;
+        display: none;
+        justify-content: center;
+    }
+    .menu-name {
+        color: #d24b49;
+        height: 80%;
+        font-size: xxx-large;
+        display: none;
+    }
+    .grid-container { 
+    display: grid;
+    grid-template-columns: auto auto auto; /* Creates three columns of equal width */
+    padding: 10px;
+    }
+    .grid-item {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    }
+    .downbar {
+    background-color: #2f2f2f;
+    height: 10vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+}
+
+/*mobile*/
+@media (max-width: 1024px) {
+    .upbar {
+        height:150px;
+        width: 100%;
+        background-color: #2f2f2f;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .center-container {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        height: calc(100vh - 300px); /* This makes the container take up the full viewport height */
+        flex-direction: column;
+    }
+
+    .map-static {
+        display: none;
+    }
+
+    .downbar {
+        height: 150px;
+        width: 100%;
+        background-color: #2f2f2f;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: Inter, sans-serif;
+    }
+    .info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .name {
+        color:#d3d3d3;
+        font-size:xxx-large;
+        font-weight:400;
+    }
+    .datetime {
+        color:#b2babc;
+        font-size:xx-large;
+        font-weight:400;
+    }
+    .patra-container {
+        align-self: center;
+    }
+    .patra {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .patro-number {
+        border: 1px solid black;
+        height: 60px;
+        width: 60px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: xxx-large;
+        font-weight: 700;
+    }
+    .patro {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 5px;
+        background-color: transparent;
+        border: 1px solid white;
+    }
+    .menu {
+        position: absolute;
+        height:100%;
+        width: 100%;
+        background-color: #2f2f2f;
+        display: none;
+        justify-content: center;
+    }
+    .menu-name {
+        color: #d24b49;
+        font-size: xxx-large;
+        display: none;
+    }
+    .grid-container { 
+    display: grid;
+    grid-template-columns: auto auto auto; /* Creates three columns of equal width */
+    padding: 10px;
+    }
+    .grid-item {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    }
+}

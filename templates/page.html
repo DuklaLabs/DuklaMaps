@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <title>Mapa</title>
+</head>
+<body>
+    <nav class="upbar">
+        <div class = "info">
+            <div style="width: 15px;"></div> <!-- Menší mezera -->
+            <a href="#home"><img src="../static/assets/timetable/InfoButton.svg"></a>
+            <div style="width: 45px;"></div> <!-- Větší mezera -->
+            <h1 class="name">Mapa SPŠSE</h1>
+        </div>
+        
+        <h1 id="teachersname" class="menu-name"">Učitelé</h1>
+        <h1 id="classesname" class="menu-name"">Třídy</h1>
+        <h1 id="roomsname" class="menu-name"">Místnosti</h1>
+        
+        <div class = "info">
+            <h2 id ="time" class="datetime"></h2>
+            <div style="width: 15px;"></div> <!-- Menší mezera -->
+            <h2 id="date" class="datetime"></h2>
+            <div style="width: 45px;"></div> <!-- Větší mezera -->
+            <a href="#home"><img src="../static/assets/timetable/RefreshButton.svg"></a>
+            <div style="width: 15px;"></div>
+        </div>
+    </nav>
+
+    <div>        
+        <div class="center-container">
+            <div class="map-static">
+                <div id="patro0" style="display: none;">
+                    <img src="../static/assets/mapa/patro-1.jpg">
+                </div>
+                <div id="patro1" style="display: block;">
+                    <img src="../static/assets/mapa/patro0.jpg">
+                </div>
+                <div id="patro2" style="display: none;">
+                    <img src="../static/assets/mapa/patro1.jpg">
+                </div>
+            </div>
+            <div class="map-scrollable" style="width:90%;height:90%;overflow-x: scroll; overflow-y: scroll; margin: 5%;">
+                <embed src="../static/assets/mapa.svg" type="image/svg+xml" style="min-width: 2000px;">
+            </div>
+
+            <div class="patra-container">
+                <h1>Patra:</h1>
+                <div class="patra">
+                    <button onclick="showFloor(4)" class="patro">
+                        <div class="patro-number">3</div>
+                        <div style="width: 15px;"></div> <!-- Menší mezera -->
+                        <div style="font-size: xx-large;">patro</div>
+                    </button>
+                    <button onclick="showFloor(3)" class="patro">
+                        <div class="patro-number">2</div>
+                        <div style="width: 15px;"></div> <!-- Menší mezera -->
+                        <div style="font-size: xx-large;">patro</div>
+                    </button>
+                    <button onclick="showFloor(2)" class="patro">
+                        <div class="patro-number">1</div>
+                        <div style="width: 15px;"></div> <!-- Menší mezera -->
+                        <div style="font-size: xx-large;">patro</div>
+                    </button>
+                    <button onclick="showFloor(1)" class="patro">
+                        <div class="patro-number">0</div>
+                        <div style="width: 15px;"></div> <!-- Menší mezera -->
+                        <div style="font-size: xx-large;">přízemí</div>
+                    </button>
+                    <button onclick="showFloor(0)" class="patro">
+                        <div class="patro-number">-1</div>
+                        <div style="width: 15px;"></div> <!-- Menší mezera -->
+                        <div style="font-size: xx-large;">šatny</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="downbar">
+        <div></div>
+        <div>
+            <a onclick="showMenu('teachers')"><img src="../static/assets/timetable/TeachersButton.svg"></a>
+            <a onclick="showMenu('classes')" style="padding: 10px;"><img src="../static/assets/timetable/ClassesButton.svg"></a>
+            <a onclick="showMenu('rooms')"><img src="../static/assets/timetable/RoomsButton.svg"></a>
+        </div>
+        <div style="display: flex;">
+            <a href="#home"><img src="../static/assets/timetable/CreditsButton.svg"></a>
+            <div style="width: 15px;"></div> <!-- Menší mezera -->
+        </div>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
