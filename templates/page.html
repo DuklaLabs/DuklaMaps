@@ -77,15 +77,12 @@
 
     <nav class="downbar">
         <div></div>
-        <div>
-            <a onclick="showMenu('teachers')"><img src="../static/assets/timetable/TeachersButton.svg"></a>
-            <a onclick="showMenu('classes')" style="padding: 10px;"><img src="../static/assets/timetable/ClassesButton.svg"></a>
-            <a onclick="showMenu('rooms')"><img src="../static/assets/timetable/RoomsButton.svg"></a>
+        <div style="display: flex; flex-direction: row;">
+            <a class="downbar-button" onclick="showMenu('teachers')"><img src="../static/assets/timetable/TeachersButton.svg"></a>
+            <a class="downbar-button" onclick="showMenu('classes')"><img src="../static/assets/timetable/ClassesButton.svg"></a>
+            <a class="downbar-button" onclick="showMenu('rooms')"><img src="../static/assets/timetable/RoomsButton.svg"></a>
         </div>
-        <div style="display: flex;">
-            <a href="#home"><img src="../static/assets/timetable/CreditsButton.svg"></a>
-            <div style="width: 15px;"></div> <!-- Menší mezera -->
-        </div>
+        <a style="display: flex; height: 9vh; margin-right: 1vh;" href="#home"><img src="../static/assets/timetable/CreditsButton.svg"></a>
     </nav>
 
     <script src="script.js"></script>
