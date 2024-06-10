@@ -17,5 +17,6 @@ function showFloor(floor) {
     document.getElementById("patro0").style.display = "none";
     document.getElementById("patro1").style.display = "none";
     document.getElementById("patro2").style.display = "none";
+    document.getElementById("patro3").style.display = "none";
     document.getElementById(`patro${floor}`).style.display = "block";
 }
