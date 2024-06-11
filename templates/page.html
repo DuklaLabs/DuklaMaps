@@ -40,49 +40,51 @@
             </div>
 
             <div class="map-scrollable" style="width:90%;height:90%;overflow-x: scroll; overflow-y: scroll; margin: 5%;">
-                <embed src="../static/assets/mapa.svg" type="image/svg+xml" style="min-width: 2000px;">
+                <embed src="../static/assets/mapa.svg" type="image/svg+xml" style="min-width: 1000px;">
             </div>
 
             <div class="patra-container">
-                <h1 style="font-size: 4.5vh; margin-bottom: 2vh;">Patra:</h1>
-                <button onclick="showFloor(4)" class="patro">
-                    <div class="patro-number">3</div>
-                    <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                    <div>patro</div>
-                </button>
-                <button onclick="showFloor(3)" class="patro">
-                    <div class="patro-number">2</div>
-                    <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                    <div>patro</div>
-                </button>
-                <button onclick="showFloor(2)" class="patro">
-                    <div class="patro-number">1</div>
-                    <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                    <div>patro</div>
-                </button>
-                <button onclick="showFloor(1)" class="patro">
-                    <div class="patro-number">0</div>
-                    <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                    <div>přízemí</div>
-                </button>
-                <button onclick="showFloor(0)" class="patro">
-                    <div class="patro-number">-1</div>
-                    <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                    <div>šatny</div>
-                </button>
-                <div style="height: 12vh;"> </div> <!--div pro srovnání -->
+                <h1 style="font-size: 4.5vh; margin-bottom: 2vh; margin-top: 0;">Patra:</h1>
+                <div class="patra-numbers">
+                    <button onclick="showFloor(4)" class="patro">
+                        <div class="patro-number">3</div>
+                        <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                        <div class="mobile">patro</div>
+                    </button>
+                    <button onclick="showFloor(3)" class="patro">
+                        <div class="patro-number">2</div>
+                        <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                        <div class="mobile">patro</div>
+                    </button>
+                    <button onclick="showFloor(2)" class="patro">
+                        <div class="patro-number">1</div>
+                        <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                        <div class="mobile">patro</div>
+                    </button>
+                    <button onclick="showFloor(1)" class="patro">
+                        <div class="patro-number">0</div>
+                        <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                        <div class="mobile">přízemí</div>
+                    </button>
+                    <button onclick="showFloor(0)" class="patro">
+                        <div class="patro-number">-1</div>
+                        <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                        <div class="mobile">šatny</div>
+                    </button>
+                </div>
+                <div class="mobile" style="height: 12vh;"> </div> <!--div pro srovnání -->
             </div>
         </div>
     </div>
 
     <nav class="downbar">
-        <div></div>
+        <div style="display: flex; width: 10vh;"></div> <!--prázdný div pro zarovnání tlačítek uprostřed -->
         <div style="display: flex; flex-direction: row;">
             <a class="downbar-button" onclick="showMenu('teachers')"><img src="../static/assets/timetable/TeachersButton.svg"></a>
             <a class="downbar-button" onclick="showMenu('classes')"><img src="../static/assets/timetable/ClassesButton.svg"></a>
             <a class="downbar-button" onclick="showMenu('rooms')"><img src="../static/assets/timetable/RoomsButton.svg"></a>
         </div>
-        <a style="display: flex; height: 9vh; margin-right: 1vh;" href="#home"><img src="../static/assets/timetable/CreditsButton.svg"></a>
+        <a class="logo-button" href="#home"><img src="../static/assets/timetable/CreditsButton.svg"></a>
     </nav>
 
     <script src="script.js"></script>

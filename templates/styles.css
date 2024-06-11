@@ -1,55 +1,97 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Inter, sans-serif;
+}
+.upbar {
+    background-color: #2f2f2f;
+    height: 10vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.buttons {
+    display: flex;
+    height: 7vh;
+    margin: 1.5vh;
+}
+.info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.info-time {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 2vh;
+}
+.name {
+    color:#d3d3d3;
+    font-size:5.5vh;
+    font-weight:400;
+}
+.datetime {
+    color:#b2babc;
+    font-size:4vh;
+    font-weight:400;
+}
+.patro-number {
+    border: 1.5px solid black;
+    height: 6vh;
+    width: 6vh;
+    border-radius: 1vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5vh;
+    font-weight: 700;
+}
+.patro {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1vh;
+    background-color: transparent;
+    border: 1px solid white;
+    font-size: 4vh;
+}
+.menu {
+    position: absolute;
+    height:100%;
+    width: 100%;
+    background-color: #2f2f2f;
+    display: none;
+    justify-content: center;
+}
+.menu-name {
+    color: #d24b49;
+    height: 80%;
+    font-size: xxx-large;
+    display: none;
+}
+.downbar {
+    background-color: #2f2f2f;
+    height: 10vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.downbar-button {
+    display: flex;
+    height: 7vh;
+    margin: 0.8vh;
+}
+.logo-button {
+    display: flex;
+    height: 8vh;
+    margin: 1vh;
+}
+
 /*desktop*/
-@media (min-width: 1024px) {
-    body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        font-family: Inter, sans-serif;
-    }
-    .upbar {
-        background-color: #2f2f2f;
-        height: 10vh;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .buttons {
-        display: flex;
-        height: 7vh;
-        margin: 1.5vh;
-    }
-    .info {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-    .info-time {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-right: 2vh;
-    }
-    .name {
-        color:#d3d3d3;
-        font-size:5.5vh;
-        font-weight:400;
-    }
-    .datetime {
-        color:#b2babc;
-        font-size:4vh;
-        font-weight:400;
-    }
-    .center-container {
-        position: relative;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        height: 80vh; /* This makes the container take up the full viewport height */
-        flex-direction: row;
-    }
+@media (min-width: 1025px) { /*1024px*/
     .map-static {
         display: flex;
         margin-top: 8vh;
@@ -60,6 +102,17 @@
     .map-scrollable {
         display: none;
     }
+    
+    .center-container {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        height: 80vh;
+        flex-direction: row;
+    }
     .patra-container {
         width: 30vh;
         height: 80vh;
@@ -68,57 +121,34 @@
         justify-content: center;
         margin-left: 10vh;
     }
-    .patro-number {
-        border: 1.5px solid black;
-        height: 6vh;
-        width: 6vh;
-        border-radius: 1vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 4.5vh;
-        font-weight: 700;
-    }
-    .patro {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 1vh;
-        background-color: transparent;
-        border: 1px solid white;
-        font-size: 4vh;
-    }
-    .menu {
-        position: absolute;
-        height:100%;
-        width: 100%;
-        background-color: #2f2f2f;
-        display: none;
-        justify-content: center;
-    }
-    .menu-name {
-        color: #d24b49;
-        height: 80%;
-        font-size: xxx-large;
-        display: none;
-    }
-    .downbar {
-        background-color: #2f2f2f;
-        height: 10vh;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .downbar-button {
-        display: flex;
-        height: 7vh;
-        margin: 0.8vh;
-    }
 }
 
 /*mobile*/
 @media (max-width: 1024px) {
     .map-static {
+        display: none;
+    }
+    .center-container {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        height: 80vh;
+        flex-direction: column;
+    }
+    .patra-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+    }
+    .patra-numbers {
+        display: flex;
+        flex-direction: row;
+    }
+    .mobile {
         display: none;
     }
 }
