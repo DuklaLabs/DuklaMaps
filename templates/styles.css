@@ -79,6 +79,14 @@ body {
     align-items: center;
     justify-content: space-between;
 }
+.burger-button {
+    display: flex;
+    height: 8vh;
+    margin: 1vh;
+}
+.downbar-buttons {
+    display: none;
+}
 .downbar-button {
     display: flex;
     height: 7vh;
@@ -92,6 +100,13 @@ body {
 
 /*desktop*/
 @media (min-width: 1025px) { /*1024px*/
+    .burger-button {
+        display: none;
+    }
+    .downbar-buttons {
+        display: flex;
+        flex-direction: row;
+    }
     .map-static {
         display: flex;
         margin-top: 8vh;
@@ -124,7 +139,47 @@ body {
 }
 
 /*mobile*/
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 768px) {
+    .map-static {
+        display: none;
+    }
+    .center-container {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        height: 80vh;
+        flex-direction: column;
+    }
+    .patra-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+    }
+    .patra-numbers {
+        display: flex;
+        flex-direction: row;
+    }
+    .mobile {
+        display: none;
+    }
+}
+
+/*mobile-small*/
+@media (max-width: 767px) {
+    .name {
+        color:#d3d3d3;
+        font-size:3.5vh;
+        font-weight:400;
+    }
+    .datetime {
+        color:#b2babc;
+        font-size:3vh;
+        font-weight:400;
+    }
     .map-static {
         display: none;
     }
