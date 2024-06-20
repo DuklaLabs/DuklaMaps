@@ -97,7 +97,6 @@ body {
     height: 8vh;
     margin: 1vh;
 }
-
 /*desktop*/
 @media (min-width: 1025px) { /*1024px*/
     .burger-button {
@@ -139,7 +138,14 @@ body {
 }
 
 /*mobile*/
-@media (max-width: 1024px) and (min-width: 768px) {
+@media (max-width: 1024px) and (min-width: 700px) {
+    .burger-button {
+        display: none;
+    }
+    .downbar-buttons {
+        display: flex;
+        flex-direction: row;
+    }
     .map-static {
         display: none;
     }
@@ -169,7 +175,7 @@ body {
 }
 
 /*mobile-small*/
-@media (max-width: 767px) {
+@media (max-width: 699px) {
     .name {
         color:#d3d3d3;
         font-size:3.5vh;
@@ -204,6 +210,9 @@ body {
         flex-direction: row;
     }
     .mobile {
+        display: none;
+    }
+    .spacer {
         display: none;
     }
 }
