@@ -78,6 +78,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    z-index: 2;
 }
 .burger-button {
     display: flex;
@@ -135,6 +137,9 @@ body {
         justify-content: center;
         margin-left: 10vh;
     }
+    .sub-nav-mobile {
+        display: none;
+    }
 }
 
 /*mobile*/
@@ -170,6 +175,9 @@ body {
         flex-direction: row;
     }
     .mobile {
+        display: none;
+    }
+    .sub-nav-mobile {
         display: none;
     }
 }
@@ -215,4 +223,40 @@ body {
     .spacer {
         display: none;
     }
+    @keyframes slideInUp {
+        from {
+            transform: translateY(100%);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+    @keyframes slideOutDown {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(100%);
+        }
+    }
+    .sub-nav-mobile {
+        display: none;
+        position: absolute;
+        top: 60vh;
+        left: 0px;
+        right: 0px;
+        bottom: 10vh;
+        background-color: #2f2f2f;
+        z-index: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .animate-slideInUp {
+        animation: slideInUp 0.5s ease-out forwards;
+    }
+    .animate-slideOutDown {
+        animation: slideOutDown 0.5s ease-out forwards;
+    }   
 }

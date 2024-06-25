@@ -20,3 +20,19 @@ function showFloor(floor) {
     document.getElementById("patro3").style.display = "none";
     document.getElementById(`patro${floor}`).style.display = "block";
 }
+
+//burger menu
+let BurgerButtonClicked = false;
+document.getElementById('burger-button').addEventListener('click', function() {
+    if (BurgerButtonClicked == false) {
+        document.querySelector('.sub-nav-mobile').classList.remove('animate-slideOutDown');
+        document.querySelector('.sub-nav-mobile').classList.add('animate-slideInUp');
+        document.querySelector('.sub-nav-mobile').style.display = 'flex';
+        BurgerButtonClicked = true;
+    } else {
+        document.querySelector('.sub-nav-mobile').classList.remove('animate-slideInUp');
+        document.querySelector('.sub-nav-mobile').classList.add('animate-slideOutDown');
+        setTimeout(() => { document.querySelector('.sub-nav-mobile').style.display = 'none'; }, 500); // Assuming the animation takes 500ms
+        BurgerButtonClicked = false;
+    }
+});
