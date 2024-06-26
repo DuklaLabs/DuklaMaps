@@ -32,6 +32,7 @@ body {
     color:#d3d3d3;
     font-size:5.5vh;
     font-weight:400;
+    margin-left: 1.5vh;
 }
 .datetime {
     color:#b2babc;
@@ -242,7 +243,6 @@ body {
     .sub-nav-mobile {
         display: none;
         position: absolute;
-        top: 60vh;
         left: 0px;
         right: 0px;
         bottom: 10vh;
@@ -251,6 +251,8 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        border-top-left-radius: 0.5pc;
+        border-top-right-radius: 0.5pc;
     }
 
     .animate-slideInUp {
