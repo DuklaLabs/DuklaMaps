@@ -17,6 +17,10 @@
             <h1 class="name">Mapa SPŠSE</h1>
         </div>
         
+        <div class="menu-name" id="teachers-name">Učitelé</div>
+        <div class="menu-name" id="classes-name">Třídy</div>
+        <div class="menu-name" id="rooms-name">Místnosti</div>
+        
         <div class = "info">
             <h2 style="margin-right: 1.5vw;" id="time" class="datetime"></h2>
             <h2 style="margin-right: 1.5vw;" id="date" class="datetime"></h2>
@@ -25,7 +29,7 @@
     </nav>
 
     <div>        
-        <div class="center-container">
+        <div class="center-container" id="center-container">
             <div class="map-static">
                 <div id="patro0" style="display: none;">
                     <img src="../static/assets/mapa/patro0.jpg" style="width: 100vh;">
@@ -77,19 +81,35 @@
                 <div class="mobile" style="height: 12vh;"> </div> <!--div pro srovnání -->
             </div>
         </div>
+
+        <!--teachers-->
+        <div class="menu" id="teachers">
+            teachers
+        </div>
+
+        <!--classes-->
+        <div class="menu" id="classes">
+            classes
+        </div>
+
+        <!--rooms-->
+        <div class="menu" id="rooms">
+            rooms
+        </div>
+
         <div class="sub-nav-mobile">
-            <a class="downbar-button" href="" onclick="showMenu('teachers')"><img src="../static/assets/timetable/TeachersButton.svg"></a>
-            <a class="downbar-button" href="" onclick="showMenu('classes')"><img src="../static/assets/timetable/ClassesButton.svg"></a>
-            <a class="downbar-button" href="" onclick="showMenu('rooms')"><img src="../static/assets/timetable/RoomsButton.svg"></a>
+            <a class="downbar-button" onclick="showMenu('teachers')"><img src="../static/assets/timetable/TeachersButton.svg"></a>
+            <a class="downbar-button" onclick="showMenu('classes')"><img src="../static/assets/timetable/ClassesButton.svg"></a>
+            <a class="downbar-button" onclick="showMenu('rooms')"><img src="../static/assets/timetable/RoomsButton.svg"></a>
         </div>
     </div>
 
     <nav class="downbar">
         <div class="spacer" style="width: 10vh;"></div> <!--prázdný div pro zarovnání tlačítek uprostřed -->
         <div class="downbar-buttons">
-            <a class="downbar-button" href="" onclick="showMenu('teachers')"><img src="../static/assets/timetable/TeachersButton.svg"></a>
-            <a class="downbar-button" href="" onclick="showMenu('classes')"><img src="../static/assets/timetable/ClassesButton.svg"></a>
-            <a class="downbar-button" href="" onclick="showMenu('rooms')"><img src="../static/assets/timetable/RoomsButton.svg"></a>
+            <a class="downbar-button" onclick="showMenu('teachers')"><img src="../static/assets/timetable/TeachersButton.svg"></a>
+            <a class="downbar-button" onclick="showMenu('classes')"><img src="../static/assets/timetable/ClassesButton.svg"></a>
+            <a class="downbar-button" onclick="showMenu('rooms')"><img src="../static/assets/timetable/RoomsButton.svg"></a>
         </div>
         <a class="burger-button" id="burger-button" href="#home"><img src="../static/assets/hamburger.svg"></a>
         <a class="logo-button" href="#home"><img src="../static/assets/timetable/CreditsButton.svg"></a>
