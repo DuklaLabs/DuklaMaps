@@ -22,8 +22,27 @@ function showFloor(floor) {
     document.getElementById(`patro${floor}`).style.display = "block";
 }
 
-//burger menu
+fetch('/jsons')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        const classes = data[0];
+        const teachers = data[1];
+        const rooms = data[2];
 
+        console.log('Classes:', classes);
+        console.log('Teachers:', teachers);
+        console.log('Rooms:', rooms);
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+
+//burger menu
 function closeburger() {
     document.querySelector('.sub-nav-mobile').classList.remove('animate-slideInUp');
     document.querySelector('.sub-nav-mobile').classList.add('animate-slideOutDown');
@@ -43,7 +62,7 @@ document.getElementById('burger-button').addEventListener('click', function() {
     }
 });
 
-//teachers
+//downbar buttons
 let selectedMenu;
 function showMenu(menu) {
     closeburger();
