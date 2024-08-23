@@ -80,16 +80,11 @@ body {
     flex-direction: row;
 }
 
-.classes tr {
-    display: flex;
-    flex-direction: row;
-    
-}
-
 .classes td {
     width: 20vw;
     height: 7vh;
     margin: 1vh;
+    margin-top: 1.5vh;
     display: flex;
     justify-content: center;
     align-items: center;
