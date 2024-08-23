@@ -21,26 +21,71 @@ function showFloor(floor) {
     document.getElementById("patro4").style.display = "none";
     document.getElementById(`patro${floor}`).style.display = "block";
 }
+//získání dat z json
+function getjson() {
+    fetch('/jsons')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const classes = data[0];
+            const teachers = data[1];
+            const rooms = data[2];
 
-fetch('/jsons')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        const classes = data[0];
-        const teachers = data[1];
-        const rooms = data[2];
+            console.log('Classes:', classes);
+            console.log('Teachers:', teachers);
+            console.log('Rooms:', rooms);
 
-        console.log('Classes:', classes);
-        console.log('Teachers:', teachers);
-        console.log('Rooms:', rooms);
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-    });
+            let classesMatrix = [];
+            let teachersMatrix = [];
+            let roomsMatrix = [];
+
+            if (classes && classes.classes.length > 0) {
+                // Iterate over each class and print its details
+                for (let i = 0; i < classes.classes.length; i++) {
+                    const className = Object.keys(classes.classes[i])[0];
+                    const classDetails = classes.classes[i][className];
+                    classesMatrix.push([className, classDetails]);
+                }
+            } else {
+                console.log('Classes array is empty or not populated.');
+            }
+            console.log('Classes:',classesMatrix);
+
+            if (teachers && teachers.teachers.length > 0) {
+                // Iterate over each teacher and print their details
+                for (let i = 0; i < teachers.teachers.length; i++) {
+                    const teacherName = Object.keys(teachers.teachers[i])[0];
+                    const teacherDetails = teachers.teachers[i][teacherName];
+                    teachersMatrix.push([teacherName, teacherDetails]);
+                }
+            } else {
+                console.log('Teachers array is empty or not populated.');
+            }
+            console.log('Teachers:',teachersMatrix);
+
+            if (rooms && rooms.rooms.length > 0) {
+                // Iterate over each room and print its details
+                for (let i = 0; i < rooms.rooms.length; i++) {
+                    const roomName = Object.keys(rooms.rooms[i])[0];
+                    const roomDetails = rooms.rooms[i][roomName];
+                    roomsMatrix.push([roomName, roomDetails]);
+                }
+            } else {
+                console.log('Rooms array is empty or not populated.');
+            }
+            console.log('Rooms:',roomsMatrix);
+
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+}
+getjson();
+
 
 //burger menu
 function closeburger() {
