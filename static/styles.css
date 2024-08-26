@@ -281,6 +281,12 @@ body {
     .map-static {
         display: none;
     }
+    .teachers tr {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     .center-container {
         position: relative;
         margin: 0;

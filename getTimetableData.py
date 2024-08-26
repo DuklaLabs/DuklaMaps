@@ -51,6 +51,8 @@ def get_teachers(soup):
     odkazy = soup.find('div', {'id': 'teacher_canvas'}).find('div', class_='bk-canvas-body').find_all('a')
     for odkaz in odkazy:
         teachers["teachers"].append(get_OBJ(odkaz))
+    # Manually add teachers that are not in the list (e.g. teachers that are not teaching this year or have left the school)
+    #teachers['teachers'].append({'Požárek Pavel': {'Permanent': 'none', 'Actual': 'none', 'Next': 'none'}})
     # Sort the teachers by name
     locale.setlocale(locale.LC_COLLATE, 'cs_CZ.UTF-8')
     teachers["teachers"] = sorted(teachers["teachers"], key=lambda x: locale.strxfrm(list(x.keys())[0]))
