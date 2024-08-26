@@ -21,8 +21,24 @@ function showFloor(floor) {
     document.getElementById("patro4").style.display = "none";
     document.getElementById(`patro${floor}`).style.display = "block";
 }
+//teachers table
+function generateTeachersTable(teachersList) {
+    const teachersTable = document.getElementById('teachersTable');
+    teachersTable.innerHTML = ''; // Clear existing table content
 
-// Function to generate classes table
+    let row;
+    teachersList.forEach((teacher, index) => {
+        if (index % 4 === 0) {
+            row = document.createElement('tr');
+            teachersTable.appendChild(row);
+        }
+        const cell = document.createElement('td');
+        cell.textContent = teacher[0]; // Teacher name
+        row.appendChild(cell);
+    });
+}
+
+//classes table
 function generateClassesTable(classesMatrix) {
     const classesTable = document.getElementById('classesTable');
     classesTable.innerHTML = ''; // Clear existing table content
@@ -53,28 +69,41 @@ function getjson() {
             const teachers = data[1];
             const rooms = data[2];
 
-            console.log('Classes:', classes);
-            console.log('Teachers:', teachers);
-            console.log('Rooms:', rooms);
+            let teachersList = [];
+            let classesList = [];
+            let roomsList = [];
 
-            let classesMatrix = [];
-            let teachersMatrix = [];
-            let roomsMatrix = [];
+            // Teachers
+            if (teachers && teachers.teachers.length > 0) {
+                // Iterate over each teacher and print its details
+                for (let i = 0; i < teachers.teachers.length; i++) {
+                    const teacherName = Object.keys(teachers.teachers[i])[0];
+                    const teacherDetails = teachers.teachers[i][teacherName];
+                    teachersList.push([teacherName]);
+                }
+            } else {
+                console.log('Teachers array is empty or not populated.');
+            }
+            console.log('Teachers:', teachersList);
 
+            // Call function to generate table
+            generateTeachersTable(teachersList);
+
+            // Classes
             if (classes && classes.classes.length > 0) {
                 // Iterate over each class and print its details
                 for (let i = 0; i < classes.classes.length; i++) {
                     const className = Object.keys(classes.classes[i])[0];
                     const classDetails = classes.classes[i][className];
-                    classesMatrix.push([className, classDetails]);
+                    classesList.push([className, classDetails]);
                 }
             } else {
                 console.log('Classes array is empty or not populated.');
             }
-            console.log('Classes:',classesMatrix);
+            console.log('Classes:',classesList);
 
             // Call function to generate table
-            generateClassesTable(classesMatrix);
+            generateClassesTable(classesList);
 
         })
         .catch(error => {
