@@ -55,6 +55,40 @@ function generateClassesTable(classesMatrix) {
     });
 }
 
+//rooms table
+function generateRoomsTable(ucebnyList, dilnyList) {
+    const ucebnyTable = document.getElementById('ucebnyTable');
+    const dilnyTable = document.getElementById('dilnyTable');
+    ucebnyTable.innerHTML = ''; // Clear existing table content
+    dilnyTable.innerHTML = ''; // Clear existing table content
+    
+    // Ucebny
+    let row;
+    let currentRow = '0';
+    ucebnyList.forEach((room) => {
+        const roomName = room[0];
+        if (roomName.charAt(0) != currentRow) {
+            currentRow = roomName.charAt(0);
+            row = document.createElement('tr');
+            ucebnyTable.appendChild(row);
+        }
+        const cell = document.createElement('td');
+        cell.textContent = room[0]; // Room name
+        row.appendChild(cell);
+    });
+
+    // Dilny
+    dilnyList.forEach((room, index) => {
+        if (index % 2 === 0) {
+            row = document.createElement('tr');
+            dilnyTable.appendChild(row);
+        }
+        const cell = document.createElement('td');
+        cell.textContent = room[0]; // Room name
+        row.appendChild(cell);
+    });
+}
+
 //získání dat z json
 function getjson() {
     fetch('/jsons')
@@ -71,7 +105,9 @@ function getjson() {
 
             let teachersList = [];
             let classesList = [];
-            let roomsList = [];
+            let ucebnyList = [];
+            let dilnyList = [];
+            let otherList = [];
 
             // Teachers
             if (teachers && teachers.teachers.length > 0) {
@@ -104,6 +140,28 @@ function getjson() {
 
             // Call function to generate table
             generateClassesTable(classesList);
+
+            // Rooms
+            if (rooms && rooms.rooms.length > 0) {
+                // Iterate over each room and print its details
+                for (let i = 0; i < rooms.rooms.length; i++) {
+                    const roomName = Object.keys(rooms.rooms[i])[0];
+                    const roomDetails = rooms.rooms[i][roomName];
+                    if (roomName.charAt(0) == 'D') {
+                        dilnyList.push([roomName, roomDetails]);
+                    } else {
+                        ucebnyList.push([roomName, roomDetails]);
+                    }
+                }
+            } else {
+                console.log('Rooms array is empty or not populated.');
+            }
+            console.log('ucebny:', ucebnyList);
+            console.log('dilny:', dilnyList);
+
+            // Call function to generate table
+            generateRoomsTable(ucebnyList, dilnyList);
+
 
         })
         .catch(error => {

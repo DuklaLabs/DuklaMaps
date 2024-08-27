@@ -137,11 +137,75 @@ body {
     cursor: pointer;
     user-select: none;
 }
-
+.ucebny-table  {
+    display: flex;
+    flex-direction: column-reverse;
+}
+.ucebny-table tr {
+    display: flex;
+    flex-direction: row;
+}
+.ucebny-table td {
+    width: 3vw;
+    height: 4vh;
+    margin: 1vh;
+    margin-top: 1.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    background-color: #d9d9d9;
+    border-radius: 15px;
+    cursor: pointer;
+    user-select: none;
+}
+.dilny-table {
+    display: flex;
+    flex-direction: column;
+}
+.dilny-table tr {
+    display: flex;
+    flex-direction: row;
+}
+.dilny-table td {
+    width: 3vw;
+    height: 4vh;
+    margin: 1vh;
+    margin-top: 1.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    background-color: #d9d9d9;
+    border-radius: 15px;
+    cursor: pointer;
+    user-select: none;
+}
+.rooms-ucebny {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 80vh;
+}
+.rooms-dilny {
+    display: flex;
+    width: 25vw;
+    height: 80vh;
+    flex-direction: column;
+}
+.rooms-other {
+    display: flex;
+    width: 25vw;
+    height: 80vh; 
+}
+.rooms-name {
+    color: #d9d9d9;
+    font-size: 4vh;
+}
 .menu-name {
     color: #d24b49;
     height: 80%;
-    font-size: xxx-large;
+    font-size: 7vh;
     display: none;
 }
 .downbar {
@@ -258,6 +322,27 @@ body {
         display: flex;
         flex-direction: row;
     }
+    .menu {
+        flex-direction: column;
+    }
+    .rooms-ucebny {
+        width: 100vw;
+        height: 40vh;
+    }
+    .rooms-dilny {
+        width: 100vw;
+        height: 20vh;
+    }
+    .rooms-other {
+        width: 100vw;
+        height: 20vh;
+    }
+    .dilny-table {
+        flex-direction: row;
+    }
+    .dilny-table tr {
+        flex-direction: column;
+    }
     .mobile {
         display: none;
     }
@@ -306,6 +391,27 @@ body {
     .patra-numbers {
         display: flex;
         flex-direction: row;
+    }
+    .menu {
+        flex-direction: column;
+    }
+    .rooms-ucebny {
+        width: 100vw;
+        height: 40vh;
+    }
+    .rooms-dilny {
+        width: 100vw;
+        height: 20vh;
+    }
+    .rooms-other {
+        width: 100vw;
+        height: 20vh;
+    }
+    .dilny-table {
+        flex-direction: row;
+    }
+    .dilny-table tr {
+        flex-direction: column;
     }
     .mobile {
         display: none;
