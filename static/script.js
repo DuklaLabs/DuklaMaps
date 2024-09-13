@@ -6,11 +6,6 @@ function updateTime() {
     document.getElementById("date").innerText = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
 }
 
-// Call updateTime once at the beginning to set the initial time
-updateTime();
-
-// Then call updateTime every 1000 milliseconds (1 second)
-setInterval(updateTime, 1000);
 
 //přepínání pater
 function showFloor(floor) {
@@ -90,7 +85,7 @@ function generateRoomsTable(ucebnyList, dilnyList) {
 }
 
 //získání dat z json
-function getjson() {
+function getJsonData() {
     fetch('/jsons')
         .then(response => {
             if (!response.ok) {
@@ -168,7 +163,6 @@ function getjson() {
             console.error('There was a problem with the fetch operation:', error);
         });
 }
-getjson();
 
 //burger menu
 function closeburger() {
@@ -212,3 +206,16 @@ function showMenu(menu) {
         console.log('shown: ' + menu);
     }
 }
+
+function comingSoon() {
+    document.querySelector(".coming-soon").style.display = "flex";
+}
+function closeComingSoon() {
+    document.querySelector(".coming-soon").style.display = "none";
+}
+
+updateTime();
+getJsonData();
+
+// Then call updateTime every 1000 milliseconds (1 second)
+setInterval(updateTime, 1000);

@@ -26,7 +26,6 @@
         <div class = "info">
             <h2 style="margin-right: 1.5vw;" id="time" class="datetime"></h2>
             <h2 style="margin-right: 1.5vw;" id="date" class="datetime"></h2>
-            <a class="buttons" href="#home"><img src="../static/assets/timetable/RefreshButton.svg"></a>
         </div>
     </nav>
 
@@ -113,21 +112,26 @@
         </div>
 
         <div class="sub-nav-mobile">
-            <a class="downbar-button" onclick="showMenu('teachers')"><img src="../static/assets/timetable/TeachersButton.svg"></a>
+            <a class="downbar-button" style="margin-top: 1.6vh;" onclick="showMenu('teachers')"><img src="../static/assets/timetable/TeachersButton.svg"></a>
             <a class="downbar-button" onclick="showMenu('classes')"><img src="../static/assets/timetable/ClassesButton.svg"></a>
             <a class="downbar-button" onclick="showMenu('rooms')"><img src="../static/assets/timetable/RoomsButton.svg"></a>
+        </div>
+        <div class="coming-soon">
+            Coming soon
+            <button onclick="closeComingSoon()">OK</button>
         </div>
     </div>
 
     <nav class="downbar">
         <div class="spacer" style="width: 10vh;"></div> <!--prázdný div pro zarovnání tlačítek uprostřed -->
+        <!-- <a class="downbar-button" style="width: 8vh;" onclick="showMenu('documents')"><img src="../static/assets/DocumentsButton.svg"></a> -->
         <div class="downbar-buttons">
             <a class="downbar-button" onclick="showMenu('teachers')"><img src="../static/assets/timetable/TeachersButton.svg"></a>
             <a class="downbar-button" onclick="showMenu('classes')"><img src="../static/assets/timetable/ClassesButton.svg"></a>
             <a class="downbar-button" onclick="showMenu('rooms')"><img src="../static/assets/timetable/RoomsButton.svg"></a>
         </div>
         <a class="burger-button" id="burger-button" href="#home"><img src="../static/assets/hamburger.svg"></a>
-        <a class="logo-button" href="#home"><img src="../static/assets/timetable/CreditsButton.svg"></a>
+        <a class="logo-button" onclick="comingSoon()"><img src="../static/assets/timetable/CreditsButton.svg"></a>
     </nav>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
