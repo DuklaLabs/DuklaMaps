@@ -12,6 +12,12 @@ body {
     align-items: center;
     justify-content: space-between;
 }
+.close-button {
+    display: none;
+    width: 20vw;
+    margin: 1vh;
+    cursor: pointer;
+}
 .buttons {
     display: flex;
     height: 7vh;
@@ -19,8 +25,10 @@ body {
 }
 .info {
     display: flex;
+    width: 20vw;
     flex-direction: row;
     align-items: center;
+    justify-content: end;
 }
 .info-time {
     display: flex;
@@ -241,8 +249,8 @@ body {
 .coming-soon {
     display: none;
     position: absolute;
-    width: 40vw;
-    left: 30vw;
+    width: 30vw;
+    left: 35vw;
     height: 30vh;
     bottom: 35vh;
     background-color: #2f2f2f;
@@ -518,6 +526,7 @@ body {
         justify-content: center;
         border-top-left-radius: 0.5pc;
         border-top-right-radius: 0.5pc;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
     }
 
     .animate-slideInUp {
@@ -526,4 +535,10 @@ body {
     .animate-slideOutDown {
         animation: slideOutDown 0.5s ease-out forwards;
     }   
+    .coming-soon {
+        width: 40vw;
+        left: 30w;
+        font-size: 4vh;
+        overflow: hidden;
+    }
 }

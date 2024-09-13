@@ -190,6 +190,9 @@ function showMenu(menu) {
     closeburger();
     
     document.getElementById("center-container").style.display = "none";
+    document.getElementById("name").style.display = "none";
+    document.getElementById("close-button").style.display = "flex";
+
     document.getElementById("teachers").style.display = "none";
     document.getElementById("teachers-name").style.display = "none";
     document.getElementById("rooms").style.display = "none";
@@ -197,14 +200,27 @@ function showMenu(menu) {
     document.getElementById("classes").style.display = "none";
     document.getElementById("classes-name").style.display = "none";
     if (selectedMenu == menu) {
-        document.getElementById("center-container").style.display = "flex";
-        selectedMenu = null;
+        closeMenu();
     } else {
         document.getElementById(menu).style.display = "flex";
         document.getElementById(menu + "-name").style.display = "block";
         selectedMenu = menu;
         console.log('shown: ' + menu);
     }
+}
+
+function closeMenu() {
+    document.getElementById("teachers").style.display = "none";
+    document.getElementById("teachers-name").style.display = "none";
+    document.getElementById("rooms").style.display = "none";
+    document.getElementById("rooms-name").style.display = "none";
+    document.getElementById("classes").style.display = "none";
+    document.getElementById("classes-name").style.display = "none";
+    
+    document.getElementById("center-container").style.display = "flex";
+    document.getElementById("name").style.display = "block";
+    document.getElementById("close-button").style.display = "none";
+    selectedMenu = null;    
 }
 
 function comingSoon() {
