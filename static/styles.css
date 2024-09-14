@@ -15,7 +15,6 @@ body {
 .close-button {
     display: none;
     width: 20vw;
-    height: 7vh;
     margin: 1vh;
     cursor: pointer;
 }
@@ -84,7 +83,8 @@ body {
 }
 .teachers {
     height: 80vh;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     flex-direction: column;
     overflow-y: scroll;
     scrollbar-width: none; /* For Firefox */
@@ -95,22 +95,15 @@ body {
     display: none; /* For Chrome, Safari, and Opera */
 }
 
-.teachers tr {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
 .teachers td {
-    width: 25vw;
+    width: 20vw;
     height: 7vh;
     margin: 1vh;
     margin-top: 1.5vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3vh;
+    font-size: 18px;
     background-color: #d9d9d9;
     border-radius: 15px;
     cursor: pointer;
@@ -139,7 +132,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3vh;
+    font-size: 18px;
     background-color: #d9d9d9;
     border-radius: 15px;
     cursor: pointer;
@@ -162,7 +155,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3vh;
+    font-size: 18px;
     background-color: #d9d9d9;
     border-radius: 15px;
     cursor: pointer;
@@ -185,7 +178,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3vh;
+    font-size: 18px;
     background-color: #d9d9d9;
     border-radius: 15px;
     cursor: pointer;
@@ -343,6 +336,9 @@ body {
     .map-static {
         display: none;
     }
+    .teachers {
+        grid-template-columns: repeat(2, 1fr);
+    }
     .center-container {
         position: relative;
         margin: 0;
@@ -424,13 +420,13 @@ body {
     .map-static {
         display: none;
     }
-    .teachers tr {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    .teachers {
+        grid-template-columns: repeat(1, 1fr);
     }
     .teachers td {
+        margin: auto;
+        margin-top: 1.5vh;
+        margin-bottom: 1vh;
         width: 40vw;
     }
     .center-container {

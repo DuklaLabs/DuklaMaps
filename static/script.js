@@ -6,6 +6,38 @@ function updateTime() {
     document.getElementById("date").innerText = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
 }
 
+let schoolHour;
+function getSchoolHour() {
+    let date = new Date();
+    let totalMinutes = date.getHours() * 60 + date.getMinutes();
+
+    if (totalMinutes < 475) { // 00:00 - 07:55
+        schoolHour = 0;
+    } else if (totalMinutes >= 475 && totalMinutes < 525) { // 07:55 - 08:45
+        schoolHour = 1;
+    } else if (totalMinutes >= 525 && totalMinutes < 575) { // 08:45 - 09:35
+        schoolHour = 2;
+    } else if (totalMinutes >= 575 && totalMinutes < 640) { // 09:35 - 10:40
+        schoolHour = 3;
+    } else if (totalMinutes >= 640 && totalMinutes < 690) { // 10:40 - 11:30
+        schoolHour = 4;
+    } else if (totalMinutes >= 690 && totalMinutes < 745) { // 11:30 - 12:25
+        schoolHour = 5;
+    } else if (totalMinutes >= 745 && totalMinutes < 795) { // 12:25 - 13:15
+        schoolHour = 6;
+    } else if (totalMinutes >= 795 && totalMinutes < 845) { // 13:15 - 14:05
+        schoolHour = 7;
+    } else if (totalMinutes >= 845 && totalMinutes < 895) { // 14:05 - 14:55
+        schoolHour = 8;
+    } else if (totalMinutes >= 895 && totalMinutes < 945) { // 14:55 - 15:45
+        schoolHour = 9;
+    } else if (totalMinutes >= 945) { // 15:45 - 23:59
+        schoolHour = 10;
+    }
+    schoolHour = schoolHour + (date.getDay()-1)*11; 
+    //schoolHour = 48; //nafejkovat hodinu
+    //console.log('school hour:', schoolHour);
+}
 
 //přepínání pater
 function showFloor(floor) {
@@ -21,31 +53,50 @@ function generateTeachersTable(teachersList) {
     const teachersTable = document.getElementById('teachersTable');
     teachersTable.innerHTML = ''; // Clear existing table content
 
-    let row;
     teachersList.forEach((teacher, index) => {
-        if (index % 4 === 0) {
-            row = document.createElement('tr');
-            teachersTable.appendChild(row);
-        }
-        const cell = document.createElement('td');
-        cell.textContent = teacher[0]; // Teacher name
-        cell.onclick = () => openTeachersWindow(teacher[0])
-        row.appendChild(cell);
+        fetchTeachers(teacher[0])
+            .then(data => {
+                const permanent = data[2];
+                if (Object.keys(permanent).length === 0) {  // If teacher has no permanent class
+                    console.log(teacher[0] + ' has no permanent class');
+                } else {
+                    const cell = document.createElement('td');
+                    cell.textContent = teacher[0]; // Teacher name
+                    cell.onclick = () => openTeachersWindow(teacher[0]);
+                    teachersTable.appendChild(cell);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching teacher data:', error);
+            });
     });
 }
 
 function openTeachersWindow(teacher) {
     console.log('Clicked teacher:', teacher);
-    fetch(`/teachers/${teacher}`)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Teacher details:', data);
-    })
+    fetchTeachers(teacher)
+        .then(data => {
+            const actual = data[0];
+            
+            if (typeof actual[schoolHour] !== 'undefined') {
+                console.log('actual:', actual[schoolHour][0]);
+            } else {
+                console.log('Učitel právě neučí');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching teacher data:', error);
+        });
+}
+
+function fetchTeachers(teacher) {
+    return fetch(`/teachers/${teacher}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        });
 }
 
 //classes table
@@ -61,8 +112,35 @@ function generateClassesTable(classesMatrix) {
         }
         const cell = document.createElement('td');
         cell.textContent = classItem[0]; // Class name
+        cell.onclick = () => openClassesWindow(classItem[0]);
         row.appendChild(cell);
     });
+}
+
+function openClassesWindow(className) {
+    console.log('Clicked class:', className);
+    fetchClasses(className)
+        .then(data => {
+            const actual = data[0];
+            if (typeof actual[schoolHour] !== 'undefined') {
+                console.log('actual:', actual[schoolHour][0]);
+            } else {
+                console.log('Třída právě nemá vyučování');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching class data:', error);
+        });
+}
+
+function fetchClasses(className) {
+    return fetch(`/classes/${className}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        });
 }
 
 //rooms table
@@ -84,8 +162,35 @@ function generateRoomsTable(ucebnyList, dilnyList) {
         }
         const cell = document.createElement('td');
         cell.textContent = room[0]; // Room name
+        cell.onclick = () => openRoomsWindow(room[0]);
         row.appendChild(cell);
     });
+
+    function openRoomsWindow(room) {
+        console.log('Clicked room:', room);
+        fetchRooms(room)
+            .then(data => {
+                const actual = data[0];
+                if (typeof actual[schoolHour] !== 'undefined') {
+                    console.log('actual:', actual[schoolHour][0]);
+                } else {
+                    console.log('Místnost právě není obsazena');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching room data:', error);
+            });
+    }
+
+    function fetchRooms(room) {
+        return fetch(`/rooms/${room}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            });
+    }
 
     // Dilny
     dilnyList.forEach((room, index) => {
@@ -95,6 +200,7 @@ function generateRoomsTable(ucebnyList, dilnyList) {
         }
         const cell = document.createElement('td');
         cell.textContent = room[0]; // Room name
+        cell.onclick = () => openRoomsWindow(room[0]);
         row.appendChild(cell);
     });
 }
@@ -220,7 +326,6 @@ function showMenu(menu) {
         document.getElementById(menu).style.display = "flex";
         document.getElementById(menu + "-name").style.display = "block";
         selectedMenu = menu;
-        console.log('shown: ' + menu);
     }
 }
 
@@ -246,7 +351,8 @@ function closeComingSoon() {
 }
 
 updateTime();
+getSchoolHour();
 getJsonData();
 
-// Then call updateTime every 1000 milliseconds (1 second)
-setInterval(updateTime, 1000);
+setInterval(updateTime, 1000); // Update time every second
+setInterval(getSchoolHour, 20000); // Update school hour every 20 seconds
