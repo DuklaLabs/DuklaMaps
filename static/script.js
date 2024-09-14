@@ -29,8 +29,23 @@ function generateTeachersTable(teachersList) {
         }
         const cell = document.createElement('td');
         cell.textContent = teacher[0]; // Teacher name
+        cell.onclick = () => openTeachersWindow(teacher[0])
         row.appendChild(cell);
     });
+}
+
+function openTeachersWindow(teacher) {
+    console.log('Clicked teacher:', teacher);
+    fetch(`/teachers/${teacher}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Teacher details:', data);
+    })
 }
 
 //classes table
