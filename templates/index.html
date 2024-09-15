@@ -10,12 +10,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <title>Mapa</title>
+    <title>DuklaMaps</title>
 </head>
 <body>
     <nav class="upbar">
         <!-- <a class="buttons" href="#home"><img src="../static/assets/timetable/InfoButton.svg"></a> -->
-        <a class="close-button" id="close-button" onclick="closeMenu()"><img src="../static/assets/timetable/ExitButton.svg"></a>
+        <a class="close-button" style="width: 20vw;" id="close-button" onclick="closeMenu()"><img src="../static/assets/timetable/ExitButton.svg"></a>
         <h1 class="name" id="name">Mapa SPŠSE</h1>
         
         <div class="menu-name" id="teachers-name">Učitelé</div>
@@ -114,6 +114,14 @@
             <a class="downbar-button" style="margin-top: 1.6vh;" onclick="showMenu('teachers')"><img src="../static/assets/timetable/TeachersButton.svg"></a>
             <a class="downbar-button" onclick="showMenu('classes')"><img src="../static/assets/timetable/ClassesButton.svg"></a>
             <a class="downbar-button" onclick="showMenu('rooms')"><img src="../static/assets/timetable/RoomsButton.svg"></a>
+        </div>
+        <div class="teacher-window">
+            <div class="window-top">
+                <div style="width: 7vh;"></div>
+                <div id="teacher-name"></div>
+                <div class="close-button" style="display: flex;" onclick="closeTeacherWindow()"><img src="../static/assets/timetable/ExitButton.svg"></div>
+            </div>
+            <div id="teacher-actual"></div>
         </div>
         <div class="coming-soon">
             Coming soon

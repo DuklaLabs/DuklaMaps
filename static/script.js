@@ -11,32 +11,28 @@ function getSchoolHour() {
     let date = new Date();
     let totalMinutes = date.getHours() * 60 + date.getMinutes();
 
-    if (totalMinutes < 475) { // 00:00 - 07:55
-        schoolHour = 0;
-    } else if (totalMinutes >= 475 && totalMinutes < 525) { // 07:55 - 08:45
-        schoolHour = 1;
-    } else if (totalMinutes >= 525 && totalMinutes < 575) { // 08:45 - 09:35
-        schoolHour = 2;
-    } else if (totalMinutes >= 575 && totalMinutes < 640) { // 09:35 - 10:40
-        schoolHour = 3;
-    } else if (totalMinutes >= 640 && totalMinutes < 690) { // 10:40 - 11:30
-        schoolHour = 4;
-    } else if (totalMinutes >= 690 && totalMinutes < 745) { // 11:30 - 12:25
-        schoolHour = 5;
-    } else if (totalMinutes >= 745 && totalMinutes < 795) { // 12:25 - 13:15
-        schoolHour = 6;
-    } else if (totalMinutes >= 795 && totalMinutes < 845) { // 13:15 - 14:05
-        schoolHour = 7;
-    } else if (totalMinutes >= 845 && totalMinutes < 895) { // 14:05 - 14:55
-        schoolHour = 8;
-    } else if (totalMinutes >= 895 && totalMinutes < 945) { // 14:55 - 15:45
-        schoolHour = 9;
-    } else if (totalMinutes >= 945) { // 15:45 - 23:59
-        schoolHour = 10;
-    }
-    schoolHour = schoolHour + (date.getDay()-1)*11; 
-    //schoolHour = 48; //nafejkovat hodinu
-    //console.log('school hour:', schoolHour);
+    const timeRanges = [
+        { start: 0, end: 475, hour: 0 }, // 00:00 - 07:55
+        { start: 475, end: 525, hour: 1 }, // 07:55 - 08:45
+        { start: 525, end: 575, hour: 2 }, // 08:45 - 09:35
+        { start: 575, end: 640, hour: 3 }, // 09:35 - 10:40
+        { start: 640, end: 690, hour: 4 }, // 10:40 - 11:30
+        { start: 690, end: 745, hour: 5 }, // 11:30 - 12:25
+        { start: 745, end: 795, hour: 6 }, // 12:25 - 13:15
+        { start: 795, end: 845, hour: 7 }, // 13:15 - 14:05
+        { start: 845, end: 895, hour: 8 }, // 14:05 - 14:55
+        { start: 895, end: 945, hour: 9 }, // 14:55 - 15:45
+        { start: 945, end: 1440, hour: 10 } // 15:45 - 23:59
+    ];
+
+    for (const range of timeRanges) {
+        if (totalMinutes >= range.start && totalMinutes < range.end) {
+            schoolHour = range.hour + (date.getDay()-1)*11; //neděle nefunguje
+            break;
+        }}
+
+        //schoolHour = 48; //nafejkovat hodinu
+        //console.log('school hour:', schoolHour);
 }
 
 //přepínání pater
@@ -78,15 +74,26 @@ function openTeachersWindow(teacher) {
         .then(data => {
             const actual = data[0];
             
+            document.querySelector(".teacher-window").style.display = "flex";
+            document.getElementById("teacher-name").innerText = teacher;
+
             if (typeof actual[schoolHour] !== 'undefined') {
                 console.log('actual:', actual[schoolHour][0]);
+                console.log('actual:', actual[schoolHour][0].subject_text);
+                document.getElementById("teacher-actual").innerText = actual[schoolHour][0].subject_text + " " + actual[schoolHour][0].group;
             } else {
                 console.log('Učitel právě neučí');
+                document.getElementById("teacher-actual").innerText = 'Učitel právě neučí';
             }
+            
         })
         .catch(error => {
             console.error('Error fetching teacher data:', error);
         });
+}
+
+function closeTeacherWindow() {
+    document.querySelector(".teacher-window").style.display = "none";
 }
 
 function fetchTeachers(teacher) {
