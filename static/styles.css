@@ -109,30 +109,6 @@ body {
     cursor: pointer;
     user-select: none;
 }
-.teacher-window {
-    display: none;
-    position: absolute;
-    width: 50vw;
-    left: 25vw;
-    height: 30vh;
-    bottom: 35vh;
-    background-color: #2f2f2f;
-    z-index: 3;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 2vh;
-    color: white;
-    font-size: 3vh;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-}
-.window-top {
-    display: flex;
-    color: #d24b49;
-    font-size: 7vh;
-    width: inherit;
-    justify-content: space-between;
-    flex-direction: row;
-}
 
 .classes {
     list-style-type: none;
@@ -235,6 +211,72 @@ body {
     font-size: 7vh;
     display: none;
 }
+.select-window {
+    display: none;
+    position: absolute;
+    padding: 1vh;
+    /*width: 50vw;*/
+    /*height: 40vh;*/
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    min-height: fit-content;
+    min-width: 20vw;
+    background-color: #2f2f2f;
+    z-index: 3;
+    flex-direction: column;
+    border-radius: 2vh;
+    color: white;
+    font-size: 3vh;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.classes-groups {
+    display: flex;
+    flex-direction: row;
+}
+
+.classes-groups div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3vw;
+    min-width: 40px;
+    height: 3vh;
+    color: black;
+    background-color: #d9d9d9;
+    border-radius: 2.5vh;
+    margin: 0.5vh;
+}
+
+.window-top {
+    display: flex;
+    color: #d24b49;
+    font-size: 7vh;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.window-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.window-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.window-button {
+    display: flex;
+    height: 7vh;
+    margin: 0.2vh;
+    cursor: pointer;
+}
+
 .downbar {
     background-color: #2f2f2f;
     height: 10vh;

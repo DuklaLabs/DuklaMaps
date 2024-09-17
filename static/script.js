@@ -31,7 +31,7 @@ function getSchoolHour() {
             break;
         }}
 
-        //schoolHour = 48; //nafejkovat hodinu
+        //schoolHour = 23; //nafejkovat hodinu
         //console.log('school hour:', schoolHour);
 }
 
@@ -74,13 +74,18 @@ function openTeachersWindow(teacher) {
         .then(data => {
             const actual = data[0];
             
-            document.querySelector(".teacher-window").style.display = "flex";
+            document.getElementById("teacher-window").style.display = "flex";
             document.getElementById("teacher-name").innerText = teacher;
 
             if (typeof actual[schoolHour] !== 'undefined') {
                 console.log('actual:', actual[schoolHour][0]);
                 console.log('actual:', actual[schoolHour][0].subject_text);
-                document.getElementById("teacher-actual").innerText = actual[schoolHour][0].subject_text + " " + actual[schoolHour][0].group;
+                if (actual[schoolHour][0].subject_text == '') {
+                    document.getElementById("teacher-actual").innerText = actual[schoolHour][0].removed_info; 
+                } else {
+                    document.getElementById("teacher-actual").innerText = actual[schoolHour][0].subject_text + " " + actual[schoolHour][0].group;
+                    document.getElementById("teacher-room-name").innerText ="uč. " + actual[schoolHour][0].room;
+                }
             } else {
                 console.log('Učitel právě neučí');
                 document.getElementById("teacher-actual").innerText = 'Učitel právě neučí';
@@ -93,7 +98,7 @@ function openTeachersWindow(teacher) {
 }
 
 function closeTeacherWindow() {
-    document.querySelector(".teacher-window").style.display = "none";
+    document.getElementById("teacher-window").style.display = "none";
 }
 
 function fetchTeachers(teacher) {
@@ -129,15 +134,31 @@ function openClassesWindow(className) {
     fetchClasses(className)
         .then(data => {
             const actual = data[0];
+
+            document.getElementById("class-window").style.display = "flex";
+            document.getElementById("class-name").innerText = className;
+
             if (typeof actual[schoolHour] !== 'undefined') {
                 console.log('actual:', actual[schoolHour][0]);
+                console.log('actual:', actual[schoolHour][0].subject_text);
+                if (actual[schoolHour][0].subject_text == '') {
+                    document.getElementById("class-actual").innerText = actual[schoolHour][0].change_info;
+                } else {
+                    document.getElementById("class-actual").innerText = actual[schoolHour][0].subject_text;
+                    document.getElementById("class-room-name").innerText = "uč. " + actual[schoolHour][0].room;
+                }
             } else {
                 console.log('Třída právě nemá vyučování');
+                document.getElementById("class-actual").innerText = 'Třída právě nemá vyučování';
             }
         })
         .catch(error => {
             console.error('Error fetching class data:', error);
         });
+}
+
+function closeClassWindow() {
+    document.getElementById("class-window").style.display = "none";
 }
 
 function fetchClasses(className) {
@@ -178,10 +199,21 @@ function generateRoomsTable(ucebnyList, dilnyList) {
         fetchRooms(room)
             .then(data => {
                 const actual = data[0];
+
+                document.getElementById("room-window").style.display = "flex";
+                document.getElementById("room-name").innerText = room;
+
                 if (typeof actual[schoolHour] !== 'undefined') {
                     console.log('actual:', actual[schoolHour][0]);
+                    console.log('actual:', actual[schoolHour][0].subject_text);
+                    if (actual[schoolHour][0].subject_text == '') {
+                        document.getElementById("room-actual").innerText = actual[schoolHour][0].change_info;
+                    } else {
+                        document.getElementById("room-actual").innerText = actual[schoolHour][0].subject_text + " " + actual[schoolHour][0].group + ", " + actual[schoolHour][0].teacher;
+                    }
                 } else {
                     console.log('Místnost právě není obsazena');
+                    document.getElementById("room-actual").innerText = 'Místnost právě není obsazena';
                 }
             })
             .catch(error => {
@@ -210,6 +242,10 @@ function generateRoomsTable(ucebnyList, dilnyList) {
         cell.onclick = () => openRoomsWindow(room[0]);
         row.appendChild(cell);
     });
+}
+
+function closeRoomWindow() {
+    document.getElementById("room-window").style.display = "none";
 }
 
 //získání dat z json

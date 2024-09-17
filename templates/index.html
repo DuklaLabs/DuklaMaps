@@ -14,8 +14,8 @@
 </head>
 <body>
     <nav class="upbar">
-        <!-- <a class="buttons" href="#home"><img src="../static/assets/timetable/InfoButton.svg"></a> -->
-        <a class="close-button" style="width: 20vw;" id="close-button" onclick="closeMenu()"><img src="../static/assets/timetable/ExitButton.svg"></a>
+        <!-- <a class="buttons" href="#home"><img src="../static/assets/InfoButton.svg"></a> -->
+        <a class="close-button" style="width: 20vw;" id="close-button" onclick="closeMenu()"><img src="../static/assets/ExitButton.svg"></a>
         <h1 class="name" id="name">Mapa SPŠSE</h1>
         
         <div class="menu-name" id="teachers-name">Učitelé</div>
@@ -111,18 +111,59 @@
         </div>
 
         <div class="sub-nav-mobile">
-            <a class="downbar-button" style="margin-top: 1.6vh;" onclick="showMenu('teachers')"><img src="../static/assets/timetable/TeachersButton.svg"></a>
-            <a class="downbar-button" onclick="showMenu('classes')"><img src="../static/assets/timetable/ClassesButton.svg"></a>
-            <a class="downbar-button" onclick="showMenu('rooms')"><img src="../static/assets/timetable/RoomsButton.svg"></a>
+            <a class="downbar-button" style="margin-top: 1.6vh;" onclick="showMenu('teachers')"><img src="../static/assets/TeachersButton.svg"></a>
+            <a class="downbar-button" onclick="showMenu('classes')"><img src="../static/assets/ClassesButton.svg"></a>
+            <a class="downbar-button" onclick="showMenu('rooms')"><img src="../static/assets/RoomsButton.svg"></a>
         </div>
-        <div class="teacher-window">
+
+        <!--teacher window-->
+        <div class="select-window" id="teacher-window">
             <div class="window-top">
-                <div style="width: 7vh;"></div>
                 <div id="teacher-name"></div>
-                <div class="close-button" style="display: flex;" onclick="closeTeacherWindow()"><img src="../static/assets/timetable/ExitButton.svg"></div>
+                <div class="close-button" style="display: flex;" onclick="closeTeacherWindow()"><img src="../static/assets/ExitButton.svg"></div>
             </div>
-            <div id="teacher-actual"></div>
+            <div class="window-info" id="teacher-actual"></div>
+            <div class="window-info" id="teacher-room-name"></div>
+            <div class="window-content">
+                <a class="window-button"><img src="../static/assets/ucebnaButton.svg"></a>
+                <a class="window-button"><img src="../static/assets/cabinetButton.svg"></a>
+                <a class="window-button"><img src="../static/assets/timetableButton.svg"></a>
+            </div>
         </div>
+
+        <!--class window-->
+        <div class="select-window" id="class-window">
+            <div class="window-top">
+                <div id="class-name"></div>
+                <div class="close-button" style="display: flex;" onclick="closeClassWindow()"><img src="../static/assets/ExitButton.svg"></div>
+            </div>
+            <div class="classes-groups">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+            </div>
+            <div class="window-info" id="class-actual"></div>
+            <div class="window-info" id="class-room-name"></div>
+            <div class="window-content">
+                <a class="window-button"><img src="../static/assets/ucebnaButton.svg"></a>
+                <a class="window-button"><img src="../static/assets/kmenovaButton.svg"></a>
+                <a class="window-button"><img src="../static/assets/timetableButton.svg"></a>
+                <a class="window-button"><img src="../static/assets/satnaButton.svg"></a>
+            </div>
+        </div>
+
+        <!--room window-->
+        <div class="select-window" id="room-window">
+            <div class="window-top">
+                <div id="room-name"></div>
+                <div class="close-button" style="display: flex;" onclick="closeRoomWindow()"><img src="../static/assets/ExitButton.svg"></div>
+            </div>
+            <div class="window-info" id="room-actual"></div>
+            <div class="window-content">
+                <a class="window-button"><img src="../static/assets/ucebnaButton.svg"></a>
+                <a class="window-button"><img src="../static/assets/timetableButton.svg"></a>
+            </div>
+
         <div class="coming-soon">
             Coming soon
             <button onclick="closeComingSoon()">OK</button>
@@ -133,12 +174,12 @@
         <div class="spacer" style="width: 10vh;"></div> <!--prázdný div pro zarovnání tlačítek uprostřed -->
         <!-- <a class="downbar-button" style="width: 8vh;" onclick="showMenu('documents')"><img src="../static/assets/DocumentsButton.svg"></a> -->
         <div class="downbar-buttons">
-            <a class="downbar-button" onclick="showMenu('teachers')"><img src="../static/assets/timetable/TeachersButton.svg"></a>
-            <a class="downbar-button" onclick="showMenu('classes')"><img src="../static/assets/timetable/ClassesButton.svg"></a>
-            <a class="downbar-button" onclick="showMenu('rooms')"><img src="../static/assets/timetable/RoomsButton.svg"></a>
+            <a class="downbar-button" onclick="showMenu('teachers')"><img src="../static/assets/TeachersButton.svg"></a>
+            <a class="downbar-button" onclick="showMenu('classes')"><img src="../static/assets/ClassesButton.svg"></a>
+            <a class="downbar-button" onclick="showMenu('rooms')"><img src="../static/assets/RoomsButton.svg"></a>
         </div>
         <a class="burger-button" id="burger-button" href="#home"><img src="../static/assets/hamburger.svg"></a>
-        <a class="logo-button" onclick="comingSoon()"><img src="../static/assets/timetable/CreditsButton.svg"></a>
+        <a class="logo-button" onclick="comingSoon()"><img src="../static/assets/CreditsButton.svg"></a>
     </nav>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
