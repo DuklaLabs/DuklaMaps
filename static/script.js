@@ -75,6 +75,7 @@ function openTeachersWindow(teacher) {
             const actual = data[0];
             
             document.getElementById("teacher-window").style.display = "flex";
+            document.getElementById("darken").style.display = "block";
             document.getElementById("teacher-name").innerText = teacher;
 
             if (typeof actual[schoolHour] !== 'undefined') {
@@ -99,6 +100,7 @@ function openTeachersWindow(teacher) {
 
 function closeTeacherWindow() {
     document.getElementById("teacher-window").style.display = "none";
+    document.getElementById("darken").style.display = "none";
 }
 
 function fetchTeachers(teacher) {
@@ -136,6 +138,7 @@ function openClassesWindow(className) {
             const actual = data[0];
 
             document.getElementById("class-window").style.display = "flex";
+            document.getElementById("darken").style.display = "block";
             document.getElementById("class-name").innerText = className;
 
             if (typeof actual[schoolHour] !== 'undefined') {
@@ -159,6 +162,7 @@ function openClassesWindow(className) {
 
 function closeClassWindow() {
     document.getElementById("class-window").style.display = "none";
+    document.getElementById("darken").style.display = "none";
 }
 
 function fetchClasses(className) {
@@ -201,6 +205,7 @@ function generateRoomsTable(ucebnyList, dilnyList) {
                 const actual = data[0];
 
                 document.getElementById("room-window").style.display = "flex";
+                document.getElementById("darken").style.display = "block";
                 document.getElementById("room-name").innerText = room;
 
                 if (typeof actual[schoolHour] !== 'undefined') {
@@ -246,6 +251,7 @@ function generateRoomsTable(ucebnyList, dilnyList) {
 
 function closeRoomWindow() {
     document.getElementById("room-window").style.display = "none";
+    document.getElementById("darken").style.display = "none";
 }
 
 //získání dat z json
