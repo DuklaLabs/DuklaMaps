@@ -31,7 +31,7 @@ function getSchoolHour() {
             break;
         }}
 
-        //schoolHour = 23; //nafejkovat hodinu
+        //schoolHour = 1; //nafejkovat hodinu
         //console.log('school hour:', schoolHour);
 }
 
@@ -139,17 +139,80 @@ function openClassesWindow(className) {
 
             document.getElementById("class-window").style.display = "flex";
             document.getElementById("darken").style.display = "block";
-            document.getElementById("class-name").innerText = className;
 
             if (typeof actual[schoolHour] !== 'undefined') {
                 console.log('actual:', actual[schoolHour][0]);
                 console.log('actual:', actual[schoolHour][0].subject_text);
-                if (actual[schoolHour][0].subject_text == '') {
-                    document.getElementById("class-actual").innerText = actual[schoolHour][0].change_info;
-                } else {
-                    document.getElementById("class-actual").innerText = actual[schoolHour][0].subject_text;
-                    document.getElementById("class-room-name").innerText = "uč. " + actual[schoolHour][0].room;
+
+                let groups = [];
+                for (lesson of actual[schoolHour]) {
+                    groups.push(lesson.group);
+                    groups.sort();
                 }
+
+                //groups = ['PD1', 'PD2', 'PD3', 'PD4']
+                function generateGroupsList(groups) {
+                    const groupsList = document.getElementById('groupsSelector');
+                    groupsList.innerHTML = ''; // Clear existing list content
+
+                    function getGroupNumber(groupName) {
+                        console.log('Clicked group:', groupName);
+                        for (let i = 0; i < actual[schoolHour].length; i++) {
+                            if (actual[schoolHour][i].group === groupName) {
+                                showGroupInfo(i);
+                                console.log('actualGroup:', i);
+                                return; // Exit the loop once the group is found
+                            }
+                        }
+                    }
+                    let currentClickedElement = null;
+
+                    groups.forEach(group => {
+                        const li = document.createElement('li');
+                        li.textContent = group;
+                        li.onclick = () => {
+                            // Remove the 'clicked' class from the previously clicked element
+                            if (currentClickedElement) {
+                                currentClickedElement.classList.remove('active');
+                            }
+                            // Add the 'clicked' class to the current element
+                            li.classList.add('active');
+                            // Update the current clicked element
+                            currentClickedElement = li;
+                            // Call the existing function
+                            getGroupNumber(group);
+                        };
+                        if (group === groups[0]) {
+                            li.classList.add('active');
+                            currentClickedElement = li;
+                        }
+                        groupsList.appendChild(li);
+                    });
+                }
+
+                if (groups.length > 1) {
+                    generateGroupsList(groups);
+                    document.querySelector('.classes-groups').style.display = 'flex';
+                    console.log('groups:', groups);
+                } else {
+                    document.querySelector('.classes-groups').style.display = 'none';
+                }
+
+                document.getElementById("class-name").innerText = className;
+
+                function showGroupInfo(group) {
+                    
+                    document.getElementById("class-actual").innerText = actual[schoolHour][group].subject_text + ", " + actual[schoolHour][group].teacher + "\n" + actual[schoolHour][group].change_info;
+                    document.getElementById("class-room-name").innerText = "uč. " + actual[schoolHour][group].room;
+                }
+                for (let i = 0; i < actual[schoolHour].length; i++) {
+                    if (actual[schoolHour][i].group === groups[0]) {
+                        showGroupInfo(i);
+                        console.log('actualGroup:', i);
+                        return; // Exit the loop once the group is found
+                    }
+                }
+                
             } else {
                 console.log('Třída právě nemá vyučování');
                 document.getElementById("class-actual").innerText = 'Třída právě nemá vyučování';
@@ -159,6 +222,7 @@ function openClassesWindow(className) {
             console.error('Error fetching class data:', error);
         });
 }
+
 
 function closeClassWindow() {
     document.getElementById("class-window").style.display = "none";
