@@ -6,6 +6,7 @@ function updateTime() {
     document.getElementById("date").innerText = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
 }
 
+//převádí aktuální hodinu na hodinu v rozvrhu
 let schoolHour;
 function getSchoolHour() {
     let date = new Date();
@@ -67,7 +68,7 @@ function generateTeachersTable(teachersList) {
             });
     });
 }
-
+//otevření okna učitele
 function openTeachersWindow(teacher) {
     console.log('Clicked teacher:', teacher);
     fetchTeachers(teacher)
@@ -139,11 +140,13 @@ function openClassesWindow(className) {
 
             document.getElementById("class-window").style.display = "flex";
             document.getElementById("darken").style.display = "block";
+            document.getElementById("class-name").innerText = className;
 
             if (typeof actual[schoolHour] !== 'undefined') {
                 console.log('actual:', actual[schoolHour][0]);
                 console.log('actual:', actual[schoolHour][0].subject_text);
 
+                //list skupin
                 let groups = [];
                 for (lesson of actual[schoolHour]) {
                     groups.push(lesson.group);
@@ -155,6 +158,7 @@ function openClassesWindow(className) {
                     const groupsList = document.getElementById('groupsSelector');
                     groupsList.innerHTML = ''; // Clear existing list content
 
+                    // najde skupinu z listu "groups" podle zadaneho nazvu
                     function getGroupNumber(groupName) {
                         console.log('Clicked group:', groupName);
                         for (let i = 0; i < actual[schoolHour].length; i++) {
@@ -167,6 +171,7 @@ function openClassesWindow(className) {
                     }
                     let currentClickedElement = null;
 
+                    // přepínače skupin
                     groups.forEach(group => {
                         const li = document.createElement('li');
                         li.textContent = group;
@@ -190,6 +195,7 @@ function openClassesWindow(className) {
                     });
                 }
 
+                //zobrazí výběr skupiny
                 if (groups.length > 1) {
                     generateGroupsList(groups);
                     document.querySelector('.classes-groups').style.display = 'flex';
@@ -197,8 +203,6 @@ function openClassesWindow(className) {
                 } else {
                     document.querySelector('.classes-groups').style.display = 'none';
                 }
-
-                document.getElementById("class-name").innerText = className;
 
                 function showGroupInfo(group) {
                     
@@ -246,7 +250,7 @@ function generateRoomsTable(ucebnyList, dilnyList) {
     ucebnyTable.innerHTML = ''; // Clear existing table content
     dilnyTable.innerHTML = ''; // Clear existing table content
     
-    // Ucebny
+    // seřadí učebny podle pater
     let row;
     let currentRow = '0';
     ucebnyList.forEach((room) => {
