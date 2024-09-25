@@ -379,34 +379,26 @@ body {
         display: flex;
         flex-direction: row;
     }
-    .map-static {
+    .map {
         display: flex;
-        margin-top: 8vh;
-        margin-bottom: 8vh;
         align-items: center;
-    }
-
-    .map-scrollable {
-        display: none;
     }
     
     .center-container {
         position: relative;
-        margin: 0;
-        padding: 0;
         overflow: hidden;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         height: 80vh;
         flex-direction: row;
     }
     .patra-container {
-        width: 30vh;
+        width: 30vw;
         height: 80vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-left: 10vh;
+        /*margin-left: 10vh;*/
     }
     .sub-nav-mobile {
         display: none;
@@ -421,9 +413,6 @@ body {
     .downbar-buttons {
         display: flex;
         flex-direction: row;
-    }
-    .map-static {
-        display: none;
     }
     .teachers {
         grid-template-columns: repeat(2, 1fr);
@@ -506,8 +495,10 @@ body {
     .datetime {
         display: none;
     }
-    .map-static {
-        display: none;
+    .map {
+        overflow-x: scroll;
+        overflow-y: scroll;
+        margin: 5%;
     }
     .teachers {
         grid-template-columns: repeat(1, 1fr);

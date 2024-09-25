@@ -218,6 +218,9 @@ function openClassesWindow(className) {
                 }
                 
             } else {
+                //clear class window
+                document.getElementById("class-room-name").innerText = '';
+                document.getElementById("groupsSelector").style.display = 'none';
                 console.log('Třída právě nemá vyučování');
                 document.getElementById("class-actual").innerText = 'Třída právě nemá vyučování';
             }

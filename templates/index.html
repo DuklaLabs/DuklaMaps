@@ -16,7 +16,7 @@
     <nav class="upbar">
         <!-- <a class="buttons" href="#home"><img src="../static/assets/InfoButton.svg"></a> -->
         <a class="close-button" style="width: 20vw;" id="close-button" onclick="closeMenu()"><img src="../static/assets/ExitButton.svg"></a>
-        <h1 class="name" id="name">Mapa SPŠSE</h1>
+        <h1 class="name" id="name">DuklaMaps</h1>
         
         <div class="menu-name" id="teachers-name">Učitelé</div>
         <div class="menu-name" id="classes-name">Třídy</div>
@@ -28,28 +28,24 @@
         </div>
     </nav>
 
-    <div>        
+    <div>     
         <div class="center-container" id="center-container">
-            <div class="map-static">
+            <div class="map">
                 <div id="patro0" style="display: none;">
-                    <img src="../static/assets/mapa/patro0.jpg" style="width: 100vh;">
+                    <embed src="../static/assets/mapa/patro0.svg" type="image/svg+xml" style="width: 70vw;">
                 </div>
                 <div id="patro1" style="display: block;">
-                    <img src="../static/assets/mapa/patro1.jpg" style="width: 100vh;">
+                    <embed src="../static/assets/mapa/patro1.svg" type="image/svg+xml" style="width: 70vw;">
                 </div>
                 <div id="patro2" style="display: none;">
-                    <img src="../static/assets/mapa/patro2.jpg" style="width: 100vh;">
+                    <embed src="../static/assets/mapa/patro2.svg" type="image/svg+xml" style="width: 70vw;">
                 </div>
                 <div id="patro3" style="display: none;">
-                    <embed src="../static/assets/mapa.svg" type="image/svg+xml" style="width: 100vh;">
+                    <embed src="../static/assets/mapa/patro3.svg" type="image/svg+xml" style="width: 70vw;">
                 </div>
                 <div id="patro4" style="display: none;">
-                    <embed src="../static/assets/mapa.svg" type="image/svg+xml" style="width: 100vh;">
+                    <embed src="../static/assets/mapa/patro4.svg" type="image/svg+xml" style="width: 70vw;">
                 </div>
-            </div>
-
-            <div class="map-scrollable" style="width:90%;height:90%;overflow-x: scroll; overflow-y: scroll; margin: 5%;">
-                <embed src="../static/assets/mapa.svg" type="image/svg+xml" style="min-width: 1000px;">
             </div>
 
             <div class="patra-container">
@@ -162,7 +158,7 @@
             </div>
         </div>
         
-        <div id="darken" onclick="closeTeacherWindow(), closeClassWindow(), closeTeacherWindow()"></div>
+        <div id="darken" onclick="closeTeacherWindow(), closeClassWindow(), closeRoomWindow()"></div>
 
         <div class="coming-soon">
             Coming soon
