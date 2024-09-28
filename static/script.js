@@ -43,8 +43,34 @@ function showFloor(floor) {
     document.getElementById("patro2").style.display = "none";
     document.getElementById("patro3").style.display = "none";
     document.getElementById("patro4").style.display = "none";
+    document.getElementById("patro5").style.display = "none";
+    document.getElementById("patro6").style.display = "none";
     document.getElementById(`patro${floor}`).style.display = "block";
+
+    //set active button
+    var buttons = document.querySelectorAll('.patro');
+    buttons.forEach(function(button) {
+        button.classList.remove('selected');
+    });
+    buttons[floor].classList.add('selected');
 }
+
+let scale = 1;
+
+function zoom(direction) {
+    const scaleStep = 0.5;
+    if (direction === '+') {
+        scale += scaleStep;
+    } else if (direction === '-') {
+        if (scale > 1) {
+            scale -= scaleStep;
+        }
+    }
+    document.querySelectorAll('.map-content').forEach(element => {
+        element.style.transform = `scale(${scale})`;
+    });
+}
+
 //teachers table
 function generateTeachersTable(teachersList) {
     const teachersTable = document.getElementById('teachersTable');

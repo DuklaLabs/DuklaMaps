@@ -30,54 +30,91 @@
 
     <div>     
         <div class="center-container" id="center-container">
-            <div class="map">
-                <div id="patro0" style="display: none;">
-                    <embed src="../static/assets/mapa/patro0.svg" type="image/svg+xml" style="width: 70vw;">
+            <div>
+                <div class="map">
+                    <div id="patro0" class="map-content">
+                        <embed src="../static/assets/mapa/patro0.svg" type="image/svg+xml">
+                    </div>
+                    <div id="patro1" class="map-content" style="display: block;">
+                        <embed src="../static/assets/mapa/patro1.svg" type="image/svg+xml">
+                    </div>
+                    <div id="patro2" class="map-content">
+                        <embed src="../static/assets/mapa/patro2.svg" type="image/svg+xml">
+                    </div>
+                    <div id="patro3" class="map-content">
+                        <embed src="../static/assets/mapa/patro3.svg" type="image/svg+xml">
+                    </div>
+                    <div id="patro4" class="map-content">
+                        <embed src="../static/assets/mapa/patro4.svg" type="image/svg+xml">
+                    </div>
+                    <div id="patro5" class="map-content">
+                        <embed src="../static/assets/mapa/dilny1.svg" type="image/svg+xml">
+                    </div>
+                    <div id="patro6" class="map-content">
+                        <embed src="../static/assets/mapa/dilny2.svg" type="image/svg+xml">
+                    </div>
                 </div>
-                <div id="patro1" style="display: block;">
-                    <embed src="../static/assets/mapa/patro1.svg" type="image/svg+xml" style="width: 70vw;">
-                </div>
-                <div id="patro2" style="display: none;">
-                    <embed src="../static/assets/mapa/patro2.svg" type="image/svg+xml" style="width: 70vw;">
-                </div>
-                <div id="patro3" style="display: none;">
-                    <embed src="../static/assets/mapa/patro3.svg" type="image/svg+xml" style="width: 70vw;">
-                </div>
-                <div id="patro4" style="display: none;">
-                    <embed src="../static/assets/mapa/patro4.svg" type="image/svg+xml" style="width: 70vw;">
+                <div class="zoom">
+                    <button style="height: 5vh; width: 5vh;" onclick="zoom('+')">+</button>
+                    <button style="height: 5vh; width: 5vh;" onclick="zoom('-')">-</button>
                 </div>
             </div>
+            <!-- 
+            0 - 3. patro
+            1 - 2. patro
+            2 - 1. patro
+            3 - přízemí
+            4 - šatny
+            5 - dílny 1. patro
+            6 - dílny 0. patro
+            -->
 
             <div class="patra-container">
-                <h1 style="font-size: 4.5vh; margin-bottom: 2vh; margin-top: 0;">Patra:</h1>
-                <div class="patra-numbers">
-                    <button onclick="showFloor(4)" class="patro">
-                        <div class="patro-number">3</div>
-                        <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                        <div class="mobile">patro</div>
-                    </button>
-                    <button onclick="showFloor(3)" class="patro">
-                        <div class="patro-number">2</div>
-                        <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                        <div class="mobile">patro</div>
-                    </button>
-                    <button onclick="showFloor(2)" class="patro">
+                <div class="patra">
+                    <h1 style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;">Patra:</h1>
+                    <div class="patra-buttons">
+                        <button onclick="showFloor(0)" class="patro">
+                            <div class="patro-number">3</div>
+                            <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                            <div class="patro-name">patro</div>
+                        </button>
+                        <button onclick="showFloor(1)" class="patro">
+                            <div class="patro-number">2</div>
+                            <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                            <div class="patro-name">patro</div>
+                        </button>
+                        <button onclick="showFloor(2)" class="patro">
+                            <div class="patro-number">1</div>
+                            <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                            <div class="patro-name">patro</div>
+                        </button>
+                        <button onclick="showFloor(3)" class="patro selected">
+                            <div class="patro-number">0</div>
+                            <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                            <div class="patro-name">přízemí</div>
+                        </button>
+                        <button onclick="showFloor(4)" class="patro">
+                            <div class="patro-number">-1</div>
+                            <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                            <div class="patro-name">šatny</div>
+                        </button>
+                    </div>                    
+                </div>
+                <div class="patra">
+                    <h1 style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;">Dílny:</h1>
+                    <div class="patra-buttons">
+                    <button onclick="showFloor(5)" class="patro">
                         <div class="patro-number">1</div>
                         <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                        <div class="mobile">patro</div>
+                        <div class="patro-name">patro</div>
                     </button>
-                    <button onclick="showFloor(1)" class="patro">
+                    <button onclick="showFloor(6)" class="patro">
                         <div class="patro-number">0</div>
                         <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                        <div class="mobile">přízemí</div>
+                        <div class="patro-name">přízemí</div>
                     </button>
-                    <button onclick="showFloor(0)" class="patro">
-                        <div class="patro-number">-1</div>
-                        <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                        <div class="mobile">šatny</div>
-                    </button>
+                    </div>
                 </div>
-                <div class="mobile" style="height: 12vh;"> </div> <!--div pro srovnání -->
             </div>
         </div>
 

@@ -48,8 +48,45 @@ body {
     font-size:4vh;
     font-weight:400;
 }
+.map {
+    width: 70vw;
+    height: 74vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+}
+.map-content {
+    display: none;
+    overflow: auto;
+    width: 50vw;
+    margin-top: 1vh;
+    transform-origin: 0 0; /* Set the origin for scaling */
+    transform: scale(1); /* Default scale */
+}
+.zoom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.zoom button {
+    background-color: transparent;
+    font-size: 4vh;
+    border-radius: 0.8vh;
+    margin: 0.5vh;
+    cursor: pointer;
+    user-select: none;
+    
+}
+.patra {
+    display: flex;
+    flex-direction: column;
+}
+.patra-container {
+    user-select: none;
+}
 .patro-number {
-    border: 1.5px solid black;
+    border: 1.5px solid;
     height: 6vh;
     width: 6vh;
     border-radius: 1vh;
@@ -62,11 +99,20 @@ body {
 .patro {
     display: flex;
     flex-direction: row;
-    margin-bottom: 1vh;
+    padding: 0.8vh;
     background-color: transparent;
     border: 1px solid white;
     font-size: 4vh;
     cursor: pointer;
+    min-width: 260px;
+}
+.selected {
+    background-color: #2f2f2f;
+    color: #d9d9d9;
+    border-radius: 1vh;
+    min-width: 260px;
+    width: 20vw;
+    
 }
 .menu {
     position: relative;
@@ -303,7 +349,8 @@ body {
 .downbar {
     background-color: #2f2f2f;
     height: 10vh;
-    overflow: hidden;
+    overflow: scroll;
+    scrollbar-width: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -378,12 +425,8 @@ body {
     .downbar-buttons {
         display: flex;
         flex-direction: row;
+        overflow-y: clip;
     }
-    .map {
-        display: flex;
-        align-items: center;
-    }
-    
     .center-container {
         position: relative;
         overflow: hidden;
@@ -392,13 +435,16 @@ body {
         height: 80vh;
         flex-direction: row;
     }
+    .map {
+        scrollbar-width: thin;;
+    }
     .patra-container {
         width: 30vw;
         height: 80vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        /*margin-left: 10vh;*/
+        /* margin-left: 0vw; */
     }
     .sub-nav-mobile {
         display: none;
@@ -423,19 +469,45 @@ body {
         padding: 0;
         overflow: hidden;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         height: 80vh;
         flex-direction: column;
     }
+    .map {
+        width: 98vw;
+        height: 59vh;
+        overflow: scroll;
+    }
+    .map-content {
+        flex-direction: column;
+        margin: 1vh;
+    }
     .patra-container {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         align-self: center;
     }
-    .patra-numbers {
+    .patra {
+        display: flex;
+        flex-direction: column;
+        margin-right: 5vw;
+    }
+    .patra-buttons {
         display: flex;
         flex-direction: row;
+    }
+    .patro {
+        display: block;
+        width: auto;
+        min-width: 0px;
+    }
+    .patro-name {
+        display: none;
+    }
+    .selected {
+        width: 8vh;
+        min-width: 8vh;
     }
     .menu {
         flex-direction: column;
@@ -477,9 +549,6 @@ body {
     .dilny-table tr {
         flex-direction: column;
     }
-    .mobile {
-        display: none;
-    }
     .sub-nav-mobile {
         display: none;
     }
@@ -496,9 +565,9 @@ body {
         display: none;
     }
     .map {
-        overflow-x: scroll;
-        overflow-y: scroll;
-        margin: 5%;
+        height: 47vh;
+        width: 100vw;
+        overflow: scroll;
     }
     .teachers {
         grid-template-columns: repeat(1, 1fr);
@@ -515,7 +584,7 @@ body {
         padding: 0;
         overflow: hidden;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         height: 80vh;
         flex-direction: column;
     }
@@ -525,9 +594,26 @@ body {
         justify-content: center;
         align-self: center;
     }
-    .patra-numbers {
+    .patra {
+        display: flex;
+        flex-direction: column;
+        margin-right: 5vw;
+    }
+    .patra-buttons {
         display: flex;
         flex-direction: row;
+    }
+    .patro {
+        display: block;
+        width: auto;
+        min-width: 0px;
+    }
+    .patro-name {
+        display: none;
+    }
+    .selected {
+        width: 8vh;
+        min-width: 8vh;
     }
     .menu {
         flex-direction: column;
@@ -567,9 +653,6 @@ body {
     }
     .dilny-table tr {
         flex-direction: column;
-    }
-    .mobile {
-        display: none;
     }
     .spacer {
         display: none;
