@@ -491,9 +491,11 @@ function closeMenu() {
 
 function comingSoon() {
     document.querySelector(".coming-soon").style.display = "flex";
+    document.getElementById("darken").style.display = "block";
 }
 function closeComingSoon() {
     document.querySelector(".coming-soon").style.display = "none";
+    document.getElementById("darken").style.display = "none";
 }
 
 updateTime();

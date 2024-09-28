@@ -19,23 +19,12 @@ body {
     margin: 1vh;
     cursor: pointer;
 }
-.buttons {
-    display: flex;
-    height: 7vh;
-    margin: 1.5vh;
-}
 .info {
     display: flex;
     width: 20vw;
     flex-direction: row;
     align-items: center;
     justify-content: end;
-}
-.info-time {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-right: 2vh;
 }
 .name {
     color:#d3d3d3;
@@ -47,6 +36,16 @@ body {
     color:#b2babc;
     font-size:4vh;
     font-weight:400;
+}
+.center-container {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    height: 80vh;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
 }
 .map {
     width: 70vw;
@@ -82,7 +81,13 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 .patra-container {
+    width: 30vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     user-select: none;
 }
 .patro-number {
@@ -358,11 +363,16 @@ body {
     z-index: 2;
 }
 .burger-button {
-    display: flex;
+    display: none;
     height: 8vh;
     margin: 1vh;
 }
 .downbar-buttons {
+    display: flex;
+    flex-direction: row;
+    overflow-y: clip;
+}
+.sub-nav-mobile {
     display: none;
 }
 .downbar-button {
@@ -419,58 +429,21 @@ body {
 
 /*desktop*/
 @media (min-width: 1025px) { /*1024px*/
-    .burger-button {
-        display: none;
-    }
-    .downbar-buttons {
-        display: flex;
-        flex-direction: row;
-        overflow-y: clip;
-    }
-    .center-container {
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        justify-content: space-between;
-        height: 80vh;
-        flex-direction: row;
+    .patra-container {
+        margin-left: 1vw;
     }
     .map {
         scrollbar-width: thin;;
-    }
-    .patra-container {
-        width: 30vw;
-        height: 80vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        /* margin-left: 0vw; */
-    }
-    .sub-nav-mobile {
-        display: none;
     }
 }
 
 /*mobile*/
 @media (max-width: 1024px) and (min-width: 760px) {
-    .burger-button {
-        display: none;
-    }
-    .downbar-buttons {
-        display: flex;
-        flex-direction: row;
-    }
     .teachers {
         grid-template-columns: repeat(2, 1fr);
     }
     .center-container {
-        position: relative;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        display: flex;
         justify-content: flex-start;
-        height: 80vh;
         flex-direction: column;
     }
     .map {
@@ -483,14 +456,10 @@ body {
         margin: 1vh;
     }
     .patra-container {
-        display: flex;
         flex-direction: row;
-        justify-content: center;
         align-self: center;
     }
     .patra {
-        display: flex;
-        flex-direction: column;
         margin-right: 5vw;
     }
     .patra-buttons {
@@ -511,7 +480,6 @@ body {
     }
     .menu {
         flex-direction: column;
-        align-items: center;
     }
     .ucebny-table {
         overflow-x: scroll;
@@ -549,13 +517,16 @@ body {
     .dilny-table tr {
         flex-direction: column;
     }
-    .sub-nav-mobile {
-        display: none;
-    }
 }
 
 /*mobile-small*/
 @media (max-width: 759px) {
+    .downbar-buttons {
+        display: none;
+    }
+    .burger-button {
+        display: flex;
+    }
     .name {
         color:#d3d3d3;
         font-size:3.5vh;
@@ -579,24 +550,15 @@ body {
         width: 40vw;
     }
     .center-container {
-        position: relative;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        display: flex;
         justify-content: flex-start;
-        height: 80vh;
         flex-direction: column;
     }
     .patra-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        width: auto;
+        height: auto;
         align-self: center;
     }
     .patra {
-        display: flex;
-        flex-direction: column;
         margin-right: 5vw;
     }
     .patra-buttons {
@@ -674,7 +636,6 @@ body {
         }
     }
     .sub-nav-mobile {
-        display: none;
         position: absolute;
         left: 0px;
         right: 0px;
