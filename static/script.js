@@ -102,12 +102,16 @@ function openTeachersWindow(teacher) {
             const actual = data[0];
             
             document.getElementById("teacher-window").style.display = "flex";
+            document.getElementById("teachers-ucebna").style.display = 'flex'; // show the classroom button again
             document.getElementById("darken").style.display = "block";
             document.getElementById("teacher-name").innerText = teacher;
+            document.getElementById("teachers-cabinet").onclick = () => comingSoon();
+            document.getElementById("teachers-timetable").onclick = () => comingSoon();
 
             if (typeof actual[schoolHour] !== 'undefined') {
                 console.log('actual:', actual[schoolHour][0]);
                 console.log('actual:', actual[schoolHour][0].subject_text);
+                document.getElementById("teachers-ucebna").onclick = () => navigate(actual[schoolHour][0].room);
                 if (actual[schoolHour][0].subject_text == '') {
                     document.getElementById("teacher-actual").innerText = actual[schoolHour][0].removed_info; 
                 } else {
@@ -117,6 +121,7 @@ function openTeachersWindow(teacher) {
             } else {
                 console.log('Učitel právě neučí');
                 document.getElementById("teacher-actual").innerText = 'Učitel právě neučí';
+                document.getElementById("teachers-ucebna").style.display = 'none'; // Hide the classroom button
             }
             
         })
@@ -165,8 +170,12 @@ function openClassesWindow(className) {
             const actual = data[0];
 
             document.getElementById("class-window").style.display = "flex";
+            document.getElementById("classes-ucebna").style.display = 'flex'; // show the classroom button again
             document.getElementById("darken").style.display = "block";
             document.getElementById("class-name").innerText = className;
+            document.getElementById("classes-kmenova").onclick = () => comingSoon();
+            document.getElementById("classes-satna").onclick = () => comingSoon();
+            document.getElementById("classes-timetable").onclick = () => comingSoon();
 
             if (typeof actual[schoolHour] !== 'undefined') {
                 console.log('actual:', actual[schoolHour][0]);
@@ -234,6 +243,7 @@ function openClassesWindow(className) {
                     
                     document.getElementById("class-actual").innerText = actual[schoolHour][group].subject_text + ", " + actual[schoolHour][group].teacher + "\n" + actual[schoolHour][group].change_info;
                     document.getElementById("class-room-name").innerText = "uč. " + actual[schoolHour][group].room;
+                    document.getElementById("classes-ucebna").onclick = () => navigate(actual[schoolHour][group].room);
                 }
                 for (let i = 0; i < actual[schoolHour].length; i++) {
                     if (actual[schoolHour][i].group === groups[0]) {
@@ -247,6 +257,7 @@ function openClassesWindow(className) {
                 //clear class window
                 document.getElementById("class-room-name").innerText = '';
                 document.getElementById("groupsSelector").style.display = 'none';
+                document.getElementById("classes-ucebna").style.display = 'none'; // Hide the classroom button
                 console.log('Třída právě nemá vyučování');
                 document.getElementById("class-actual").innerText = 'Třída právě nemá vyučování';
             }
@@ -304,6 +315,8 @@ function generateRoomsTable(ucebnyList, dilnyList) {
                 document.getElementById("room-window").style.display = "flex";
                 document.getElementById("darken").style.display = "block";
                 document.getElementById("room-name").innerText = room;
+                document.getElementById("rooms-ucebna").onclick = () => navigate(room);
+                document.getElementById("rooms-timetable").onclick = () => comingSoon();
 
                 if (typeof actual[schoolHour] !== 'undefined') {
                     console.log('actual:', actual[schoolHour][0]);
@@ -428,6 +441,27 @@ function getJsonData() {
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
+        });
+}
+function fetchRoute(start, destination) {
+    return fetch(`/route/` + start + '-' + destination)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        });
+}
+
+//Navigace
+function navigate(destination) {
+    fetchRoute('A', 'F')
+        .then(route => {
+            console.log(route);
+            //console.log(route.join(', ')); // This will print "A B E F"
+        })
+        .catch(error => {
+            console.error('Error fetching route:', error);
         });
 }
 

@@ -33,19 +33,19 @@
             <div>
                 <div class="map">
                     <div id="patro0" class="map-content">
-                        <embed src="../static/assets/mapa/patro0.svg" type="image/svg+xml">
+                        <embed src="../static/assets/mapa/patro4.svg" type="image/svg+xml">
                     </div>
                     <div id="patro1" class="map-content" style="display: block;">
-                        <embed src="../static/assets/mapa/patro1.svg" type="image/svg+xml">
+                        <embed src="../static/assets/mapa/patro3.svg" type="image/svg+xml">
                     </div>
                     <div id="patro2" class="map-content">
                         <embed src="../static/assets/mapa/patro2.svg" type="image/svg+xml">
                     </div>
                     <div id="patro3" class="map-content">
-                        <embed src="../static/assets/mapa/patro3.svg" type="image/svg+xml">
+                        <embed src="../static/assets/mapa/patro1.svg" type="image/svg+xml">
                     </div>
                     <div id="patro4" class="map-content">
-                        <embed src="../static/assets/mapa/patro4.svg" type="image/svg+xml">
+                        <embed src="../static/assets/mapa/patro0.svg" type="image/svg+xml">
                     </div>
                     <div id="patro5" class="map-content">
                         <embed src="../static/assets/mapa/dilny1.svg" type="image/svg+xml">
@@ -158,9 +158,9 @@
             <div class="window-info" id="teacher-actual"></div>
             <div class="window-info" id="teacher-room-name"></div>
             <div class="window-content">
-                <a class="window-button"><img src="../static/assets/ucebnaButton.svg"></a>
-                <a class="window-button"><img src="../static/assets/cabinetButton.svg"></a>
-                <a class="window-button"><img src="../static/assets/timetableButton.svg"></a>
+                <a class="window-button", id="teachers-ucebna"><img src="../static/assets/ucebnaButton.svg"></a>
+                <a class="window-button", id="teachers-cabinet"><img src="../static/assets/cabinetButton.svg"></a>
+                <a class="window-button", id="teachers-timetable"><img src="../static/assets/timetableButton.svg"></a>
             </div>
         </div>
 
@@ -175,14 +175,14 @@
             <div class="window-info" id="class-actual"></div>
             <div class="window-info" id="class-room-name"></div>
             <div class="window-content">
-                <a class="window-button"><img src="../static/assets/ucebnaButton.svg"></a>
-                <a class="window-button"><img src="../static/assets/kmenovaButton.svg"></a>
-                <a class="window-button"><img src="../static/assets/timetableButton.svg"></a>
-                <a class="window-button"><img src="../static/assets/satnaButton.svg"></a>
+                <a class="window-button", id="classes-ucebna"><img src="../static/assets/ucebnaButton.svg"></a>
+                <a class="window-button", id="classes-kmenova"><img src="../static/assets/kmenovaButton.svg"></a>
+                <a class="window-button", id="classes-satna"><img src="../static/assets/satnaButton.svg"></a>
+                <a class="window-button", id="classes-timetable"><img src="../static/assets/timetableButton.svg"></a>
             </div>
         </div>
 
-        <!--room window-->
+        <!--rooms window-->
         <div class="select-window" id="room-window">
             <div class="window-top">
                 <div id="room-name"></div>
@@ -190,8 +190,8 @@
             </div>
             <div class="window-info" id="room-actual"></div>
             <div class="window-content">
-                <a class="window-button"><img src="../static/assets/ucebnaButton.svg"></a>
-                <a class="window-button"><img src="../static/assets/timetableButton.svg"></a>
+                <a class="window-button", id="rooms-ucebna"><img src="../static/assets/ucebnaButton.svg"></a>
+                <a class="window-button", id="rooms-timetable"><img src="../static/assets/timetableButton.svg"></a>
             </div>
         </div>
         

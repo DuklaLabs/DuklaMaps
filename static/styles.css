@@ -54,6 +54,7 @@ body {
     justify-content: center;
     align-items: center;
     overflow: scroll;
+    scrollbar-width: thin;
 }
 .map-content {
     display: none;
@@ -110,6 +111,7 @@ body {
     font-size: 4vh;
     cursor: pointer;
     min-width: 260px;
+    width: 20vw;
 }
 .selected {
     background-color: #2f2f2f;
@@ -399,8 +401,9 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 0.5pc;
-    font-size: 8vh;
+    font-size: 7vh;
     color: white;
+    padding: 1vh;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }
 .coming-soon button {
@@ -431,9 +434,6 @@ body {
 @media (min-width: 1025px) { /*1024px*/
     .patra-container {
         margin-left: 1vw;
-    }
-    .map {
-        scrollbar-width: thin;;
     }
 }
 

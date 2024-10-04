@@ -1,0 +1,62 @@
+{
+    "map": [
+        {
+            "id": "A",
+            "neighbors": [
+                {"id": "B", "distance": 4},
+                {"id": "D", "distance": 5}
+            ]
+        },
+        {
+            "id": "B",
+            "neighbors": [
+                {"id": "A", "distance": 4},
+                {"id": "C", "distance": 6},
+                {"id": "E", "distance": 4}
+            ]
+        },
+        {
+            "id": "C",
+            "neighbors": [
+                {"id": "B", "distance": 6},
+                {"id": "F", "distance": 4}
+            ]
+        },
+        {
+            "id": "D",
+            "neighbors": [
+                {"id": "A", "distance": 5},
+                {"id": "G", "distance": 3}
+            ]
+        },
+        {
+            "id": "E",
+            "neighbors": [
+                {"id": "B", "distance": 4},
+                {"id": "F", "distance": 1},
+                {"id": "G", "distance": 6}
+            ]
+        },
+        {
+            "id": "F",
+            "neighbors": [
+                {"id": "C", "distance": 4},
+                {"id": "E", "distance": 1}
+            ]
+        },
+        {
+            "id": "G",
+            "neighbors": [
+                {"id": "D", "distance": 3},
+                {"id": "E", "distance": 6},
+                {"id": "H", "distance": 10}
+            ]
+        },
+        {
+            "id": "H",
+            "neighbors": [
+                {"id": "G", "distance": 10}
+            ]
+        }    
+    ]
+}

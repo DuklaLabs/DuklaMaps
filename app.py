@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify
+from getWay import get_way
 import json
 
 app = Flask(__name__)
@@ -31,7 +32,11 @@ def get_info(category, name):
     with open(f'timetableData/{category}/{name}/permanent.json', encoding='utf-8') as json_file:
         permanent = json.load(json_file)
 
-    return jsonify(actual, next, permanent) 
+    return jsonify(actual, next, permanent)
+
+@app.route('/route/<string:start>-<string:destination>')
+def get_route(start, destination):
+    return jsonify(get_way('A', destination)) # getway('start', 'destination')
 
 if __name__ == '__main__':
     app.run(debug=True)
