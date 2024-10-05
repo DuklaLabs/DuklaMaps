@@ -4,8 +4,6 @@ with open('static/map_data.json', 'r') as file:
     data = json.load(file)
     map = data['map']
 
-print(map)
-
 #https://www.youtube.com/watch?v=bZkzH5x0SKU
 def get_way(start, destination):
     #dijkstro

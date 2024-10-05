@@ -443,6 +443,7 @@ function getJsonData() {
             console.error('There was a problem with the fetch operation:', error);
         });
 }
+
 function fetchRoute(start, destination) {
     return fetch(`/route/` + start + '-' + destination)
         .then(response => {
@@ -453,12 +454,51 @@ function fetchRoute(start, destination) {
         });
 }
 
+function drawLine(svgDoc, startNode, endNode) {
+    const startElement = svgDoc.getElementById(startNode);
+    const endElement = svgDoc.getElementById(endNode);
+
+    if (startElement && endElement) {
+        const startBBox = startElement.getBBox();
+        const endBBox = endElement.getBBox();
+
+        const startX = startBBox.x + startBBox.width / 2;
+        const startY = startBBox.y + startBBox.height / 2;
+        const endX = endBBox.x + endBBox.width / 2;
+        const endY = endBBox.y + endBBox.height / 2;
+
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', startX);
+        line.setAttribute('y1', startY);
+        line.setAttribute('x2', endX);
+        line.setAttribute('y2', endY);
+        line.setAttribute('stroke', 'black');
+        line.setAttribute('stroke-width', '2');
+
+        svgDoc.documentElement.appendChild(line);
+    }
+}
+
+function displayRoute(route) {
+    const svgEmbed = document.getElementById('mySVG');
+    const svgDoc = svgEmbed.getSVGDocument(); // Access the SVG document
+
+    for (let i = 0; i < route.length - 1; i++) {
+        drawLine(svgDoc, route[i], route[i + 1]);
+    }
+}
+
 //Navigace
 function navigate(destination) {
-    fetchRoute('A', 'F')
+    fetchRoute('A', 'H')
         .then(route => {
             console.log(route);
             //console.log(route.join(', ')); // This will print "A B E F"
+            closeTeacherWindow();
+            closeClassWindow();
+            closeRoomWindow();
+            closeMenu();
+            displayRoute(route);
         })
         .catch(error => {
             console.error('Error fetching route:', error);
