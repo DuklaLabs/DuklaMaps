@@ -472,16 +472,24 @@ function drawLine(svgDoc, startNode, endNode) {
         line.setAttribute('y1', startY);
         line.setAttribute('x2', endX);
         line.setAttribute('y2', endY);
-        line.setAttribute('stroke', 'black');
-        line.setAttribute('stroke-width', '2');
+        line.setAttribute('stroke', '#d24b49');
+        line.setAttribute('stroke-width', '4');
+        line.setAttribute('stroke-linecap', 'round');
 
         svgDoc.documentElement.appendChild(line);
     }
 }
 
+function clearLines(svgDoc) {
+    const lines = svgDoc.querySelectorAll('line');
+    lines.forEach(line => line.remove());
+}
+
 function displayRoute(route) {
-    const svgEmbed = document.getElementById('mySVG');
+    const svgEmbed = document.getElementById('patro3');
     const svgDoc = svgEmbed.getSVGDocument(); // Access the SVG document
+
+    clearLines(svgDoc);
 
     for (let i = 0; i < route.length - 1; i++) {
         drawLine(svgDoc, route[i], route[i + 1]);
@@ -490,7 +498,7 @@ function displayRoute(route) {
 
 //Navigace
 function navigate(destination) {
-    fetchRoute('A', 'H')
+    fetchRoute('start', destination)
         .then(route => {
             console.log(route);
             //console.log(route.join(', ')); // This will print "A B E F"
@@ -504,6 +512,8 @@ function navigate(destination) {
             console.error('Error fetching route:', error);
         });
 }
+
+window.navigate = navigate; // Make the function available in the browser console
 
 //burger menu
 function closeburger() {
@@ -576,5 +586,5 @@ updateTime();
 getSchoolHour();
 getJsonData();
 
-setInterval(updateTime, 1000); // Update time every second
-setInterval(getSchoolHour, 20000); // Update school hour every 20 seconds
+setInterval(updateTime, 10000); // Update time every 10 seconds
+setInterval(getSchoolHour, 60000); // Update school hour every 60 seconds

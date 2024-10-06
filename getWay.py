@@ -9,19 +9,19 @@ def get_way(start, destination):
     #dijkstro
     tocheck = []
     for item in map:
-        tocheck.append({'id': item['id'], 'neighbors': copy.deepcopy(item['neighbors'])})
+        tocheck.append({'id': str(item['id']), 'neighbors': copy.deepcopy(item['neighbors'])})
 
-    start_index = next((index for (index, d) in enumerate(map) if d['id'] == start), None)
+    start_index = next((index for (index, d) in enumerate(map) if str(d['id']) == start), None)
         
     nodes = []
     for i in range(len(map)):
-        nodes.append({"id": map[i]['id'], "distance": 1000, "previous": [], "visited": False})
+        nodes.append({"id": str(map[i]['id']), "distance": 1000, "previous": [], "visited": False})
     nodes[start_index]["distance"] = 0
 
     current = start_index #aktualni uzel v nodes
     while True: # Loop until there are no more unvisited nodes
         for neigh in tocheck[current]['neighbors']: #pro vsechny sousedy aktualniho uzlu
-            neighbor_node = [node for node in nodes if node['id'] == neigh['id']][0] #uzel souseda v nodes
+            neighbor_node = [node for node in nodes if node['id'] == str(neigh['id'])][0] #uzel souseda v nodes
             new_distance = nodes[current]['distance'] + neigh['distance']
             if new_distance < neighbor_node['distance']:
                 neighbor_node['distance'] = new_distance
@@ -46,5 +46,5 @@ def get_way(start, destination):
     path = path[::-1]
     print('requested path:', path)
     return path
-    
 
+#get_way('start', '116')
