@@ -1,6 +1,17 @@
 {
     "map": [
         {
+            "id": "start",
+            "neighbors": [
+                {"id": 103, "distance": 10},
+                {"id": 104, "distance": 10},
+                {"id": 105, "distance": 10},
+                {"id": "1ch4", "distance": 10},
+                {"id": 102, "distance": 10},
+                {"id": "1ch5", "distance": 10}
+            ]
+        },
+        {
             "id": 103,
             "neighbors": [
                 {"id": 104, "distance": 10},
@@ -37,16 +48,6 @@
                 {"id": "start", "distance": 10},
                 {"id": 102, "distance": 10},
                 {"id": 106, "distance": 10}
-            ]
-        },
-        {
-            "id": "start",
-            "neighbors": [
-                {"id": 103, "distance": 10},
-                {"id": 104, "distance": 10},
-                {"id": 105, "distance": 10},
-                {"id": "1ch4", "distance": 10},
-                {"id": 102, "distance": 10}
             ]
         },
         {
@@ -171,6 +172,40 @@
             "id": 115,
             "neighbors": [
                 {"id": 114, "distance": 10}
+            ]
+        },
+        {
+            "id": "1ch5",
+            "neighbors": [
+                {"id": "start", "distance": 10},
+                {"id": "1ch6", "distance": 10}
+            ]
+        },
+        {
+            "id": "1ch6",
+            "neighbors": [
+                {"id": "1ch5", "distance": 10},
+                {"id": "1ch7", "distance": 10}
+            ]
+        },
+        {
+            "id": "1ch7",
+            "neighbors": [
+                {"id": "1ch6", "distance": 10},
+                {"id": "s1", "distance": 10}
+            ]
+        },
+        {
+            "id": "s1",
+            "neighbors": [
+                {"id": "1ch7", "distance": 10},
+                {"id": 203, "distance": 10} 
+            ]
+        },
+        {
+            "id": 203,
+            "neighbors": [
+                {"id": "s1", "distance": 10}
             ]
         }
     ]

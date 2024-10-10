@@ -20,14 +20,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="8"
-     inkscape:cx="169.8125"
-     inkscape:cy="100.375"
-     inkscape:window-width="958"
-     inkscape:window-height="1000"
-     inkscape:window-x="-7"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0"
+     inkscape:zoom="16"
+     inkscape:cx="76.1875"
+     inkscape:cy="132.53125"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
      inkscape:current-layer="svg2029" />
   <desc
      id="desc1">Produce by Acme CAD Converter</desc>
@@ -12304,7 +12304,7 @@
      width="1"
      height="1"
      x="116.22"
-     y="80.235252" />
+     y="79.825256" />
   <rect
      style="fill:#00ff00"
      id="105"
@@ -12342,6 +12342,34 @@
      y="96.230423" />
   <rect
      style="fill:#00ffff"
+     id="s1"
+     width="1"
+     height="1"
+     x="87.559998"
+     y="118.38525" />
+  <rect
+     style="fill:#00ffff"
+     id="1ch7"
+     width="1"
+     height="1"
+     x="87.559998"
+     y="151.22025" />
+  <rect
+     style="fill:#00ffff"
+     id="1ch6"
+     width="1"
+     height="1"
+     x="71.875"
+     y="151.44025" />
+  <rect
+     style="fill:#00ffff"
+     id="1ch5"
+     width="1"
+     height="1"
+     x="71.875"
+     y="118.38525" />
+  <rect
+     style="fill:#00ffff"
      id="1ch4"
      width="1"
      height="1"
@@ -12349,11 +12377,11 @@
      y="79.825256" />
   <rect
      style="fill:#00ffff"
-     id="1ch1"
+     id="1ch3"
      width="1"
      height="1"
-     x="167.11501"
-     y="84.676208" />
+     x="185"
+     y="108" />
   <rect
      style="fill:#00ffff"
      id="1ch2"
@@ -12363,11 +12391,11 @@
      y="99.714874" />
   <rect
      style="fill:#00ffff"
-     id="1ch3"
+     id="1ch1"
      width="1"
      height="1"
-     x="185"
-     y="108" />
+     x="167.11501"
+     y="84.676208" />
   <rect
      style="fill:#00ff00"
      id="D9"

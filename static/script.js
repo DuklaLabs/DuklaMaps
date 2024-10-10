@@ -477,6 +477,8 @@ function drawLine(svgDoc, startNode, endNode) {
         line.setAttribute('stroke-linecap', 'round');
 
         svgDoc.documentElement.appendChild(line);
+    } else {
+        console.log('Element not found:', startNode, endNode);
     }
 }
 
@@ -486,13 +488,25 @@ function clearLines(svgDoc) {
 }
 
 function displayRoute(route) {
-    const svgEmbed = document.getElementById('patro3');
-    const svgDoc = svgEmbed.getSVGDocument(); // Access the SVG document
+    for (let i = 0; i <= 4; i++) {
+        const svgEmbed = document.getElementById(`patro${i}`);
+        const originalDisplay = svgEmbed.style.display;
+        svgEmbed.style.display = 'block'; // Temporarily make the element visible
 
-    clearLines(svgDoc);
+        const svgDoc = svgEmbed ? svgEmbed.getSVGDocument() : null; // Access the SVG document
 
-    for (let i = 0; i < route.length - 1; i++) {
-        drawLine(svgDoc, route[i], route[i + 1]);
+        if (svgDoc) {
+            console.log('patro' + i);
+            clearLines(svgDoc);
+
+            for (let j = 0; j < route.length - 1; j++) {
+                drawLine(svgDoc, route[j], route[j + 1]);
+            }
+        } else {
+            console.error('SVG document for patro' + i + ' is not available.');
+        }
+
+        svgEmbed.style.display = originalDisplay; // Revert the display property back to its original value
     }
 }
 
@@ -501,7 +515,6 @@ function navigate(destination) {
     fetchRoute('start', destination)
         .then(route => {
             console.log(route);
-            //console.log(route.join(', ')); // This will print "A B E F"
             closeTeacherWindow();
             closeClassWindow();
             closeRoomWindow();
@@ -582,9 +595,16 @@ function closeComingSoon() {
     document.getElementById("darken").style.display = "none";
 }
 
+
 updateTime();
 getSchoolHour();
 getJsonData();
+
+//přednačte všechny svg obrázky, MOŽNÁ BY TO CHTĚLO LEPŠÍ ŘEŠENÍ
+for (let i = 0; i <= 6; i++) {
+    document.getElementById(`patro${i}`).style.display = "block";
+}
+showFloor(3);
 
 setInterval(updateTime, 10000); // Update time every 10 seconds
 setInterval(getSchoolHour, 60000); // Update school hour every 60 seconds
