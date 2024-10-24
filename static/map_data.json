@@ -207,6 +207,157 @@
             "neighbors": [
                 {"id": "s1", "distance": 10}
             ]
+        },
+        {
+            "id": 302,
+            "neighbors": [
+                {"id": 303, "distance": 10},
+                {"id": 305, "distance": 10},
+                {"id": "3ch1", "distance": 10}
+            ]
+        },
+        {
+            "id": 303,
+            "neighbors": [
+                {"id": 302, "distance": 10},
+                {"id": 304, "distance": 10},
+                {"id": 305, "distance": 10}
+            ]
+        },
+        {
+            "id": 304,
+            "neighbors": [
+                {"id": 303, "distance": 10},
+                {"id": 305, "distance": 10},
+                {"id": "3ch1", "distance": 10}
+            ]
+        },
+        {
+            "id": 305,
+            "neighbors": [
+                {"id": 302, "distance": 10},
+                {"id": 303, "distance": 10},
+                {"id": 304, "distance": 10},
+                {"id": "3ch1", "distance": 10}
+            ]
+        },
+        {
+            "id": "3ch1",
+            "neighbors": [
+                {"id": 302, "distance": 10},
+                {"id": 303, "distance": 10},
+                {"id": 304, "distance": 10},
+                {"id": 305, "distance": 10},
+                {"id": 306, "distance": 10}
+            ]
+        },
+        {
+            "id": 306,
+            "neighbors": [
+                {"id": "3ch1", "distance": 10},
+                {"id": "3ch2", "distance": 10}
+            ]
+        },
+        {
+            "id": "3ch2",
+            "neighbors": [
+                {"id": 306, "distance": 10},
+                {"id": 307, "distance": 10}
+            ]
+        },
+        {
+            "id": 307,
+            "neighbors": [
+                {"id": "3ch2", "distance": 10},
+                {"id": 308, "distance": 10}
+            ]
+        },
+        {
+            "id": 308,
+            "neighbors": [
+                {"id": 307, "distance": 10},
+                {"id": "3ch3", "distance": 10},
+                {"id": "3ch4", "distance": 10}
+            ]
+        },
+        {
+            "id": "3ch3",
+            "neighbors": [
+                {"id": 308, "distance": 10},
+                {"id": 315, "distance": 10},
+                {"id": 316, "distance": 10},
+                {"id": 317, "distance": 10}
+            ]
+        },
+        {
+            "id": 315,
+            "neighbors": [
+                {"id": "3ch3", "distance": 10},
+                {"id": 316, "distance": 10}
+            ]
+        },
+        {
+            "id": 316,
+            "neighbors": [
+                {"id": "3ch3", "distance": 10},
+                {"id": 315, "distance": 10},
+                {"id": 317, "distance": 10}
+            ]
+        },
+        {
+            "id": 317,
+            "neighbors": [
+                {"id": "3ch3", "distance": 10},
+                {"id": 316, "distance": 10}
+            ]
+        },
+        {
+            "id": "3ch4",
+            "neighbors": [
+                {"id": 308, "distance": 10},
+                {"id": "3ch5", "distance": 10}
+            ]
+        },
+        {
+            "id": "3ch5",
+            "neighbors": [
+                {"id": "3ch4", "distance": 10},
+                {"id": 311, "distance": 10}
+            ]
+        },
+        {
+            "id": 311,
+            "neighbors": [
+                {"id": "3ch5", "distance": 10},
+                {"id": 312, "distance": 10}
+            ]
+        },
+        {
+            "id": 312,
+            "neighbors": [
+                {"id": 311, "distance": 10},
+                {"id": 313, "distance": 10}
+            ]
+        },
+        {
+            "id": 313,
+            "neighbors": [
+                {"id": 312, "distance": 10},
+                {"id": "3ch6", "distance": 10}
+            ]
+        },
+        {
+            "id": "3ch6",
+            "neighbors": [
+                {"id": 313, "distance": 10},
+                {"id": 314, "distance": 10}
+            ]
+        },
+        {
+            "id": 314,
+            "neighbors": [
+                {"id": "3ch6", "distance": 10}
+            ]
         }
     ]
 }
