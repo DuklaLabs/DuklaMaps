@@ -44,7 +44,7 @@ def get_way(start, destination):
         currentnode = [node for node in nodes if node['id'] == currentnode][0]['previous']
     path.append(start)
     path = path[::-1]
-    print('requested path:', path)
+    #print('requested path:', path)
     return path
 
-#get_way('start', '116')
+#get_way('start', '214')

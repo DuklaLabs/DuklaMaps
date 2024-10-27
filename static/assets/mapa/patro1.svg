@@ -20,9 +20,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="16"
-     inkscape:cx="76.1875"
-     inkscape:cy="132.53125"
+     inkscape:zoom="22.627417"
+     inkscape:cx="417.85591"
+     inkscape:cy="143.388"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -1690,11 +1690,12 @@
        stroke-width="0.5"
        id="path276" />
     <path
-       d="m 424.06,184.74025 2.01,2.91"
+       d="m 424.275,184.06394 c 0.82994,0.78098 2.25886,2.03924 2.40844,2.63123"
        fill="none"
        stroke="#000000"
        stroke-width="0.5"
-       id="path277" />
+       id="path277"
+       sodipodi:nodetypes="cc" />
     <path
        d="m 432.99,195.67025 7.04,10.07"
        fill="none"
@@ -3436,17 +3437,19 @@
        stroke-width="0.5"
        id="path567" />
     <path
-       d="m 393.44,170.73025 5.74,-16.59"
+       d="m 393.23,171.12025 5.95,-16.98"
        fill="none"
        stroke="#000000"
        stroke-width="0.5"
-       id="path568" />
+       id="path568"
+       sodipodi:nodetypes="cc" />
     <path
-       d="m 393.79,170.85025 5.75,-16.59"
+       d="M 393.53203,171.2272 399.54,154.26025"
        fill="none"
        stroke="#000000"
        stroke-width="0.5"
-       id="path569" />
+       id="path569"
+       sodipodi:nodetypes="cc" />
     <path
        d="m 402.24,155.20025 -3.06,-1.06"
        fill="none"
@@ -3508,10 +3511,10 @@
        stroke-width="0.5"
        id="path579" />
     <path
-       d="m 425.59,175.47025 5.74,-16.59"
+       d="m 425.445,176.72087 5.885,-17.84062"
        fill="none"
        stroke="#000000"
-       stroke-width="0.5"
+       stroke-width="0.525012"
        id="path580" />
     <path
        d="m 428.16,157.78025 3.52,1.23"
@@ -12286,20 +12289,6 @@
      y="91.152107" />
   <rect
      style="fill:#00ff00"
-     id="109"
-     width="1"
-     height="1"
-     x="247.33844"
-     y="111.375" />
-  <rect
-     style="fill:#00ff00"
-     id="110"
-     width="1"
-     height="1"
-     x="260.84851"
-     y="116.37208" />
-  <rect
-     style="fill:#00ff00"
      id="106"
      width="1"
      height="1"
@@ -12345,22 +12334,8 @@
      id="s1"
      width="1"
      height="1"
-     x="87.559998"
-     y="118.38525" />
-  <rect
-     style="fill:#00ffff"
-     id="1ch7"
-     width="1"
-     height="1"
-     x="87.559998"
-     y="151.22025" />
-  <rect
-     style="fill:#00ffff"
-     id="1ch6"
-     width="1"
-     height="1"
-     x="71.875"
-     y="151.44025" />
+     x="71.870003"
+     y="129.59026" />
   <rect
      style="fill:#00ffff"
      id="1ch5"
@@ -12375,6 +12350,20 @@
      height="1"
      x="87.525078"
      y="79.825256" />
+  <rect
+     style="fill:#00ffff"
+     id="1ch6"
+     width="1"
+     height="1"
+     x="395.80847"
+     y="161.9397" />
+  <rect
+     style="fill:#00ffff"
+     id="1ch7"
+     width="1"
+     height="1"
+     x="428.31"
+     y="166.80025" />
   <rect
      style="fill:#00ffff"
      id="1ch3"
@@ -12403,4 +12392,25 @@
      height="1"
      x="461.0293"
      y="197.47279" />
+  <rect
+     style="fill:#00ffff"
+     id="s8"
+     width="1"
+     height="1"
+     x="422.995"
+     y="154.09026" />
+  <rect
+     style="fill:#00ffff"
+     id="s9"
+     width="1"
+     height="1"
+     x="432.09378"
+     y="128.07808" />
+  <rect
+     style="fill:#00ffff"
+     id="s10"
+     width="1"
+     height="1"
+     x="424.92499"
+     y="125.64651" />
 </svg>

@@ -3,8 +3,30 @@
    viewBox="0 0 511 320"
    version="1.1"
    id="svg1706"
+   sodipodi:docname="patro3.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="10.4125"
+     inkscape:cx="72.412965"
+     inkscape:cy="95.222089"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1706" />
   <defs
      id="defs1706" />
   <desc
@@ -10348,6 +10370,13 @@
      y="134.22975" />
   <rect
      style="fill:#00ff00"
+     id="312"
+     width="1"
+     height="1"
+     x="331.10516"
+     y="139.69331" />
+  <rect
+     style="fill:#00ff00"
      id="313"
      width="1"
      height="1"
@@ -10381,4 +10410,53 @@
      height="1"
      x="198.37"
      y="114.40475" />
+  <rect
+     style="fill:#00ffff"
+     id="s15"
+     width="1"
+     height="1"
+     x="424.36487"
+     y="125.92077" />
+  <rect
+     style="fill:#00ffff"
+     id="s16"
+     width="1"
+     height="1"
+     x="417"
+     y="123" />
+  <rect
+     style="fill:#00ffff"
+     id="s17"
+     width="1"
+     height="1"
+     x="408"
+     y="150" />
+  <rect
+     style="fill:#00ffff"
+     id="s19"
+     width="1"
+     height="1"
+     x="72.675003"
+     y="131.75096" />
+  <rect
+     style="fill:#00ffff"
+     id="s20"
+     width="1"
+     height="1"
+     x="72.912689"
+     y="150.56474" />
+  <rect
+     style="fill:#00ffff"
+     id="s21"
+     width="1"
+     height="1"
+     x="88.345001"
+     y="150.56474" />
+  <rect
+     style="fill:#00ffff"
+     id="s22"
+     width="1"
+     height="1"
+     x="88.345001"
+     y="118.94975" />
 </svg>

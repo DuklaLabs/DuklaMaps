@@ -477,8 +477,6 @@ function drawLine(svgDoc, startNode, endNode) {
         line.setAttribute('stroke-linecap', 'round');
 
         svgDoc.documentElement.appendChild(line);
-    } else {
-        console.log('Element not found:', startNode, endNode);
     }
 }
 
@@ -496,7 +494,6 @@ function displayRoute(route) {
         const svgDoc = svgEmbed ? svgEmbed.getSVGDocument() : null; // Access the SVG document
 
         if (svgDoc) {
-            console.log('patro' + i);
             clearLines(svgDoc);
 
             for (let j = 0; j < route.length - 1; j++) {

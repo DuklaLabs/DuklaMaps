@@ -36,7 +36,9 @@ def get_info(category, name):
 
 @app.route('/route/<string:start>-<string:destination>')
 def get_route(start, destination):
-    return jsonify(get_way(start, destination)) # getway('start', 'destination')
+    way = get_way(start, destination)
+    print("requested path: ", way)  # Print the way to the console
+    return jsonify(way)
 
 if __name__ == '__main__':
     app.run(debug=True)
