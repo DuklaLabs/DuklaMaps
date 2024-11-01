@@ -395,7 +395,6 @@ function getJsonData() {
             } else {
                 console.log('Teachers array is empty or not populated.');
             }
-            console.log('Teachers:', teachersList);
 
             // Call function to generate table
             generateTeachersTable(teachersList);
@@ -411,7 +410,6 @@ function getJsonData() {
             } else {
                 console.log('Classes array is empty or not populated.');
             }
-            console.log('Classes:',classesList);
 
             // Call function to generate table
             generateClassesTable(classesList);
@@ -431,8 +429,6 @@ function getJsonData() {
             } else {
                 console.log('Rooms array is empty or not populated.');
             }
-            console.log('ucebny:', ucebnyList);
-            console.log('dilny:', dilnyList);
 
             // Call function to generate table
             generateRoomsTable(ucebnyList, dilnyList);

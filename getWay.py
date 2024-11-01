@@ -15,7 +15,7 @@ def get_way(start, destination):
         
     nodes = []
     for i in range(len(map)):
-        nodes.append({"id": str(map[i]['id']), "distance": 1000, "previous": [], "visited": False})
+        nodes.append({"id": str(map[i]['id']), "distance": 2000, "previous": [], "visited": False})
     nodes[start_index]["distance"] = 0
 
     current = start_index #aktualni uzel v nodes
