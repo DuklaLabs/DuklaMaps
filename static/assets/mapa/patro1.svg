@@ -20,9 +20,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="22.627417"
-     inkscape:cx="417.85591"
-     inkscape:cy="143.388"
+     inkscape:zoom="5.6568543"
+     inkscape:cx="380.42344"
+     inkscape:cy="142.74718"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -12345,6 +12345,48 @@
      y="118.38525" />
   <rect
      style="fill:#00ffff"
+     id="s37"
+     width="1"
+     height="1"
+     x="87.559998"
+     y="118.38525" />
+  <rect
+     style="fill:#00ffff"
+     id="s33"
+     width="1"
+     height="1"
+     x="56.190002"
+     y="118.38525" />
+  <rect
+     style="fill:#00ffff"
+     id="s34"
+     width="1"
+     height="1"
+     x="56.190002"
+     y="150.22025" />
+  <rect
+     style="fill:#00ffff"
+     id="s38"
+     width="1"
+     height="1"
+     x="87.559998"
+     y="150.22025" />
+  <rect
+     style="fill:#00ffff"
+     id="s35"
+     width="1"
+     height="1"
+     x="71.875"
+     y="150.22025" />
+  <rect
+     style="fill:#00ffff"
+     id="s36"
+     width="1"
+     height="1"
+     x="71.870003"
+     y="139.48026" />
+  <rect
+     style="fill:#00ffff"
      id="1c4"
      width="1"
      height="1"
@@ -12397,8 +12439,8 @@
      id="s8"
      width="1"
      height="1"
-     x="422.995"
-     y="154.09026" />
+     x="421.00626"
+     y="157.36205" />
   <rect
      style="fill:#00ffff"
      id="s9"
@@ -12413,4 +12455,39 @@
      height="1"
      x="424.92499"
      y="125.64651" />
+  <rect
+     style="fill:#00ffff"
+     id="1c9"
+     width="1"
+     height="1"
+     x="403.97375"
+     y="164.70782" />
+  <rect
+     style="fill:#00ffff"
+     id="s40"
+     width="1"
+     height="1"
+     x="419.16174"
+     y="122.07654" />
+  <rect
+     style="fill:#00ffff"
+     id="s41"
+     width="1"
+     height="1"
+     x="425.42499"
+     y="124.11644" />
+  <rect
+     style="fill:#00ffff"
+     id="s39"
+     width="1"
+     height="1"
+     x="409.35501"
+     y="153.40399" />
+  <rect
+     style="fill:#00ffff"
+     id="1c8"
+     width="1"
+     height="1"
+     x="71.875"
+     y="105.37025" />
 </svg>
