@@ -3,8 +3,30 @@
    viewBox="0 0 511 320"
    version="1.1"
    id="svg1717"
+   sodipodi:docname="patro0.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="10.4125"
+     inkscape:cx="326.53061"
+     inkscape:cy="120.09604"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1717" />
   <defs
      id="defs1717" />
   <desc
@@ -10348,7 +10370,7 @@
      width="1"
      height="1"
      x="42.044193"
-     y="137.88586" />
+     y="125.901" />
   <rect
      style="fill:#00ff00"
      id="1"
@@ -10361,8 +10383,8 @@
      id="3"
      width="1"
      height="1"
-     x="42.044193"
-     y="124.82582" />
+     x="24.993963"
+     y="56.425972" />
   <rect
      style="fill:#00ffff"
      id="0c3"
@@ -10390,21 +10412,21 @@
      width="1"
      height="1"
      x="63.3125"
-     y="55.300819" />
+     y="56.550911" />
   <rect
      style="fill:#00ff00"
      id="4"
      width="1"
      height="1"
      x="30.681112"
-     y="55.210972" />
+     y="56.461063" />
   <rect
      style="fill:#00ff00"
      id="5"
      width="1"
      height="1"
      x="46.403481"
-     y="55.300819" />
+     y="56.550911" />
   <rect
      style="fill:#00ffff"
      id="0c4"

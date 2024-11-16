@@ -1,3 +1,9 @@
+let teachersList = [];
+let classesList = [];
+let ucebnyList = [];
+let dilnyList = [];
+let otherList = [];
+
 //aktuální čas
 function updateTime() {
     let date = new Date();
@@ -32,7 +38,7 @@ function getSchoolHour() {
             break;
         }}
 
-        //schoolHour = 1; //nafejkovat hodinu
+        schoolHour = 1; //nafejkovat hodinu
         //console.log('school hour:', schoolHour);
 }
 
@@ -169,17 +175,17 @@ function openClassesWindow(className) {
         .then(data => {
             const actual = data[0];
 
+            const classEntry = classesList.find(classItem => classItem[0] === className);
+
             document.getElementById("class-window").style.display = "flex";
             document.getElementById("classes-ucebna").style.display = 'flex'; // show the classroom button again
             document.getElementById("darken").style.display = "block";
             document.getElementById("class-name").innerText = className;
-            document.getElementById("classes-kmenova").onclick = () => comingSoon();
-            document.getElementById("classes-satna").onclick = () => comingSoon();
+            document.getElementById("classes-kmenova").onclick = () => navigate(classEntry[1]['kmenova']);
+            document.getElementById("classes-satna").onclick = () => navigate(classEntry[1]['satna']);
             document.getElementById("classes-timetable").onclick = () => comingSoon();
 
             if (typeof actual[schoolHour] !== 'undefined') {
-                console.log('actual:', actual[schoolHour][0]);
-                console.log('actual:', actual[schoolHour][0].subject_text);
 
                 //list skupin
                 let groups = [];
@@ -234,7 +240,6 @@ function openClassesWindow(className) {
                 if (groups.length > 1) {
                     generateGroupsList(groups);
                     document.querySelector('.classes-groups').style.display = 'flex';
-                    console.log('groups:', groups);
                 } else {
                     document.querySelector('.classes-groups').style.display = 'none';
                 }
@@ -248,7 +253,6 @@ function openClassesWindow(className) {
                 for (let i = 0; i < actual[schoolHour].length; i++) {
                     if (actual[schoolHour][i].group === groups[0]) {
                         showGroupInfo(i);
-                        console.log('actualGroup:', i);
                         return; // Exit the loop once the group is found
                     }
                 }
@@ -319,8 +323,6 @@ function generateRoomsTable(ucebnyList, dilnyList) {
                 document.getElementById("rooms-timetable").onclick = () => comingSoon();
 
                 if (typeof actual[schoolHour] !== 'undefined') {
-                    console.log('actual:', actual[schoolHour][0]);
-                    console.log('actual:', actual[schoolHour][0].subject_text);
                     if (actual[schoolHour][0].subject_text == '') {
                         document.getElementById("room-actual").innerText = actual[schoolHour][0].change_info;
                     } else {
@@ -377,12 +379,6 @@ function getJsonData() {
             const classes = data[0];
             const teachers = data[1];
             const rooms = data[2];
-
-            let teachersList = [];
-            let classesList = [];
-            let ucebnyList = [];
-            let dilnyList = [];
-            let otherList = [];
 
             // Teachers
             if (teachers && teachers.teachers.length > 0) {

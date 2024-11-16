@@ -238,6 +238,30 @@ body {
     cursor: pointer;
     user-select: none;
 }
+.other-table  {
+    display: flex;
+    flex-direction: column;
+}
+.other-table tr {
+    display: flex;
+    flex-direction: column;
+}
+.other-table td {
+    width:fit-content;
+    height: 4vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    margin: 0.5vw;
+    margin-top: 1.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5vh;
+    background-color: #d9d9d9;
+    border-radius: 2.5vh;
+    cursor: pointer;
+    user-select: none;
+}
 .rooms-ucebny {
     display: flex;
     flex-direction: column;

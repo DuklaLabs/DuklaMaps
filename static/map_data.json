@@ -991,20 +991,20 @@
             "id": "0c12",
             "neighbors": [
                 {"id": "0c11", "distance": 10},
-                {"id": 3, "distance": 10}
+                {"id": 2, "distance": 10}
             ]
         },
         {
             "id": 3,
             "neighbors": [
                 {"id": "0c12", "distance": 10},
-                {"id": 2, "distance": 10}
+                {"id": 4, "distance": 10}
             ]
         },
         {
             "id": 2,
             "neighbors": [
-                {"id": 3, "distance": 10},
+                {"id": "0c12", "distance": 10},
                 {"id": 1, "distance": 10}
             ]
         },
@@ -1046,7 +1046,14 @@
         {
             "id": 4,
             "neighbors": [
-                {"id": 5, "distance": 10}
+                {"id": 5, "distance": 10},
+                {"id": 4, "distance": 10}
+            ]
+        },
+        {
+            "id": 18,
+            "neighbors": [
+                {"id": 17, "distance": 10}
             ]
         },
         {
