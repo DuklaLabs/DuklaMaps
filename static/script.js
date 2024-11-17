@@ -38,7 +38,7 @@ function getSchoolHour() {
             break;
         }}
 
-        schoolHour = 1; //nafejkovat hodinu
+        //schoolHour = 1; //nafejkovat hodinu
         //console.log('school hour:', schoolHour);
 }
 
