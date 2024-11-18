@@ -2,52 +2,52 @@
     "class": [
         {
             "id": "1.EE",
-            "kmenova": 406,
+            "kmenova": 308,
             "satna": 13
         },
         {
             "id": "1.EM",
-            "kmenova": 406,
+            "kmenova": 108,
             "satna": 12
         },
         {
             "id": "1.ER",
-            "kmenova": 406,
+            "kmenova": 302,
             "satna": 2
         },
         {
             "id": "1.S",
-            "kmenova": 406,
+            "kmenova": 207,
             "satna": 1
         },
         {
             "id": "2.EE",
-            "kmenova": 406,
+            "kmenova": 313,
             "satna": 6
         },
         {
             "id": "2.EM",
-            "kmenova": 406,
+            "kmenova": 210,
             "satna": 5
         },
         {
             "id": "2.ER",
-            "kmenova": 406,
+            "kmenova": 104,
             "satna": 3
         },
         {
             "id": "2.S",
-            "kmenova": 406,
+            "kmenova": 404,
             "satna": 4
         },
         {
             "id": "3.EE",
-            "kmenova": 406,
+            "kmenova": 311,
             "satna": 10
         },
         {
             "id": "3.EM",
-            "kmenova": 406,
+            "kmenova": 113,
             "satna": 11
         },
         {
@@ -57,7 +57,7 @@
         },
         {
             "id": "3.S",
-            "kmenova": 406,
+            "kmenova": 201,
             "satna": 8
         },
         {
@@ -67,17 +67,17 @@
         },
         {
             "id": "4.EB",
-            "kmenova": 406,
+            "kmenova": 304,
             "satna": 15
         },
         {
             "id": "4.SA",
-            "kmenova": 406,
+            "kmenova": 111,
             "satna": 14
         },
         {
             "id": "4.SB",
-            "kmenova": 406,
+            "kmenova": 203,
             "satna": 7
         }
     ]
