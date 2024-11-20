@@ -1,5 +1,7 @@
 import copy, json
 
+wcs = ['wc1', 'wc2', 'wc3', 'wc4', 'wc5']
+
 with open('static/map_data.json', 'r') as file:
     data = json.load(file)
     map = data['map']
@@ -48,3 +50,14 @@ def get_way(start, destination):
     return path
 
 #get_way('start', '214')
+
+def locate_wc(start):
+    distance = 1000
+    for wc in wcs:
+        wcpath = get_way(start, wc)
+        if len(wcpath) < distance:
+            distance = len(wcpath)
+            nearest_wc = wc
+    return nearest_wc
+
+#print(locate_wc('311'))

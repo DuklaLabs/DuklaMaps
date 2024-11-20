@@ -20,9 +20,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="1.8406874"
-     inkscape:cx="-45.635126"
-     inkscape:cy="52.426068"
+     inkscape:zoom="2.6031251"
+     inkscape:cx="148.66746"
+     inkscape:cy="77.022807"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -12180,22 +12180,29 @@
      id="s5"
      width="1"
      height="1"
-     x="56.985001"
-     y="114.68114" />
+     x="57.317505"
+     y="111.88993" />
   <rect
      style="fill:#00ffff"
      id="s18"
      width="1"
      height="1"
-     x="72.644997"
-     y="114.68114" />
+     x="72.977501"
+     y="111.88993" />
   <rect
-     style="fill:#00ffff"
-     id="s6"
+     style="fill:#ff0000"
+     id="wc2"
      width="1"
      height="1"
-     x="88.307495"
-     y="114.68114" />
+     x="88.639999"
+     y="111.88993" />
+  <rect
+     style="fill:#ff0000"
+     id="wc3"
+     width="1"
+     height="1"
+     x="248"
+     y="112" />
   <rect
      style="fill:#00ffff"
      id="s7"

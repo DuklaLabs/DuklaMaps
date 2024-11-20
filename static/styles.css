@@ -241,6 +241,8 @@ body {
 .other-table  {
     display: flex;
     flex-direction: column;
+    overflow: scroll;
+    scrollbar-width: none;
 }
 .other-table tr {
     display: flex;

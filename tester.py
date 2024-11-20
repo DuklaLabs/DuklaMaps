@@ -40,7 +40,7 @@ with open('static/map_data.json', 'r') as file:
             except Exception as e:
                 print(f"Error getting way from {item} to {item2}: {e}")
 
-for i in range(0, 4):
+for i in range(0, 5):
     list_non_path_ids(f'static/assets/mapa/patro{i}.svg')
 
 

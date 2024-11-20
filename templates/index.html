@@ -137,20 +137,21 @@
                 <div class="rooms-name">Ostatní</div>
                 <table class="other-table" id="otherTable">
                     <tr>
-                        <!-- <td>toalety</td> -->
-                        <td onclick="navigate(102)">Ředitelna</td>
-                        <td onclick="navigate(102)">Kancelář</td>
+                        <td onclick="nearestWC(startLocation)">Toalety</td>
+                        <td onclick="navigate(startLocation, 102)">Ředitelna</td>
+                        <td onclick="navigate(startLocation, 102)">Kancelář</td>
                         <!--<td onclick="navigate(105)">Správa školní pokladny, kopírování</td>-->
-                        <td onclick="navigate(115)">DuklaLabs</td>
-                        <td onclick="navigate('D9')">Dílenská sborovna</td>
-                        <td onclick="navigate(202)">Odpočinková místnost</td>
-                        <!--bufet, kopírka-->
-                        <td onclick="navigate(213)">Tělocvična</td>
-                        <td onclick="navigate(305)">Zástupce ředitele</td>
-                        <td onclick="navigate(314)">Sborovna</td>
-                        <td onclick="navigate(402)">Studovna</td>
-                        <td onclick="navigate(407)">Posluchárna</td>
-                        <td onclick="navigate(505)">Školní psycholožka</td>
+                        <td onclick="navigate(startLocation, 115)">DuklaLabs</td>
+                        <td onclick="navigate(startLocation, 'D9')">Dílenská sborovna</td>
+                        <td onclick="navigate(startLocation, 202)">Odpočinková místnost</td>
+                        <td onclick="navigate(startLocation, 's5')">Bufet</td>
+                        <!--kopírka-->
+                        <td onclick="navigate(startLocation, 213)">Tělocvična</td>
+                        <td onclick="navigate(startLocation, 305)">Zástupce ředitele</td>
+                        <td onclick="navigate(startLocation, 314)">Sborovna</td>
+                        <td onclick="navigate(startLocation, 402)">Studovna</td>
+                        <td onclick="navigate(startLocation, 407)">Posluchárna</td>
+                        <td onclick="navigate(startLocation, 505)">Školní psycholožka</td>
                     </tr>	
                 </table>
             </div>

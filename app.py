@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify
-from getWay import get_way
+from getWay import get_way, locate_wc
 import json
 
 app = Flask(__name__)
@@ -39,6 +39,12 @@ def get_route(start, destination):
     way = get_way(start, destination)
     print("requested path: ", way)  # Print the way to the console
     return jsonify(way)
+
+@app.route('/locate_wc/<string:start>')
+def find_wc(start):
+    wc = locate_wc(start)
+    print("nearest wc: ", wc)  # Print the nearest WC to the console
+    return jsonify(wc)
 
 if __name__ == '__main__':
     app.run(debug=True)

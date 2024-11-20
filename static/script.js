@@ -41,6 +41,8 @@ function getSchoolHour() {
         //schoolHour = 1; //nafejkovat hodinu
         //console.log('school hour:', schoolHour);
 }
+startLocation = 'start';
+//startLocation = 406;
 
 //přepínání pater
 function showFloor(floor) {
@@ -91,7 +93,7 @@ function generateTeachersTable(teachersList) {
                 } else {
                     const cell = document.createElement('td');
                     cell.textContent = teacher[0]; // Teacher name
-                    cell.onclick = () => openTeachersWindow(teacher[0]);
+                    cell.onclick = () => openTeacherWindow(teacher[0]);
                     teachersTable.appendChild(cell);
                 }
             })
@@ -101,7 +103,7 @@ function generateTeachersTable(teachersList) {
     });
 }
 //otevření okna učitele
-function openTeachersWindow(teacher) {
+function openTeacherWindow(teacher) {
     console.log('Clicked teacher:', teacher);
     fetchTeachers(teacher)
         .then(data => {
@@ -117,7 +119,7 @@ function openTeachersWindow(teacher) {
             if (typeof actual[schoolHour] !== 'undefined') {
                 console.log('actual:', actual[schoolHour][0]);
                 console.log('actual:', actual[schoolHour][0].subject_text);
-                document.getElementById("teachers-ucebna").onclick = () => navigate(actual[schoolHour][0].room);
+                document.getElementById("teachers-ucebna").onclick = () => navigate(startLocation, actual[schoolHour][0].room);
                 if (actual[schoolHour][0].subject_text == '') {
                     document.getElementById("teacher-actual").innerText = actual[schoolHour][0].removed_info; 
                 } else {
@@ -181,8 +183,8 @@ function openClassesWindow(className) {
             document.getElementById("classes-ucebna").style.display = 'flex'; // show the classroom button again
             document.getElementById("darken").style.display = "block";
             document.getElementById("class-name").innerText = className;
-            document.getElementById("classes-kmenova").onclick = () => navigate(classEntry[1]['kmenova']);
-            document.getElementById("classes-satna").onclick = () => navigate(classEntry[1]['satna']);
+            document.getElementById("classes-kmenova").onclick = () => navigate(startLocation, classEntry[1]['kmenova']);
+            document.getElementById("classes-satna").onclick = () => navigate(startLocation, classEntry[1]['satna']);
             document.getElementById("classes-timetable").onclick = () => comingSoon();
 
             if (typeof actual[schoolHour] !== 'undefined') {
@@ -248,7 +250,7 @@ function openClassesWindow(className) {
                     
                     document.getElementById("class-actual").innerText = actual[schoolHour][group].subject_text + ", " + actual[schoolHour][group].teacher + "\n" + actual[schoolHour][group].change_info;
                     document.getElementById("class-room-name").innerText = "uč. " + actual[schoolHour][group].room;
-                    document.getElementById("classes-ucebna").onclick = () => navigate(actual[schoolHour][group].room);
+                    document.getElementById("classes-ucebna").onclick = () => navigate(startLocation, actual[schoolHour][group].room);
                 }
                 for (let i = 0; i < actual[schoolHour].length; i++) {
                     if (actual[schoolHour][i].group === groups[0]) {
@@ -319,7 +321,7 @@ function generateRoomsTable(ucebnyList, dilnyList) {
                 document.getElementById("room-window").style.display = "flex";
                 document.getElementById("darken").style.display = "block";
                 document.getElementById("room-name").innerText = room;
-                document.getElementById("rooms-ucebna").onclick = () => navigate(room);
+                document.getElementById("rooms-ucebna").onclick = () => navigate(startLocation, room);
                 document.getElementById("rooms-timetable").onclick = () => comingSoon();
 
                 if (typeof actual[schoolHour] !== 'undefined') {
@@ -446,6 +448,16 @@ function fetchRoute(start, destination) {
         });
 }
 
+function fetchWC(start) {
+    return fetch('/locate_wc/' + start)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        });
+}
+
 function drawLine(svgDoc, startNode, endNode) {
     const startElement = svgDoc.getElementById(startNode);
     const endElement = svgDoc.getElementById(endNode);
@@ -500,8 +512,8 @@ function displayRoute(route) {
 }
 
 //Navigace
-function navigate(destination) {
-    fetchRoute('start', destination)
+function navigate(start, destination) {
+    fetchRoute(start, destination)
         .then(route => {
             console.log(route);
             closeTeacherWindow();
@@ -516,6 +528,13 @@ function navigate(destination) {
 }
 
 window.navigate = navigate; // Make the function available in the browser console
+
+function nearestWC() {
+    fetchWC(startLocation)
+        .then(wc => {
+            navigate(startLocation, wc);
+        })
+}
 
 //burger menu
 function closeburger() {

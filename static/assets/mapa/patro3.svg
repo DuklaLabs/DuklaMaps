@@ -19,8 +19,8 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="10.4125"
-     inkscape:cx="66.746699"
-     inkscape:cy="90.036014"
+     inkscape:cx="267.94718"
+     inkscape:cy="111.54862"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -10467,12 +10467,19 @@
      x="88.345001"
      y="150.56474" />
   <rect
-     style="fill:#00ffff"
-     id="s22"
+     style="fill:#ff0000"
+     id="wc4"
      width="1"
      height="1"
      x="88.345001"
      y="108.34452" />
+  <rect
+     style="fill:#ff0000"
+     id="wc5"
+     width="1"
+     height="1"
+     x="248.5815"
+     y="108.75861" />
   <rect
      style="fill:#00ffff"
      id="s23"
