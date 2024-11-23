@@ -102,6 +102,33 @@ function generateTeachersTable(teachersList) {
             });
     });
 }
+
+function fetchDuklaData() {
+    return fetch(`/dukla_data`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+}
+
+function navigateKabinet(teacher) {
+    fetchDuklaData()
+        .then(data => {
+            i = 0;
+            while (data.teachers[i].id != teacher) {
+                i++;
+            }
+            console.log(teacher, 'kabinet:', data.teachers[i].kabinet);
+            navigate(startLocation, data.teachers[i].kabinet);
+        }
+        )
+        .catch(error => {
+            console.error('Error fetching teacher data:', error);
+        });
+}
+
 //otevření okna učitele
 function openTeacherWindow(teacher) {
     console.log('Clicked teacher:', teacher);
@@ -113,7 +140,7 @@ function openTeacherWindow(teacher) {
             document.getElementById("teachers-ucebna").style.display = 'flex'; // show the classroom button again
             document.getElementById("darken").style.display = "block";
             document.getElementById("teacher-name").innerText = teacher;
-            document.getElementById("teachers-cabinet").onclick = () => comingSoon();
+            document.getElementById("teachers-cabinet").onclick = () => navigateKabinet(teacher);
             document.getElementById("teachers-timetable").onclick = () => comingSoon();
 
             if (typeof actual[schoolHour] !== 'undefined') {
@@ -171,6 +198,38 @@ function generateClassesTable(classesMatrix) {
     });
 }
 
+function navigateKmenova(trida) {
+    fetchDuklaData()
+        .then(data => {
+            i = 0;
+            while (data.classes[i].id != trida) {
+                i++;
+            }
+            console.log(trida, 'kmenova:', data.classes[i].kmenova);
+            navigate(startLocation, data.classes[i].kmenova);
+        }
+        )
+        .catch(error => {
+            console.error('Error fetching class data:', error);
+        });
+}
+
+function navigateSatna(trida) {
+    fetchDuklaData()
+        .then(data => {
+            i = 0;
+            while (data.classes[i].id != trida) {
+                i++;
+            }
+            console.log(trida, 'satna:', data.classes[i].satna);
+            navigate(startLocation, data.classes[i].satna);
+        }
+        )
+        .catch(error => {
+            console.error('Error fetching class data:', error);
+        });
+}
+
 function openClassesWindow(className) {
     console.log('Clicked class:', className);
     fetchClasses(className)
@@ -183,8 +242,8 @@ function openClassesWindow(className) {
             document.getElementById("classes-ucebna").style.display = 'flex'; // show the classroom button again
             document.getElementById("darken").style.display = "block";
             document.getElementById("class-name").innerText = className;
-            document.getElementById("classes-kmenova").onclick = () => navigate(startLocation, classEntry[1]['kmenova']);
-            document.getElementById("classes-satna").onclick = () => navigate(startLocation, classEntry[1]['satna']);
+            document.getElementById("classes-kmenova").onclick = () => navigateKmenova(className);
+            document.getElementById("classes-satna").onclick = () => navigateSatna(className);
             document.getElementById("classes-timetable").onclick = () => comingSoon();
 
             if (typeof actual[schoolHour] !== 'undefined') {

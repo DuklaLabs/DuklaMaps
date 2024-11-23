@@ -1,0 +1,302 @@
+{
+    "classes": [
+        {
+            "id": "1.EE",
+            "kmenova": 308,
+            "satna": 13
+        },
+        {
+            "id": "1.EM",
+            "kmenova": 108,
+            "satna": 12
+        },
+        {
+            "id": "1.ER",
+            "kmenova": 302,
+            "satna": 2
+        },
+        {
+            "id": "1.S",
+            "kmenova": 207,
+            "satna": 1
+        },
+        {
+            "id": "2.EE",
+            "kmenova": 313,
+            "satna": 6
+        },
+        {
+            "id": "2.EM",
+            "kmenova": 210,
+            "satna": 5
+        },
+        {
+            "id": "2.ER",
+            "kmenova": 104,
+            "satna": 3
+        },
+        {
+            "id": "2.S",
+            "kmenova": 404,
+            "satna": 4
+        },
+        {
+            "id": "3.EE",
+            "kmenova": 311,
+            "satna": 10
+        },
+        {
+            "id": "3.EM",
+            "kmenova": 113,
+            "satna": 11
+        },
+        {
+            "id": "3.ER",
+            "kmenova": 212,
+            "satna": 18
+        },
+        {
+            "id": "3.S",
+            "kmenova": 201,
+            "satna": 8
+        },
+        {
+            "id": "4.EA",
+            "kmenova": 406,
+            "satna": 16
+        },
+        {
+            "id": "4.EB",
+            "kmenova": 304,
+            "satna": 15
+        },
+        {
+            "id": "4.SA",
+            "kmenova": 111,
+            "satna": 14
+        },
+        {
+            "id": "4.SB",
+            "kmenova": 203,
+            "satna": 7
+        }
+    ],
+    "teachers": [
+        {
+            "id": "Badal Miloš",
+            "kabinet": "D21"
+        },
+        {
+            "id": "Belko Alfred",
+            "kabinet": "D21"
+        },
+        {
+            "id": "Bican Tomáš",
+            "kabinet": 112
+        },
+        {
+            "id": "Čejka Vilém",
+            "kabinet": 116
+        },
+        {
+            "id": "Bronec Petr",
+            "kabinet": 214
+        },
+        {
+            "id": "Bydžovská Petra",
+            "kabinet": 505
+        },
+        {
+            "id": "Čermák Ludvík",
+            "kabinet": 107
+        },
+        {
+            "id": "Dušek Ivan",
+            "kabinet": 221
+        },
+        {
+            "id": "Fedorová Alena",
+            "kabinet": 403
+        },
+        {
+            "id": "Franta Lukáš",
+            "kabinet": 116
+        },
+        {
+            "id": "Hána Jiří",
+            "kabinet": 211
+        },
+        {
+            "id": "Helm Jan",
+            "kabinet": 409
+        },
+        {
+            "id": "Hořejšová Zuzana",
+            "kabinet": 505
+        },
+        {
+            "id": "Chochol Václav",
+            "kabinet": 305
+        },
+        {
+            "id": "Kneslík Pavel",
+            "kabinet": 405
+        },
+        {
+            "id": "Kodlová Zuzana",
+            "kabinet": 105
+        },
+        {
+            "id": "Koreš Jaroslav",
+            "kabinet": 102
+        },
+        {
+            "id": "Kotrlík Pavel",
+            "kabinet": "D9"
+        },
+        {
+            "id": "Kováříková Mirka",
+            "kabinet": 403
+        },
+        {
+            "id": "Krejsa Lubomír",
+            "kabinet": 315
+        },
+        {
+            "id": "Krejsa Vladimír",
+            "kabinet": 107
+        },
+        {
+            "id": "Kroupa Petr",
+            "kabinet": 107
+        },
+        {
+            "id": "Lavička Ivan",
+            "kabinet": "D9"
+        },
+        {
+            "id": "Mach Radek",
+            "kabinet": 112
+        },
+        {
+            "id": "Malíková Michaela",
+            "kabinet": 409
+        },
+        {
+            "id": "Mareš Radek",
+            "kabinet": 204
+        },
+        {
+            "id": "Marková Daniela",
+            "kabinet": 312
+        },
+        {
+            "id": "Mikoláš Pavel",
+            "kabinet": "D9"
+        },
+        {
+            "id": "Ohnsorg Petra",
+            "kabinet": 312
+        },
+        {
+            "id": "Paurová Dana",
+            "kabinet": 403
+        },
+        {
+            "id": "Petrásek Jan",
+            "kabinet": 410
+        },
+        {
+            "id": "Petrášek Jan",
+            "kabinet": 405
+        },
+        {
+            "id": "Petržalová Ludmila",
+            "kabinet": 403
+        },
+        {
+            "id": "Ploch Jiří",
+            "kabinet": 409
+        },
+        {
+            "id": "Quagliata Giuseppe",
+            "kabinet": 221
+        },
+        {
+            "id": "Rákos Petr",
+            "kabinet": "D9"
+        },
+        {
+            "id": "Reitingerová Nikola",
+            "kabinet": 312
+        },
+        {
+            "id": "Růžička Zdeněk",
+            "kabinet": 301
+        },
+        {
+            "id": "Schacherlová Petra",
+            "kabinet": 312
+        },
+        {
+            "id": "Smutný Oldřich",
+            "kabinet": "D24"
+        },
+        {
+            "id": "Steringa Jan",
+            "kabinet": 301
+        },
+        {
+            "id": "Strnad Stanislav",
+            "kabinet": 204
+        },
+        {
+            "id": "Stuchlý Jaroslav",
+            "kabinet": 315
+        },
+        {
+            "id": "Šimek Petr",
+            "kabinet": 204
+        },
+        {
+            "id": "Šímová Zuzana",
+            "kabinet": 410
+        },
+        {
+            "id": "Štěrbík Jan",
+            "kabinet": 105
+        },
+        {
+            "id": "Šustrová Pavlína",
+            "kabinet": 403
+        },
+        {
+            "id": "Trojan Aleš",
+            "kabinet": "D9"
+        },
+        {
+            "id": "Trojan Zbyněk",
+            "kabinet": "D9"
+        },
+        {
+            "id": "Vastl Jiří",
+            "kabinet": 214
+        },
+        {
+            "id": "Vávra Václav",
+            "kabinet": 107
+        },
+        {
+            "id": "Vondráková Michaela",
+            "kabinet": 409
+        },
+        {
+            "id": "Vondrášek Michal",
+            "kabinet": "D9"
+        },
+        {
+            "id": "Vyhnal Zdeněk",
+            "kabinet": 405
+        }
+    ]
+}

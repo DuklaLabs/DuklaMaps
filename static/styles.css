@@ -241,12 +241,11 @@ body {
 .other-table  {
     display: flex;
     flex-direction: column;
-    overflow: scroll;
-    scrollbar-width: none;
+    overflow-y: scroll;
 }
 .other-table tr {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 .other-table td {
     width:fit-content;
@@ -254,7 +253,7 @@ body {
     padding-left: 1vw;
     padding-right: 1vw;
     margin: 0.5vw;
-    margin-top: 1.5vh;
+    margin-top: 0.5vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -461,6 +460,9 @@ body {
 @media (min-width: 1025px) { /*1024px*/
     .patra-container {
         margin-left: 1vw;
+    }
+    .other-table tr {
+        flex-direction: column;
     }
 }
 

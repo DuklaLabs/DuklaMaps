@@ -10,7 +10,6 @@ import orjson
 import locale
 
 import globals
-from modify import update_classes
 
 logging.basicConfig(level=logging.INFO)
 
@@ -299,10 +298,6 @@ async def get_timetable_data():
     globals.regenerate_timetable = True
     
     script_end_time = time.time()
-
-    # add kmenova and satna to classes.json from class_data.json
-    update_classes()
-    print("added class_data to classes.json")
 
     logging.info(f"Network time: {network_time:.2f} s  -async")
     logging.info(f"Processing time: {processing_time:.2f} s  -async")
