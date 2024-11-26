@@ -19,6 +19,12 @@ body {
     margin: 1vh;
     cursor: pointer;
 }
+.close-pdf {
+    display: none;
+    height: 7vh;
+    margin: 1vh;
+    cursor: pointer;
+}
 .info {
     display: flex;
     width: 20vw;
@@ -53,7 +59,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: scroll;
+    overflow: auto;
     scrollbar-width: thin;
 }
 .map-content {
@@ -134,6 +140,38 @@ body {
     justify-content: center;
     flex-direction: row;
     background-color: #2f2f2f;
+}
+.documents{
+    display: flex;
+    flex-direction: column;
+    padding: 1vh;
+    overflow: auto;
+}
+.documents-name{
+    color: #d9d9d9;
+    font-size: 4vh;
+}
+.documents-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 4vh;
+}
+.documents-item{
+    width: fit-content;
+    height: 4vh;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    margin: 0.25vw;
+    margin-top: 0.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5vh;
+    background-color: #d9d9d9;
+    border-radius: 2.5vh;
+    cursor: pointer;
+    user-select: none;
 }
 .teachers {
     height: 80vh;
@@ -241,7 +279,7 @@ body {
 .other-table  {
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 .other-table tr {
     display: flex;
@@ -446,6 +484,12 @@ body {
     cursor: pointer;
     user-select: none;
 }
+#documents {
+    display: none;
+}
+#pdf-viewer {
+    display: none;
+}
 #teachers {
     display: none;
 }
@@ -478,7 +522,7 @@ body {
     .map {
         width: 98vw;
         height: 59vh;
-        overflow: scroll;
+        overflow: auto;
     }
     .map-content {
         flex-direction: column;
@@ -546,6 +590,9 @@ body {
     .dilny-table tr {
         flex-direction: column;
     }
+    #DocumentsButton {
+        display: none;
+    }
 }
 
 /*mobile-small*/
@@ -567,7 +614,7 @@ body {
     .map {
         height: 47vh;
         width: 100vw;
-        overflow: scroll;
+        overflow: auto;
     }
     .teachers {
         grid-template-columns: repeat(1, 1fr);
@@ -690,5 +737,8 @@ body {
         left: 30w;
         font-size: 4vh;
         overflow: hidden;
+    }
+    #DocumentsButton {
+        display: none;
     }
 }

@@ -79,6 +79,57 @@ function zoom(direction) {
     });
 }
 
+//documents table
+function generateDocumentsTable() {
+    fetchDuklaData()
+        .then(data => {
+            console.log(data.documents);
+            const documentsList = document.getElementById('documentsList');
+
+            data.documents.forEach((docItem, index) => {
+                const nameCell = document.createElement('div');
+                nameCell.textContent = docItem.id;
+                nameCell.classList.add('documents-name');
+                documentsList.appendChild(nameCell);
+
+                const listCell = document.createElement('div');
+                listCell.id = `documents-${index}`;
+                listCell.classList.add('documents-list');
+                documentsList.appendChild(listCell);
+
+                const list = document.getElementById(`documents-${index}`);
+
+                docItem.docs.forEach(doc => {
+                    const docCell = document.createElement('div');
+                    docCell.textContent = doc.name;
+                    docCell.onclick = () => openPDFviewer(doc.path);
+                    docCell.classList.add('documents-item');
+                    list.appendChild(docCell);
+                });
+
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching document data:', error);
+        });
+}
+
+function openPDFviewer(url) {
+    document.getElementById("pdf-viewer").style.display = "flex";
+    document.getElementById("pdfFrame").src = url;
+
+    document.getElementById("close-button").style.display = "none";
+    document.getElementById("close-pdf").style.display = "flex";
+
+}
+
+function closePDFviewer() {
+    document.getElementById("pdf-viewer").style.display = "none";
+
+    document.getElementById("close-button").style.display = "flex";
+    document.getElementById("close-pdf").style.display = "none";  
+}
+
 //teachers table
 function generateTeachersTable(teachersList) {
     const teachersTable = document.getElementById('teachersTable');
@@ -624,6 +675,8 @@ function showMenu(menu) {
     document.getElementById("name").style.display = "none";
     document.getElementById("close-button").style.display = "flex";
 
+    document.getElementById("documents").style.display = "none";
+    document.getElementById("documents-name").style.display = "none";
     document.getElementById("teachers").style.display = "none";
     document.getElementById("teachers-name").style.display = "none";
     document.getElementById("rooms").style.display = "none";
@@ -637,9 +690,12 @@ function showMenu(menu) {
         document.getElementById(menu + "-name").style.display = "block";
         selectedMenu = menu;
     }
+    closePDFviewer()
 }
 
 function closeMenu() {
+    document.getElementById("documents").style.display = "none";
+    document.getElementById("documents-name").style.display = "none";
     document.getElementById("teachers").style.display = "none";
     document.getElementById("teachers-name").style.display = "none";
     document.getElementById("rooms").style.display = "none";
@@ -666,6 +722,7 @@ function closeComingSoon() {
 updateTime();
 getSchoolHour();
 getJsonData();
+generateDocumentsTable();
 
 //přednačte všechny svg obrázky, MOŽNÁ BY TO CHTĚLO LEPŠÍ ŘEŠENÍ
 for (let i = 0; i <= 6; i++) {

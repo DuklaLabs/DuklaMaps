@@ -1,4 +1,162 @@
 {
+    "documents": [
+        {
+            "id": "Školní dokumenty",
+            "docs": [
+                {"name": "Zřizovací listina v úplném znění", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/SPS-SE-CB-Dukelska_ZL-uplne-zneni-2024.pdf"},
+                {"name": "Výroční zpráva 2023/2024", "path": "https://www.spssecb.cz/wp-content/uploads/2024/10/VZ_SPSSECB_2023_24.pdf"},
+                {"name": "Výroční zpráva 2022/2023", "path": "https://www.spssecb.cz/wp-content/uploads/2023/11/Vyrocni-zprava-SPSSE-2022-2023.pdf"},
+                {"name": "Výroční zpráva 2021/2022", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/vz-spssecb-2021-22.pdf"},
+                {"name": "Školní řád", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/skolni_rad-2024-25.pdf"},
+                {"name": "Prohlášení o přístupnosti", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/prohlaseni-o-pristupnosti.pdf"},
+                {"name": "Návod k obsluze kopírky", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/obsluha-cipoveho-terminalu-na-kopirce.pdf"},
+                {"name": "Motivační stipendia", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/motivacni-stipendia-kriteria.pdf"},
+                {"name": "Metodický pokyn k ročníkové práci", "path": "https://www.spssecb.cz/wp-content/uploads/2024/11/Metodicky-pokyn-k-rocnikove-praci.pdf"},
+                {"name": "Klasifikační řád", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/klasifikacni_rad-2024-25.pdf"},
+                {"name": "Informace k ISIC", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/informace-k-isic-2023.pdf"},
+                {"name": "Cookies – prohlášení pro návštěvníky webu", "path": "https://www.spssecb.cz/wp-content/uploads/2023/11/Prohlaseni_Cookies.pdf"}
+            ]
+        },
+        {
+            "id": "Písemnosti při hledání zaměstnání",
+            "docs": [
+                {"name": "Životopis", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/zivotopis.pdf"},
+                {"name": "SERRJ", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/serrj.pdf"},
+                {"name": "S pozdravem", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/s-pozdravem.pdf"},
+                {"name": "Oslovení, text dopisu", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/osloveni-text-dopisu.pdf"},
+                {"name": "Možnosti Europassu", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/moznosti-europassu.pdf"},
+                {"name": "Motivační dopis", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/motivacni-dopis.pdf"},
+                {"name": "Europass", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/europass.pdf"},
+                {"name": "EQF", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/eqf.pdf"},
+                {"name": "E-mail", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/e-mail.pdf"},
+                {"name": "Adresy", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/adresy.pdf"}
+            ]
+        },
+        {
+            "id": "Kam po maturitě",
+            "docs": [
+                {"name": "Srovnání práce v ČR a v zahraničí", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/studium-a-prace-v-cr-a-v-zahranici-srovnani.pdf"},
+                {"name": "Přehled VŠ studia", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/vs-studium-moznosti.pdf"},
+                {"name": "Na rozcestí", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/na-rozcesti.pdf"},
+                {"name": "Kam po škole – varianty", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/kam-po-skole-prehled-variant.pdf"},
+                {"name": "Adaptace v zaměstnání", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/adaptace-v-novem-zamestnani-prvni-den.pdf"}
+            ]
+        },
+        {
+            "id": "COVID",
+            "docs": [
+                {"name": "Souhlas zákonného zástupce v případě pozitivního testu na COVID-19", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/souhlas-zakonneho-zastupce-v-pripade-pozitivniho-testu.pdf"},
+                {"name": "Ohlédnutí za distanční výukou", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/distancni-vyuka.pdf"}
+            ]
+        },
+        {
+            "id": "Ochrana osobních údajů",
+            "docs": [
+                {"name": "Informační povinnost o zpracování osobních údajů", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/ss-zpracovani-osobnich-udaju.pdf"},
+                {"name": "Informace o zpracování osobních údajů", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/SPSSE-CB_WEB_INFO-O-ZPRAC.-OU_1.7.2024.pdf"}
+            ]
+        },
+        {
+            "id": "Maturitní zkouška",
+            "docs": [
+                {"name": "Školní seznam četby k maturitě z českého jazyka a literatury", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/Skolni-sezna-cetby-k-MZ-24_25.pdf"},
+                {"name": "Obecná struktura ústní maturitní zkoušky z českého jazyka", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/Obecna-struktura-UMZ-z-CJL.pdf"},
+                {"name": "Metodický pokyn k odborné maturitní práci", "path": "https://www.spssecb.cz/wp-content/uploads/2024/04/Metodicky-pokyn-k-odborne-maturitni-praci-1.pdf"},
+                {"name": "Metodický pokyn k hodnocení maturitní zkoušky z českého jazyka a literatury", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/Metodicky-pokyn-k-hodnoceni-MZ-z-CJL-2025.pdf"},
+                {"name": "Maturitní okruhy Strojírenství", "path": "https://www.spssecb.cz/wp-content/uploads/2024/09/Maturitni-okruhy-strojirenstvi-blok-predmetu.pdf"},
+                {"name": "Maturitní okruhy Strojírenská technologie", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/Maturitni-okruhy-strojirenska-technologie.pdf"},
+                {"name": "Maturitní okruhy Stavba a provoz strojů", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/Maturitni-okruhy-stavba-a-provoz-stroju-s-automatizaci.pdf"},
+                {"name": "Maturitní okruhy PZOP Strojní inženýrství", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/Maturitni-okruhy-PZOP-strojni-inzenyrstvi.pdf"},
+                {"name": "Maturitní okruhy PZOP Robotika", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/Maturitni-okruhy-PZOP-Robotika.pdf"},
+                {"name": "Maturitní okruhy PZOP Elektroenergetika", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/Maturitni-okruhy-PZOP-Elektroenergetika.pdf"},
+                {"name": "Maturitní okruhy Elektronická zařízení", "path": "https://www.spssecb.cz/wp-content/uploads/2024/09/Maturitni-okruhy-elektronicka-zarizeni.pdf"},
+                {"name": "Maturitní okruhy Elektroenergetika", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/Maturitni-okruhy-elektroenergetika.pdf"},
+                {"name": "Maturitní okruhy Elektrické stroje a přístroje", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/Maturitni-okruhy-elek-stroje-a-pristroje.pdf"},
+                {"name": "Maturitní okruhy Ekonomika", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/Maturitni-okruhy-ekonomika.pdf"},
+                {"name": "Maturitní okruhy Automatizace pro EE", "path": "https://www.spssecb.cz/wp-content/uploads/2024/05/Maturitni-okruhy-Automatizace-pro-EE-1.pdf"},
+                {"name": "Maturitní okruhy Automatizace / Mikroprocesorová technika", "path": "https://www.spssecb.cz/wp-content/uploads/2024/09/Maturitni-okruhy-automatizace-a-mikropocesorova-technika.pdf"},
+                {"name": "Maturitní okruhy AJ", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/Maturitni-okruhy-k-UMZ-z-AJ-1.pdf"},
+                {"name": "Formulář pro hodnocení odborné maturitní práce", "path": "https://www.spssecb.cz/wp-content/uploads/2024/04/Formular-pro-hodnoceni-odborne-maturitni-prace-1.xlsx"},
+                {"name": "Formulář konzultací k odborné maturitní práci", "path": "https://www.spssecb.cz/wp-content/uploads/2024/09/Formular-konzultaci-odborne-maturitni-praci.xlsx"}
+            ]
+        },
+        {
+            "id": "Hledání zaměstnání",
+            "docs": [
+                {"name": "Profil na LinkedIn", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/profil-na-linkedin.pdf"},
+                {"name": "Příprava na pracovní pohovor", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/priprava-na-pracovni-pohovor.pdf"},
+                {"name": "Hledání zaměstnání na internetu", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/hledani-prace-na-internetu.pdf"}
+            ]
+        },
+        {
+            "id": "Nabídka zaměstnání od spolupracujících firem",
+            "docs": [
+                {"name": "Nabídka zaměstnání od spolupracujících firem", "path": "https://www.spssecb.cz/wp-content/uploads/2024/01/Nabidka-firem-pro-studenty_k-26.03.2024.pdf"}
+            ]
+        },
+        {
+            "id": "Kronika školy",
+            "docs": [
+                {"name": "Kronika pro školní rok 2023/2024", "path": "https://www.spssecb.cz/wp-content/uploads/2024/09/KRONIKA_SPSSE_2023-2024.pdf"},
+                {"name": "Kronika pro školní rok 2022/2023", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/kronika-2022-2023.pdf"},
+                {"name": "Kronika pro školní rok 2021/2022", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/kronika-2021-2022.pdf"},
+                {"name": "Kronika pro školní rok 2020/2021", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/kronika-2020-2021.pdf"},
+                {"name": "Kronika pro školní rok 2019/2020", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/kronika-2019-2020.pdf"}
+            ]
+        },
+        {
+            "id": "Přijímací řízení",
+            "docs": [
+                {"name": "Kritéria přijímacího řízení 2024/2025", "path": "https://www.spssecb.cz/wp-content/uploads/2024/01/Kriteria_prijimaciho_rizeni_24_25.pdf"},
+                {"name": "Kritéria přijímacího řízení 2023/2024", "path": "https://www.spssecb.cz/wp-content/uploads/2023/08/kriteria-prijimaciho-rizeni-23-24.pdf"}
+            ]
+        },
+        {
+            "id": "Historie",
+            "docs": [
+                {"name": "historie 90. léta", "path": "https://www.spssecb.cz/wp-content/uploads/2024/07/Historie-SPS-SE-90.-leta.pdf"},
+                {"name": "historie 2020-2023", "path": "https://www.spssecb.cz/wp-content/uploads/2024/07/Historie-SPS-SE-2020-2023.pdf"},
+                {"name": "historie 2011-2019", "path": "https://www.spssecb.cz/wp-content/uploads/2024/07/Historie-SPS-SE-2011-2019.pdf"},
+                {"name": "historie 2001-2010", "path": "https://www.spssecb.cz/wp-content/uploads/2024/07/Historie-SPS-SE-2001-2010.pdf"},
+                {"name": "historie 1980-1988", "path": "https://www.spssecb.cz/wp-content/uploads/2024/07/Historie-SPS-SE-1980-1988.pdf"},
+                {"name": "historie 1970-1979", "path": "https://www.spssecb.cz/wp-content/uploads/2024/07/Historie-SPS-SE-1970-1979.pdf"},
+                {"name": "historie 1960-1969", "path": "https://www.spssecb.cz/wp-content/uploads/2024/01/Historie-SPS-SE-1960-1969.pdf"},
+                {"name": "historie 1948-1959", "path": "https://www.spssecb.cz/wp-content/uploads/2024/01/Historie-SPS-SE-1948-1959.pdf"},
+                {"name": "historie 1939-1948", "path": "https://www.spssecb.cz/wp-content/uploads/2023/12/Historie-SPS-SE-1939-1948.pdf"},
+                {"name": "historie 1930-1939", "path": "https://www.spssecb.cz/wp-content/uploads/2023/12/Historie-SPS-SE-1930-1939.pdf"},
+                {"name": "historie 1920-1929", "path": "https://www.spssecb.cz/wp-content/uploads/2023/12/Historie-SPS-SE-1920-1929.pdf"},
+                {"name": "historie 1899-1921", "path": "https://www.spssecb.cz/wp-content/uploads/2023/12/Historie-SPS-SE-1899-1921.pdf"}
+            ]
+        },
+        {
+            "id": "Europass",
+            "docs": [
+                {"name": "EUROPASS CERTIFICATE SUPPLEMENT 26-41-M/01 Elektrotechnika EN", "path": "https://www.spssecb.cz/wp-content/uploads/2024/05/EDO-26-41-M_01-Elektrotechnika-denni-studium-Anglictina.pdf"},
+                {"name": "EUROPASS CERTIFICATE SUPPLEMENT 26-41-M/01 Elektrotechnika CZ", "path": "https://www.spssecb.cz/wp-content/uploads/2024/05/EDO-26-41-M_01-Elektrotechnika-denni-studium-Cestina.pdf"},
+                {"name": "EUROPASS CERTIFICATE SUPPLEMENT 23-41-M/01 Strojírenství EN", "path": "https://www.spssecb.cz/wp-content/uploads/2024/05/EDO-23-41-M_01-Strojirenstvi-denni-studium-Anglictina.pdf"},
+                {"name": "EUROPASS CERTIFICATE SUPPLEMENT 23-41-M/01 Strojírenství CZ", "path": "https://www.spssecb.cz/wp-content/uploads/2024/05/EDO-23-41-M_01-Strojirenstvi-denni-studium-Cestina.pdf"}
+            ]
+        },
+        {
+            "id": "Pro první ročníky",
+            "docs": [
+                {"name": "Brožura pro 1. ročníky 2024", "path": "https://www.spssecb.cz/wp-content/uploads/2024/08/brozura_1_roc_SPSSECB_24.pdf"}
+            ]
+        },
+        {
+            "id": "Absolventi",
+            "docs": [
+                {"name": "Absolventi SPŠSE ČB – rok ukončení 2021 až 2024", "path": "https://www.spssecb.cz/wp-content/uploads/2023/11/absolventi21-24.pdf"},
+                {"name": "Absolventi SPŠSE ČB – rok ukončení 2011 až 2020", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/absolventi11-20.pdf"},
+                {"name": "Absolventi SPŠSE ČB – rok ukončení 2001 až 2010", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/absolventi01-10.pdf"},
+                {"name": "Absolventi SPŠSE ČB – rok ukončení 1991 až 1999", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/absolventi91-99.pdf"},
+                {"name": "Absolventi SPŠSE ČB – rok ukončení 1981 až 1990", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/absolventi81-90.pdf"},
+                {"name": "Absolventi SPŠSE ČB – rok ukončení 1971 až 1980", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/absolventi71-80.pdf"},
+                {"name": "Absolventi SPŠSE ČB – rok ukončení 1961 až 1970", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/absolventi61-70.pdf"},
+                {"name": "Absolventi SPŠSE ČB – rok ukončení 1955 až 1960", "path": "https://www.spssecb.cz/wp-content/uploads/2023/09/absolventi55-60.pdf"}
+            ]
+        }
+    ],
     "classes": [
         {
             "id": "1.EE",
