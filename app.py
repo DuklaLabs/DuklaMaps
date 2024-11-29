@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from getWay import get_way, locate_wc
 import json
 
@@ -7,6 +7,10 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/navigate/<string:destination>')
+def navigate(destination):
+    return render_template('index.html', destination=destination,)
 
 @app.route('/jsons')
 def get_json():
@@ -53,5 +57,4 @@ def get_dukla_data():
     return jsonify(dukla_data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    #app.run(debug=True, host='0.0.0.0') # for running on a server
+    app.run(debug=True, host='0.0.0.0') # for running on a server

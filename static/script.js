@@ -599,6 +599,20 @@ function clearLines(svgDoc) {
     lines.forEach(line => line.remove());
 }
 
+function clearMap() {
+    for (let i = 0; i <= 4; i++) {
+        const svgEmbed = document.getElementById(`patro${i}`);
+        const svgDoc = svgEmbed ? svgEmbed.getSVGDocument() : null; // Access the SVG document
+
+        if (svgDoc) {
+            clearLines(svgDoc);
+        } else {
+            console.error('SVG document for patro' + i + ' is not available.');
+        }
+        document.getElementById("route-options").style.display = "none";
+    }
+}
+
 function displayRoute(route) {
     for (let i = 0; i <= 4; i++) {
         const svgEmbed = document.getElementById(`patro${i}`);
@@ -635,9 +649,18 @@ function navigate(start, destination) {
         .catch(error => {
             console.error('Error fetching route:', error);
         });
+        //generateQRcode
+        document.getElementById("route-options").style.display = "flex";
+        document.getElementById("QRcode").src = 'https://api.qrserver.com/v1/create-qr-code/?data=http://192.168.0.151:5000/navigate/' + destination;
 }
 
 window.navigate = navigate; // Make the function available in the browser console
+
+function navigateOnStart() {
+    if (destinationOnStart) {
+        navigate(startLocation, destinationOnStart);
+    }
+}
 
 function nearestWC() {
     fetchWC(startLocation)
@@ -723,6 +746,7 @@ updateTime();
 getSchoolHour();
 getJsonData();
 generateDocumentsTable();
+setTimeout(navigateOnStart, 2000); // zpoždění 2s, aby se stihly načíst data
 
 //přednačte všechny svg obrázky, MOŽNÁ BY TO CHTĚLO LEPŠÍ ŘEŠENÍ
 for (let i = 0; i <= 6; i++) {

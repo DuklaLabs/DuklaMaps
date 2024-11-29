@@ -67,49 +67,61 @@
             -->
 
             <div class="patra-container">
-                <div class="patra">
-                    <h1 style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;">Patra:</h1>
-                    <div class="patra-buttons">
-                        <button onclick="showFloor(0)" class="patro">
-                            <div class="patro-number">3</div>
-                            <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                            <div class="patro-name">patro</div>
-                        </button>
-                        <button onclick="showFloor(1)" class="patro">
-                            <div class="patro-number">2</div>
-                            <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                            <div class="patro-name">patro</div>
-                        </button>
-                        <button onclick="showFloor(2)" class="patro">
+                <div id="route-options" class="route-options">
+                    <div class="removeButton" onclick="clearMap()">Smazat trasu</div>
+                    <div class="QRcode">
+                        <div style="color: white; font-weight: 600;">Otevřete trasu v mobilu:</div>
+                        <div style="height: 70%;">
+                            <!--zde upravit adresu-->
+                            <img id='QRcode' src="https://api.qrserver.com/v1/create-qr-code/?data=http://192.168.0.151:5000" style="width: 100%; margin-top: 0.5vh;"/>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: row;">
+                    <div class="patra">
+                        <h1 style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;">Patra:</h1>
+                        <div class="patra-buttons">
+                            <button onclick="showFloor(0)" class="patro">
+                                <div class="patro-number">3</div>
+                                <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                                <div class="patro-name">patro</div>
+                            </button>
+                            <button onclick="showFloor(1)" class="patro">
+                                <div class="patro-number">2</div>
+                                <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                                <div class="patro-name">patro</div>
+                            </button>
+                            <button onclick="showFloor(2)" class="patro">
+                                <div class="patro-number">1</div>
+                                <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                                <div class="patro-name">patro</div>
+                            </button>
+                            <button onclick="showFloor(3)" class="patro selected">
+                                <div class="patro-number">0</div>
+                                <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                                <div class="patro-name">přízemí</div>
+                            </button>
+                            <button onclick="showFloor(4)" class="patro">
+                                <div class="patro-number">-1</div>
+                                <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                                <div class="patro-name">šatny</div>
+                            </button>
+                        </div>                    
+                    </div>                
+                    <div class="patra">
+                        <h1 style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;">Dílny:</h1>
+                        <div class="patra-buttons">
+                        <button onclick="showFloor(5)" class="patro">
                             <div class="patro-number">1</div>
-                            <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                            <div style="width: 1vh;"></div>
                             <div class="patro-name">patro</div>
                         </button>
-                        <button onclick="showFloor(3)" class="patro selected">
+                        <button onclick="showFloor(6)" class="patro">
                             <div class="patro-number">0</div>
-                            <div style="width: 1vh;"></div> <!-- Menší mezera -->
+                            <div style="width: 1vh;"></div>
                             <div class="patro-name">přízemí</div>
                         </button>
-                        <button onclick="showFloor(4)" class="patro">
-                            <div class="patro-number">-1</div>
-                            <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                            <div class="patro-name">šatny</div>
-                        </button>
-                    </div>                    
-                </div>
-                <div class="patra">
-                    <h1 style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;">Dílny:</h1>
-                    <div class="patra-buttons">
-                    <button onclick="showFloor(5)" class="patro">
-                        <div class="patro-number">1</div>
-                        <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                        <div class="patro-name">patro</div>
-                    </button>
-                    <button onclick="showFloor(6)" class="patro">
-                        <div class="patro-number">0</div>
-                        <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                        <div class="patro-name">přízemí</div>
-                    </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -244,6 +256,11 @@
         <a class="logo-button" onclick="comingSoon()"><img src="../static/assets/CreditsButton.svg"></a>
     </nav>
 
+    <script>
+        //získat hodnotu z flasku
+        var destinationOnStart = "{{ destination }}";
+    </script>
+    
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <!--pro live server-->
     <script src="../static/script.js"></script>
