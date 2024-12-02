@@ -32,7 +32,7 @@
 
     <div>     
         <div class="center-container" id="center-container">
-            <div>
+            <div style="display: flex; justify-content: center;">
                 <!-- 
                 0 - 3. patro
                 1 - 2. patro
@@ -52,8 +52,8 @@
                     <embed id="patro6" class="map-content" src="../static/assets/mapa/dilny2.svg" type="image/svg+xml"></embed>
                 </div>
                 <div class="zoom">
-                    <button style="height: 5vh; width: 5vh;" onclick="zoom('+')">+</button>
-                    <button style="height: 5vh; width: 5vh;" onclick="zoom('-')">-</button>
+                    <button style="height: 5vh; width: 5vh; border-width: 0.3vh;" onclick="zoom('+')">+</button>
+                    <button style="height: 5vh; width: 5vh; border-width: 0.3vh;" onclick="zoom('-')">-</button>
                 </div>
             </div>
             <!-- 
@@ -68,16 +68,11 @@
 
             <div class="patra-container">
                 <div id="route-options" class="route-options">
-                    <div class="removeButton" onclick="clearMap()">Smazat trasu</div>
-                    <div class="QRcode">
-                        <div style="color: white; font-weight: 600;">Otevřete trasu v mobilu:</div>
-                        <div style="height: 70%;">
-                            <!--zde upravit adresu-->
-                            <img id='QRcode' src="https://api.qrserver.com/v1/create-qr-code/?data=http://192.168.0.151:5000" style="width: 100%; margin-top: 0.5vh;"/>
-                        </div>
-                    </div>
+                    <h1 id="destination-name" style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;"></h1>
+                    <div class="routeButton" style="background-color: #ff5552;" onclick="clearMap()">Smazat trasu</div>
+                    <div class="routeButton" style="background-color: #826bff;" onclick="QRwindow()">Zobrazit v telefonu</div>
                 </div>
-                <div style="display: flex; flex-direction: row;">
+                <div style="display: flex; flex-direction: column;">
                     <div class="patra">
                         <h1 style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;">Patra:</h1>
                         <div class="patra-buttons">
@@ -236,11 +231,16 @@
             </div>
         </div>
         
-        <div id="darken" onclick="closeTeacherWindow(), closeClassWindow(), closeRoomWindow(), closeComingSoon()"></div>
+        <div id="darken" onclick="closeTeacherWindow(), closeClassWindow(), closeRoomWindow(), closeComingSoon(), closeQR()"></div>
 
         <div class="coming-soon">
             Coming soon
             <button onclick="closeComingSoon()">OK</button>
+        </div>
+
+        <div class="QR-window">
+            <img id='QRcode' src="https://api.qrserver.com/v1/create-qr-code/?data=http://192.168.0.151:5000" style="width: 100%; margin-top: 0.5vh;"/>
+            <button onclick="closeQR()">OK</button>
         </div>
     </div>
 

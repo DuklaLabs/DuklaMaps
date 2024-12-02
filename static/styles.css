@@ -54,29 +54,30 @@ body {
     padding: 0;
 }
 .map {
-    width: 70vw;
-    height: 74vh;
+    width: 85vw;
+    height: 80vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     overflow: auto;
-    scrollbar-width: thin;
+    scrollbar-width: none;
+    justify-content: center;
 }
 .map-content {
     display: none;
     overflow: auto;
-    width: 50vw;
+    width: 70vw;
     margin-top: 1vh;
     transform-origin: 0 0; /* Set the origin for scaling */
     transform: scale(1); /* Default scale */
 }
 .zoom {
     display: flex;
-    flex-direction: row;
     justify-content: center;
+    position: absolute;
+    bottom: 0vh;
 }
 .zoom button {
-    background-color: transparent;
+    background-color: white;
     font-size: 4vh;
     border-radius: 0.8vh;
     margin: 0.5vh;
@@ -90,7 +91,7 @@ body {
 }
 
 .patra-container {
-    width: 30vw;
+    width: 15vw;
     height: 80vh;
     display: flex;
     flex-direction: column;
@@ -111,20 +112,20 @@ body {
 .patro {
     display: flex;
     flex-direction: row;
-    padding: 0.8vh;
+    padding: 0.6vh;
     background-color: transparent;
     border: 1px solid white;
     font-size: 4vh;
     cursor: pointer;
     /* min-width: 260px; */
-    width: 15vw;
+    width: 14vw;
 }
 .selected {
     background-color: #2f2f2f;
     color: #d9d9d9;
     border-radius: 1vh;
     /* min-width: 260px; */
-    width: 15vw;
+    width: 14vw;
     
 }
 .menu {
@@ -470,6 +471,24 @@ body {
     padding: 1vh;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }
+.QR-window {
+    display: none;
+    position: absolute;
+    width: 12vw;
+    left: 44vw;
+    /* height: 25vh; */
+    bottom: 35vh;
+    background-color: #2f2f2f;
+    z-index: 10;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5pc;
+    font-size: 7vh;
+    color: white;
+    padding: 1vh;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
 .coming-soon button {
     width: 25vw;
     height: 7vh;
@@ -484,30 +503,36 @@ body {
     cursor: pointer;
     user-select: none;
 }
-.QRcode {
-    flex-direction: column;
-    background-color: #2f2f2f;
-    border-radius: 1.5vh;
-    padding: 1.5vh;
-    width: 13vh;
+.QR-window button {
+    width: 10vw;
+    height: 5vh;
     margin: 1vh;
+    margin-top: 1.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh;
+    background-color: #d9d9d9;
+    border-radius: 2vh;
+    cursor: pointer;
+    user-select: none;
 }
 .route-options {
     display: none;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: space-evenly;
+    font-size: large;
 }
-.removeButton {
+.routeButton {
     display: flex;
     align-items:center;
     justify-content: center;
     height: 5vh;
-    width: 10vw;
-    background-color: #ff5552;
+    width: 14vw;
     border-radius: 4vh;
-    font-size: large;
     cursor: pointer;
+    margin-top: 0.3vh;
 }
 
 
@@ -529,9 +554,6 @@ body {
 
 /*desktop*/
 @media (min-width: 1025px) { /*1024px*/
-    .patra-container {
-        margin-left: 1vw;
-    }
     .other-table tr {
         flex-direction: column;
     }

@@ -649,6 +649,7 @@ function navigate(start, destination) {
         .catch(error => {
             console.error('Error fetching route:', error);
         });
+        document.getElementById("destination-name").innerText = destination + ":";
         //generateQRcode
         document.getElementById("route-options").style.display = "flex";
         document.getElementById("QRcode").src = 'https://api.qrserver.com/v1/create-qr-code/?data=http://192.168.0.151:5000/navigate/' + destination;
@@ -738,6 +739,16 @@ function comingSoon() {
 }
 function closeComingSoon() {
     document.querySelector(".coming-soon").style.display = "none";
+    document.getElementById("darken").style.display = "none";
+}
+
+function QRwindow() {
+    document.querySelector(".QR-window").style.display = "flex";
+    document.getElementById("darken").style.display = "block";
+}
+
+function closeQR() {
+    document.querySelector(".QR-window").style.display = "none";
     document.getElementById("darken").style.display = "none";
 }
 
