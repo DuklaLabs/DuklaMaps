@@ -61,6 +61,12 @@ function showFloor(floor) {
         button.classList.remove('selected');
     });
     buttons[floor].classList.add('selected');
+    
+    //resetuje zoom
+    document.querySelectorAll('.map-content').forEach(element => {
+        element.style.transform = `scale(1)`;
+    });
+    scale = 1;
 }
 
 let scale = 1;

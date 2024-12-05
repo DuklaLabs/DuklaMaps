@@ -954,13 +954,13 @@
                 {"id": 105, "distance": 10},
                 {"id": "1c4", "distance": 10},
                 {"id": 102, "distance": 10}
+                
             ]
         },
         {
             "id": "s44",
             "neighbors": [
                 {"id": "s27", "distance": 10},
-                {"id": "s34", "distance": 10}  ,
                 {"id": "4c11", "distance": 10}              
             ]
         },
