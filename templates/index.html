@@ -72,7 +72,7 @@
                     <div class="routeButton" style="background-color: #ff5552;" onclick="clearMap()">Smazat trasu</div>
                     <div class="routeButton" style="background-color: #826bff;" onclick="QRwindow()">Zobrazit v telefonu</div>
                 </div>
-                <div style="display: flex; flex-direction: column;">
+                <div class="patradilny">
                     <div class="patra">
                         <h1 style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;">Patra:</h1>
                         <div class="patra-buttons">
@@ -106,12 +106,12 @@
                     <div class="patra">
                         <h1 style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;">Dílny:</h1>
                         <div class="patra-buttons">
-                        <button onclick="showFloor(5)" class="patro">
+                        <button onclick="comingSoon()" class="patro">
                             <div class="patro-number">1</div>
                             <div style="width: 1vh;"></div>
                             <div class="patro-name">patro</div>
                         </button>
-                        <button onclick="showFloor(6)" class="patro">
+                        <button onclick="comingSoon()" class="patro">
                             <div class="patro-number">0</div>
                             <div style="width: 1vh;"></div>
                             <div class="patro-name">přízemí</div>
@@ -180,9 +180,9 @@
         </div>
 
         <div class="sub-nav-mobile">
-            <a class="downbar-button" style="margin-top: 1.6vh;" onclick="showMenu('teachers')"><img src="../static/assets/TeachersButton.svg"></a>
-            <a class="downbar-button" onclick="showMenu('classes')"><img src="../static/assets/ClassesButton.svg"></a>
-            <a class="downbar-button" onclick="showMenu('rooms')"><img src="../static/assets/RoomsButton.svg"></a>
+            <a class="downbar-button" style="margin-top: 1.6vh;" onclick="showMenu('teachers')"><img style="height: 5vh;" src="../static/assets/TeachersButton.svg"></a>
+            <a class="downbar-button" onclick="showMenu('classes')"><img style="height: 5vh;" src="../static/assets/ClassesButton.svg"></a>
+            <a class="downbar-button" onclick="showMenu('rooms')"><img style="height: 5vh;" src="../static/assets/RoomsButton.svg"></a>
         </div>
 
         <!--teacher window-->

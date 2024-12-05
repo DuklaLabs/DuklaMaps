@@ -468,7 +468,8 @@ function generateRoomsTable(ucebnyList, dilnyList) {
         }
         const cell = document.createElement('td');
         cell.textContent = room[0]; // Room name
-        cell.onclick = () => openRoomsWindow(room[0]);
+        cell.onclick = () => comingSoon();
+        //cell.onclick = () => openRoomsWindow(room[0]);
         row.appendChild(cell);
     });
 }

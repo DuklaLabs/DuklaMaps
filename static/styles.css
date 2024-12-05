@@ -85,6 +85,10 @@ body {
     user-select: none;
     
 }
+.patradilny {
+    display: flex;
+    flex-direction: column;
+}
 .patra {
     display: flex;
     flex-direction: column;
@@ -578,8 +582,12 @@ body {
         margin: 1vh;
     }
     .patra-container {
+        width: auto;
         flex-direction: row;
         align-self: center;
+    }
+    .patradilny {
+        flex-direction: row;
     }
     .patra {
         margin-right: 5vw;
@@ -652,6 +660,9 @@ body {
     .downbar-buttons {
         display: none;
     }
+    .downbar-button {
+        margin: 0;
+    }
     .burger-button {
         display: flex;
     }
@@ -680,6 +691,14 @@ body {
     .center-container {
         justify-content: flex-start;
         flex-direction: column;
+    }
+    .route-options {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    .routeButton {
+        width: 30vw;
+        margin: 0.5vh;
     }
     .patra-container {
         width: auto;
