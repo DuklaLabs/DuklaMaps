@@ -17,6 +17,7 @@
         <!-- <a class="buttons" href="#home"><img src="../static/assets/InfoButton.svg"></a> -->
         <a class="close-button" style="margin-right: 16vw;" id="close-button" onclick="closeMenu()"><img src="../static/assets/ExitButton.svg"></a>
         <a class="close-pdf" style="margin-right: 16vw;" id="close-pdf" onclick="closePDFviewer()"><img src="../static/assets/ExitButton.svg"></a>
+        <a class="close-timetable" style="margin-right: 16vw;" id="close-timetable" onclick="closeTimetable()"><img src="../static/assets/ExitButton.svg"></a>
         <h1 class="name" id="name">DuklaMaps</h1>
         
         <div class="menu-name" id="documents-name">Dokumenty</div>
@@ -133,6 +134,11 @@
             <iframe id="pdfFrame" style="z-index: 3; position: absolute; top: 10vh; background-color: #2f2f2f; border-width: 0; width: 100vw; height: 80vh; "></iframe>
         </div>
 
+        <!--timetable-->
+        <div id="timetable-viewer">
+            <div class="menu" style="z-index: 3; position: absolute; top: 10vh;"></div>
+        </div>
+
         <!--teachers-->
         <div class="menu" id="teachers">
             <div class="teachers" id="teachersTable"></div>
@@ -196,7 +202,7 @@
             <div class="window-content">
                 <a class="window-button", id="teachers-ucebna"><img src="../static/assets/ucebnaButton.svg"></a>
                 <a class="window-button", id="teachers-cabinet"><img src="../static/assets/cabinetButton.svg"></a>
-                <a class="window-button", id="teachers-timetable"><img src="../static/assets/timetableButton.svg"></a>
+                <a class="window-button rozvrh-button", id="teachers-timetable"><img src="../static/assets/timetableButton.svg"></a>
             </div>
         </div>
 
@@ -214,7 +220,7 @@
                 <a class="window-button", id="classes-ucebna"><img src="../static/assets/ucebnaButton.svg"></a>
                 <a class="window-button", id="classes-kmenova"><img src="../static/assets/kmenovaButton.svg"></a>
                 <a class="window-button", id="classes-satna"><img src="../static/assets/satnaButton.svg"></a>
-                <a class="window-button", id="classes-timetable"><img src="../static/assets/timetableButton.svg"></a>
+                <a class="window-button rozvrh-button", id="classes-timetable"><img src="../static/assets/timetableButton.svg"></a>
             </div>
         </div>
 
@@ -227,7 +233,7 @@
             <div class="window-info" id="room-actual"></div>
             <div class="window-content">
                 <a class="window-button", id="rooms-ucebna"><img src="../static/assets/ucebnaButton.svg"></a>
-                <a class="window-button", id="rooms-timetable"><img src="../static/assets/timetableButton.svg"></a>
+                <a class="window-button rozvrh-button", id="rooms-timetable"><img src="../static/assets/timetableButton.svg"></a>
             </div>
         </div>
         

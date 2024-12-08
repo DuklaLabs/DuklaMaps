@@ -38,7 +38,7 @@ function getSchoolHour() {
             break;
         }}
 
-        //schoolHour = 1; //nafejkovat hodinu
+        schoolHour = 1; //nafejkovat hodinu
         //console.log('school hour:', schoolHour);
 }
 startLocation = 'start';
@@ -136,6 +136,21 @@ function closePDFviewer() {
     document.getElementById("close-pdf").style.display = "none";  
 }
 
+function showTimetable(name) {
+    document.getElementById("timetable-viewer").style.display = "flex";
+    closeClassWindow();
+    closeRoomWindow();
+    closeTeacherWindow();
+
+    document.getElementById("close-button").style.display = "none";
+    document.getElementById("close-timetable").style.display = "flex";
+}
+function closeTimetable() {
+    document.getElementById("timetable-viewer").style.display = "none";
+    document.getElementById("close-button").style.display = "flex";
+    document.getElementById("close-timetable").style.display = "none";
+}
+
 //teachers table
 function generateTeachersTable(teachersList) {
     const teachersTable = document.getElementById('teachersTable');
@@ -198,7 +213,7 @@ function openTeacherWindow(teacher) {
             document.getElementById("darken").style.display = "block";
             document.getElementById("teacher-name").innerText = teacher;
             document.getElementById("teachers-cabinet").onclick = () => navigateKabinet(teacher);
-            document.getElementById("teachers-timetable").onclick = () => comingSoon();
+            document.getElementById("teachers-timetable").onclick = () => showTimetable();
 
             if (typeof actual[schoolHour] !== 'undefined') {
                 console.log('actual:', actual[schoolHour][0]);
@@ -301,7 +316,7 @@ function openClassesWindow(className) {
             document.getElementById("class-name").innerText = className;
             document.getElementById("classes-kmenova").onclick = () => navigateKmenova(className);
             document.getElementById("classes-satna").onclick = () => navigateSatna(className);
-            document.getElementById("classes-timetable").onclick = () => comingSoon();
+            document.getElementById("classes-timetable").onclick = () => showTimetable();
 
             if (typeof actual[schoolHour] !== 'undefined') {
 
@@ -438,7 +453,7 @@ function generateRoomsTable(ucebnyList, dilnyList) {
                 document.getElementById("darken").style.display = "block";
                 document.getElementById("room-name").innerText = room;
                 document.getElementById("rooms-ucebna").onclick = () => navigate(startLocation, room);
-                document.getElementById("rooms-timetable").onclick = () => comingSoon();
+                document.getElementById("rooms-timetable").onclick = () => showTimetable();
 
                 if (typeof actual[schoolHour] !== 'undefined') {
                     if (actual[schoolHour][0].subject_text == '') {
@@ -714,6 +729,12 @@ function showMenu(menu) {
     document.getElementById("rooms-name").style.display = "none";
     document.getElementById("classes").style.display = "none";
     document.getElementById("classes-name").style.display = "none";
+
+    document.getElementById("close-pdf").style.display = "none";
+    document.getElementById("pdf-viewer").style.display = "none";
+
+    document.getElementById("close-timetable").style.display = "none";
+    document.getElementById("timetable-viewer").style.display = "none";
     if (selectedMenu == menu) {
         closeMenu();
     } else {
@@ -721,7 +742,6 @@ function showMenu(menu) {
         document.getElementById(menu + "-name").style.display = "block";
         selectedMenu = menu;
     }
-    closePDFviewer()
 }
 
 function closeMenu() {

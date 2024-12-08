@@ -25,6 +25,12 @@ body {
     margin: 1vh;
     cursor: pointer;
 }
+.close-timetable {
+    display: none;
+    height: 7vh;
+    margin: 1vh;
+    cursor: pointer;
+}
 .info {
     display: flex;
     width: 20vw;
@@ -539,11 +545,13 @@ body {
     margin-top: 0.3vh;
 }
 
-
 #documents {
     display: none;
 }
 #pdf-viewer {
+    display: none;
+}
+#timetable-viewer {
     display: none;
 }
 #teachers {
@@ -611,6 +619,9 @@ body {
     .menu {
         flex-direction: column;
     }
+    .teachers td {
+        width: 40vw;
+    }
     .ucebny-table {
         overflow-x: scroll;
     }
@@ -653,10 +664,18 @@ body {
     .QRcode {
         display: none;
     }
+    .rozvrh-button {
+        display: none;
+    }
 }
 
 /*mobile-small*/
 @media (max-width: 759px) {
+    .downbar {
+        position: absolute;
+        width: 100vw;
+        bottom: 0vh;
+    }
     .downbar-buttons {
         display: none;
     }
@@ -686,9 +705,10 @@ body {
         margin: auto;
         margin-top: 1.5vh;
         margin-bottom: 1vh;
-        width: 40vw;
+        width: 60vw;
     }
     .center-container {
+        bottom: 10vh;
         justify-content: flex-start;
         flex-direction: column;
     }
@@ -813,6 +833,9 @@ body {
         display: none;
     }
     #DocumentsButton {
+        display: none;
+    }
+    .rozvrh-button {
         display: none;
     }
 }
