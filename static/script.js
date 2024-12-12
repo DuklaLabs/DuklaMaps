@@ -38,7 +38,7 @@ function getSchoolHour() {
             break;
         }}
 
-        schoolHour = 1; //nafejkovat hodinu
+        //schoolHour = 1; //nafejkovat hodinu
         //console.log('school hour:', schoolHour);
 }
 startLocation = 'start';
@@ -144,11 +144,135 @@ function showTimetable(name) {
 
     document.getElementById("close-button").style.display = "none";
     document.getElementById("close-timetable").style.display = "flex";
+    document.getElementById("timetable-name").innerText = name;
+    displayTimetable(timetabletype, name, 'actual');
 }
 function closeTimetable() {
     document.getElementById("timetable-viewer").style.display = "none";
     document.getElementById("close-button").style.display = "flex";
     document.getElementById("close-timetable").style.display = "none";
+}
+
+function fetchTimetable(type, name, week) {
+    return fetch(`/getTimetable/${type}/${name}/${week}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    });
+}
+
+function displayTimetable(type, name, week) { //week - permanent, actual, next, type - teachers, classes, rooms, name - name of the teacher, class, room
+    document.getElementById("permanent").classList.remove('active');
+    document.getElementById("actual").classList.remove('active');
+    document.getElementById("next").classList.remove('active');
+    document.getElementById(week).classList.add('active');
+
+    const timeTable = document.getElementById('timetable');
+    timeTable.innerHTML = '';
+
+    index = 0;
+
+    fetchTimetable(type, name, week)
+        .then(data => {
+            console.log(data);
+
+            for (let i=0; i < 5; i++) { //radky
+                row = document.createElement('tr')
+                timeTable.appendChild(row);
+                for(let j=0; j <= 10; j++) { //sloupce
+                    cell = document.createElement('td');
+                    if (data[index] && data[index][0]) {
+                        
+                        if (type == 'rooms') {                        
+                            let upperdiv = document.createElement('div');
+                            upperdiv.classList.add('upper-div');
+                            upperdiv.textContent = data[index][0].group;
+                            let centerdiv = document.createElement('div');
+                            centerdiv.classList.add('center-div');
+                            centerdiv.textContent = data[index][0].subject;
+                            let lowerdiv = document.createElement('div');
+                            lowerdiv.classList.add('lower-div');
+                            lowerdiv.textContent = data[index][0].teacher;
+
+                            cell.appendChild(upperdiv);
+                            cell.appendChild(centerdiv);
+                            cell.appendChild(lowerdiv);
+                        }
+
+                        if (type == 'teachers') {
+                            let upperdiv = document.createElement('div');
+                            upperdiv.classList.add('upper-div');
+                            upperdiv.textContent = data[index][0].group;
+                            let centerdiv = document.createElement('div');
+                            centerdiv.classList.add('center-div');
+                            centerdiv.textContent = data[index][0].subject;
+                            let lowerdiv = document.createElement('div');
+                            lowerdiv.classList.add('lower-div');
+                            lowerdiv.textContent = data[index][0].room;
+
+                            cell.appendChild(upperdiv);
+                            cell.appendChild(centerdiv);
+                            cell.appendChild(lowerdiv);
+                        }
+
+                        if (type == 'classes') {
+                            if (data[index].length == 1) {
+                                let upperdiv = document.createElement('div');
+                                upperdiv.classList.add('upper-right-div');
+                                upperdiv.textContent = data[index][0].room;
+                                let centerdiv = document.createElement('div');
+                                centerdiv.classList.add('center-div');
+                                centerdiv.textContent = data[index][0].subject;
+                                let lowerdiv = document.createElement('div');
+                                lowerdiv.classList.add('lower-div');
+                                lowerdiv.textContent = data[index][0].teacher;
+
+                                cell.appendChild(upperdiv);
+                                cell.appendChild(centerdiv);
+                                cell.appendChild(lowerdiv);
+                            } else {
+                            for (let k=0; k < data[index].length; k++) {
+                                let groupdiv = document.createElement('div');
+                                groupdiv.classList.add('group-div');
+
+                                let upperdiv = document.createElement('div');
+                                upperdiv.classList.add('upper-div');
+                                let upperleftdiv = document.createElement('div');
+                                upperleftdiv.textContent = data[index][k].group;
+                                let upperrightdiv = document.createElement('div');
+                                upperrightdiv.textContent = data[index][k].room;
+                                upperdiv.appendChild(upperleftdiv);
+                                upperdiv.appendChild(upperrightdiv);
+                                let centerdiv = document.createElement('div');
+                                centerdiv.classList.add('center-div');
+                                centerdiv.textContent = data[index][k].subject;
+                                let lowerdiv = document.createElement('div');
+                                lowerdiv.classList.add('lower-div');
+                                lowerdiv.textContent = data[index][k].teacher;
+
+                                groupdiv.appendChild(upperdiv);
+                                groupdiv.appendChild(centerdiv);
+                                groupdiv.appendChild(lowerdiv);
+
+                                cell.appendChild(groupdiv);
+                            }
+                        }
+                        }
+
+                        if (data[index][0].type == 'absent') {
+                            cell.style.backgroundColor = 'rgba(157, 207, 148, 0.8)';
+                        } else if (data[index][0].type == 'removed' || data[index][0].change_info != '') {
+                            cell.style.backgroundColor = '#d24b49';
+                        }
+                    }
+                    
+                    row.appendChild(cell);
+                    index++;
+                }
+            }
+        })
 }
 
 //teachers table
@@ -213,7 +337,9 @@ function openTeacherWindow(teacher) {
             document.getElementById("darken").style.display = "block";
             document.getElementById("teacher-name").innerText = teacher;
             document.getElementById("teachers-cabinet").onclick = () => navigateKabinet(teacher);
-            document.getElementById("teachers-timetable").onclick = () => showTimetable();
+            timetabletype = 'teachers';
+            timetablename = teacher;
+            document.getElementById("teachers-timetable").onclick = () => showTimetable(teacher);
 
             if (typeof actual[schoolHour] !== 'undefined') {
                 console.log('actual:', actual[schoolHour][0]);
@@ -316,7 +442,9 @@ function openClassesWindow(className) {
             document.getElementById("class-name").innerText = className;
             document.getElementById("classes-kmenova").onclick = () => navigateKmenova(className);
             document.getElementById("classes-satna").onclick = () => navigateSatna(className);
-            document.getElementById("classes-timetable").onclick = () => showTimetable();
+            timetabletype = 'classes';
+            timetablename = className;
+            document.getElementById("classes-timetable").onclick = () => showTimetable(className);
 
             if (typeof actual[schoolHour] !== 'undefined') {
 
@@ -453,7 +581,9 @@ function generateRoomsTable(ucebnyList, dilnyList) {
                 document.getElementById("darken").style.display = "block";
                 document.getElementById("room-name").innerText = room;
                 document.getElementById("rooms-ucebna").onclick = () => navigate(startLocation, room);
-                document.getElementById("rooms-timetable").onclick = () => showTimetable();
+                timetabletype = 'rooms';
+                timetablename = room;
+                document.getElementById("rooms-timetable").onclick = () => showTimetable(room);
 
                 if (typeof actual[schoolHour] !== 'undefined') {
                     if (actual[schoolHour][0].subject_text == '') {

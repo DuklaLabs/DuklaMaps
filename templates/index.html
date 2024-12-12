@@ -136,7 +136,71 @@
 
         <!--timetable-->
         <div id="timetable-viewer">
-            <div class="menu" style="z-index: 3; position: absolute; top: 10vh;"></div>
+            <div class="menu" style="z-index: 3; position: absolute; top: 10vh; display: flex; justify-content: flex-start; flex-direction: column;">
+                <div style="margin-left: 1vh; display: flex; flex-direction: row; height: 5vh;">
+                    <div class="timetable-name" id="timetable-name"></div>
+                    <div class="timetable-state" id="permanent" onclick="displayTimetable(timetabletype, timetablename, 'permanent');">Stálý</div>
+                    <div class="timetable-state" id="actual" onclick="displayTimetable(timetabletype, timetablename, 'actual');">Tento týden</div>
+                    <div class="timetable-state" id="next" onclick="displayTimetable(timetabletype, timetablename, 'next');">Příští týden</div>
+                </div>
+                <div style="display: flex; flex-direction: row; height: 5vh;">
+                    <div style="width: 3vw;"></div>
+                    <div class="timetable-numbers">
+                        <div style="font-size: 2vh;">0</div>
+                        7:10 - 7:55
+                    </div>
+                    <div class="timetable-numbers">
+                        <div style="font-size: 2vh;">1</div>
+                        8:00 - 8:45
+                    </div>
+                    <div class="timetable-numbers">
+                        <div style="font-size: 2vh;">2</div>
+                        8:50 - 9:35
+                    </div>
+                    <div class="timetable-numbers">
+                        <div style="font-size: 2vh;">3</div>
+                        9:55 - 10:40
+                    </div>
+                    <div class="timetable-numbers">
+                        <div style="font-size: 2vh;">4</div>
+                        10:45 - 11:30
+                    </div>
+                    <div class="timetable-numbers">
+                        <div style="font-size: 2vh;">5</div>
+                        11:40 - 12:25
+                    </div>
+                    <div class="timetable-numbers">
+                        <div style="font-size: 2vh;">6</div>
+                        12:30 - 13:15
+                    </div>
+                    <div class="timetable-numbers">
+                        <div style="font-size: 2vh;">7</div>
+                        13:20 - 14:05
+                    </div>
+                    <div class="timetable-numbers">
+                        <div style="font-size: 2vh;">8</div>
+                        14:10 - 14:55
+                    </div>
+                    <div class="timetable-numbers">
+                        <div style="font-size: 2vh;">9</div>
+                        15:00 - 15:45
+                    </div>
+                    <div class="timetable-numbers">
+                        <div style="font-size: 2vh;">10</div>
+                        15:50 - 16:35
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: row;">
+                    <div style="display: flex; flex-direction: column; width: 3vw;">
+                        <div class="timetable-day">Po</div>
+                        <div class="timetable-day">Út</div>
+                        <div class="timetable-day">St</div>
+                        <div class="timetable-day">Čt</div>
+                        <div class="timetable-day">Pá</div>
+                    </div>
+                    <div class="timetable" id="timetable"></div>
+                </div>
+            </div>
         </div>
 
         <!--teachers-->
@@ -146,7 +210,7 @@
 
         <!--classes-->
         <div class="menu" id="classes" style="align-items: center;">
-            <table class="classes" id="classesTable"></table>
+            <div class="classes" id="classesTable"></div>
         </div>
 
         <!--rooms-->

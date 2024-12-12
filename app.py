@@ -56,5 +56,11 @@ def get_dukla_data():
         dukla_data = json.load(json_file)
     return jsonify(dukla_data)
 
+@app.route('/getTimetable/<string:type>/<string:name>/<string:week>')
+def get_timetable(type, name, week):
+    with open(f'timetableData/{type}/{name}/{week}.json', encoding='utf-8') as json_file:
+        timetable = json.load(json_file)
+    return jsonify(timetable)
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0') # for running on a server

@@ -162,6 +162,102 @@ body {
     color: #d9d9d9;
     font-size: 4vh;
 }
+.timetable-name{
+    color: #d9d9d9;
+    font-size: 4vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+.timetable-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4vh;
+    color: black;
+    background-color: #d9d9d9;
+    border-radius: 2.5vh;
+    margin: 0.5vh;
+    font-size: 2.5vh;
+    cursor: pointer;
+    user-select: none;
+    padding-left: 1vw;
+    padding-right: 1vw  ;
+}
+.timetable-state.active {
+    background-color: #2f2f2f;
+    color: #d9d9d9;
+    border-color: #d9d9d9;
+    border-width: 0.25vh;
+    border-style: solid;
+}
+.timetable {
+    display: grid;
+    width: -webkit-fill-available;
+    border-color: #d9d9d9;
+    border-width: 0.125vh;
+    border-style: solid;
+}
+.timetable tr {
+    display: flex;
+    flex-direction: row;
+    height: 14vh;
+}
+.timetable td {
+    width: -webkit-fill-available;
+    border-color: #d9d9d9;
+    border-width: 0.125vh;
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #d9d9d9;
+    font-size: 2vh;
+    overflow: auto;
+    scrollbar-width: none;
+}
+.upper-div {
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+    display: flex;
+    width: -webkit-fill-available;
+    justify-content: space-between;
+}
+.upper-right-div {
+    display: flex;
+    width: -webkit-fill-available;
+    justify-content: flex-end;
+    margin-right: 0.5vw;
+}
+.center-div {
+    font-size: 3vh;
+}
+.group-div {
+    width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom-style: solid;
+    border-bottom-width: 0.25vh;
+    border-bottom-color: #d9d9d9;
+}
+.timetable-numbers {
+    width: 9vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #d9d9d9;
+}
+.timetable-day {
+    width: 3vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #d9d9d9;
+    height: -webkit-fill-available;
+    font-size: 2.5vh;
+}
 .documents-list{
     display: flex;
     flex-direction: row;
@@ -532,7 +628,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-evenly;
-    font-size: large;
+    font-size: 2.5vh;
 }
 .routeButton {
     display: flex;
