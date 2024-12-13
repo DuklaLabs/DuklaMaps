@@ -70,8 +70,8 @@
             <div class="patra-container">
                 <div id="route-options" class="route-options">
                     <h1 id="destination-name" style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;"></h1>
-                    <div class="routeButton" style="background-color: #ff5552;" onclick="clearMap()">Smazat trasu</div>
-                    <div class="routeButton" style="background-color: #826bff;" onclick="QRwindow()">Zobrazit v telefonu</div>
+                    <div class="routeButton" onclick="clearMap()">Smazat trasu</div>
+                    <div class="QrButton" onclick="QRwindow()">Zobrazit v telefonu</div>
                 </div>
                 <div class="patradilny">
                     <div class="patra">
@@ -206,6 +206,7 @@
         <!--teachers-->
         <div class="menu" id="teachers">
             <div class="teachers" id="teachersTable"></div>
+            <div class="teachers-spacer"></div>
         </div>
 
         <!--classes-->
@@ -236,7 +237,7 @@
                         <td onclick="navigate(startLocation, 202)">Odpočinková místnost</td>
                     </tr>
                     <tr>
-                        <td onclick="navigate(startLocation, 's5')">Bufet</td>
+                        <td onclick="navigate(startLocation, 'Bufet')">Bufet</td>
                         <!--kopírka-->
                         <td onclick="navigate(startLocation, 213)">Tělocvična</td>
                         <td onclick="navigate(startLocation, 305)">Zástupce ředitele</td>
@@ -323,6 +324,10 @@
             <a class="downbar-button" onclick="showMenu('rooms')"><img src="../static/assets/RoomsButton.svg"></a>
         </div>
         <a class="burger-button" id="burger-button" href="#home"><img src="../static/assets/hamburger.svg"></a>
+        <div class="zoom-mobile">
+            <div style="height: 5vh; width: 5vh; border-width: 0.3vh;" onclick="zoom('+')">+</div>
+            <div style="height: 5vh; width: 5vh; border-width: 0.3vh;" onclick="zoom('-')">-</div>
+        </div>
         <a class="logo-button" onclick="comingSoon()"><img src="../static/assets/CreditsButton.svg"></a>
     </nav>
 

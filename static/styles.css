@@ -73,7 +73,6 @@ body {
     overflow: auto;
     width: 70vw;
     margin-top: 1vh;
-    transform-origin: 0 0; /* Set the origin for scaling */
     transform: scale(1); /* Default scale */
 }
 .zoom {
@@ -82,6 +81,9 @@ body {
     position: absolute;
     bottom: 0vh;
 }
+.zoom-mobile {
+    display: flex;
+}
 .zoom button {
     background-color: white;
     font-size: 4vh;
@@ -89,7 +91,19 @@ body {
     margin: 0.5vh;
     cursor: pointer;
     user-select: none;
-    
+}
+.zoom-mobile div {
+    display: flex;
+    justify-content: center;
+    color: #d9d9d9;
+    background-color: transparent;
+    font-size: 4vh;
+    border-style: solid;
+    border-radius: 0.8vh;
+    border-color: #d9d9d9;
+    margin: 0.5vh;
+    cursor: pointer;
+    user-select: none;   
 }
 .patradilny {
     display: flex;
@@ -307,6 +321,10 @@ body {
     border-radius: 2.5vh;
     cursor: pointer;
     user-select: none;
+}
+
+.teachers-spacer {
+    display: none;
 }
 
 .classes {
@@ -639,6 +657,18 @@ body {
     border-radius: 4vh;
     cursor: pointer;
     margin-top: 0.3vh;
+    background-color: #ff5552;
+}
+.QrButton {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    height: 5vh;
+    width: 14vw;
+    border-radius: 4vh;
+    cursor: pointer;
+    margin-top: 0.3vh;
+    background-color: #826bff;
 }
 
 #documents {
@@ -665,6 +695,10 @@ body {
     .other-table tr {
         flex-direction: column;
     }
+    .zoom-mobile {
+        display: none;
+    }
+    
 }
 
 /*mobile*/
@@ -790,9 +824,15 @@ body {
         display: none;
     }
     .map {
-        height: 47vh;
+        height: 38vh;
         width: 100vw;
         overflow: auto;
+        position: absolute;
+        top: 10vh;
+    }
+    .map-content {
+        transform-origin: 0 0; /* Set the origin for scaling */
+        transform: scale(3); /* Default scale */
     }
     .teachers {
         grid-template-columns: repeat(1, 1fr);
@@ -802,6 +842,10 @@ body {
         margin-top: 1.5vh;
         margin-bottom: 1vh;
         width: 60vw;
+    }
+    .teachers-spacer {
+        display: block;
+        height: 10vh;
     }
     .center-container {
         bottom: 10vh;
@@ -820,6 +864,8 @@ body {
         width: auto;
         height: auto;
         align-self: center;
+        position: absolute;
+        bottom: 0vh;
     }
     .patra {
         margin-right: 5vw;
@@ -932,6 +978,12 @@ body {
         display: none;
     }
     .rozvrh-button {
+        display: none;
+    }
+    .QrButton {
+        display: none;
+    }
+    .zoom {
         display: none;
     }
 }
