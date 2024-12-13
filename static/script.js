@@ -197,19 +197,44 @@ function displayTimetable(type, name, week) { //week - permanent, actual, next, 
                         }
 
                         if (type == 'teachers') {
-                            let upperdiv = document.createElement('div');
-                            upperdiv.classList.add('upper-div');
-                            upperdiv.textContent = data[index][0].group;
-                            let centerdiv = document.createElement('div');
-                            centerdiv.classList.add('center-div');
-                            centerdiv.textContent = data[index][0].subject;
-                            let lowerdiv = document.createElement('div');
-                            lowerdiv.classList.add('lower-div');
-                            lowerdiv.textContent = data[index][0].room;
+                            if (data[index].length == 1) {
+                                let upperdiv = document.createElement('div');
+                                upperdiv.classList.add('upper-div');
+                                upperdiv.textContent = data[index][0].group;
+                                let centerdiv = document.createElement('div');
+                                centerdiv.classList.add('center-div');
+                                centerdiv.textContent = data[index][0].subject;
+                                let lowerdiv = document.createElement('div');
+                                lowerdiv.classList.add('lower-div');
+                                lowerdiv.textContent = data[index][0].room;
 
                             cell.appendChild(upperdiv);
                             cell.appendChild(centerdiv);
                             cell.appendChild(lowerdiv);
+                            } else {
+                                for (let k=0; k < data[index].length; k++) {
+                                    let groupdiv = document.createElement('div');
+                                    groupdiv.classList.add('group-div');
+
+                                    let upperdiv = document.createElement('div');
+                                    upperdiv.classList.add('upper-div');
+                                    let upperleftdiv = document.createElement('div');
+                                    upperleftdiv.textContent = data[index][k].group;
+                                    let upperrightdiv = document.createElement('div');
+                                    upperrightdiv.textContent = data[index][k].room;
+                                    upperdiv.appendChild(upperleftdiv);
+                                    upperdiv.appendChild(upperrightdiv);
+                                    let centerdiv = document.createElement('div');
+                                    centerdiv.classList.add('center-div');
+                                    centerdiv.textContent = data[index][k].subject;
+
+                                    groupdiv.style.height = 'auto';
+                                    groupdiv.appendChild(upperdiv);
+                                    groupdiv.appendChild(centerdiv);
+
+                                    cell.appendChild(groupdiv);
+                                }
+                            }
                         }
 
                         if (type == 'classes') {

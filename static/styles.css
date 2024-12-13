@@ -73,6 +73,7 @@ body {
     overflow: auto;
     width: 70vw;
     margin-top: 1vh;
+    transform-origin: 0 0; /* Set the origin for scaling */
     transform: scale(1); /* Default scale */
 }
 .zoom {
