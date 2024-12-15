@@ -5,6 +5,19 @@ body {
     overflow: hidden;
     font-family: Inter, sans-serif;
 }
+/* scrollbar zamýšlený pro mapu */
+::-webkit-scrollbar {
+    width: 1.5vh; /* Width of the scrollbar */
+    height: 1.5vh;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d9d9d9; /* Color of the scrollbar thumb */
+    border-radius: 1vh; /* Rounded corners for the scrollbar thumb */
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #b2babc;
+}
 .upbar {
     background-color: #2f2f2f;
     height: 10vh;
@@ -65,7 +78,6 @@ body {
     display: flex;
     align-items: flex-start;
     overflow: auto;
-    scrollbar-width: none;
     justify-content: center;
 }
 .map-content {
@@ -81,6 +93,7 @@ body {
     justify-content: center;
     position: absolute;
     bottom: 0vh;
+    margin-bottom: 1vh;
 }
 .zoom-mobile {
     display: flex;
@@ -229,8 +242,12 @@ body {
     color: #d9d9d9;
     font-size: 2vh;
     overflow: auto;
-    scrollbar-width: none;
 }
+
+.timetable td::-webkit-scrollbar {
+    width: 0.6vw;
+}
+
 .upper-div {
     margin-left: 0.5vw;
     margin-right: 0.5vw;
@@ -297,16 +314,12 @@ body {
 }
 .teachers {
     height: 80vh;
+    width: 100vw;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     flex-direction: column;
     overflow-y: scroll;
-    scrollbar-width: none; /* For Firefox */
-    -ms-overflow-style: none; /* For Internet Explorer and Edge */
-}
-
-.teachers::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Opera */
+    justify-items: center;
 }
 
 .teachers td {
