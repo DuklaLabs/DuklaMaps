@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2f2f2f">
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     <!--pro live server-->
@@ -28,6 +29,24 @@
         <div class = "info">
             <h2 style="margin-right: 1.5vw;" id="time" class="datetime"></h2>
             <h2 style="margin-right: 1.5vw;" id="date" class="datetime"></h2>
+        </div>
+        <div class="locationForm" >
+            <div style="height: 5vh; display: flex; align-items: flex-end;">Vaše Lokace:</div>
+            <div style="display: flex; flex-direction: row;">
+                <form id="locForm" style="height: 5vh;">
+                    <input type="text" class="roomInput" id="roomInput">
+                    <button type="submit" style="display: none;">Submit</button>
+                </form>
+                <img src="../static/assets/help-icon.svg" style="height: 4vh; padding: 0.5vh; padding-left: 0;" onclick="comingSoon()">
+            </div>
+            <script>            
+                // Function to handle form submission
+                document.getElementById('locForm').addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent the form from submitting the traditional way
+                    startLocation = document.getElementById('roomInput').value; // Change the variable
+                    console.log('Variable changed to:', startLocation); // Log the new value
+                });
+            </script>
         </div>
     </nav>
 

@@ -25,6 +25,27 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    z-index: 3;
+}
+.locationForm {
+    display: none;
+    flex-direction: column;
+    color: #d9d9d9;
+    width: 40vw;
+    font-size: 2.5vh;
+}
+.roomInput {
+    margin: 1vh;
+    border-radius: 3vh;
+    width: 15vw;
+    font-weight: 700;
+    font-size: x-large;
+    text-align: center;
+    background-color: #d9d9d9;
+    font-family: Inter, sans-serif;
+    border: none;
+    height: 3vh;
 }
 .close-button {
     display: none;
@@ -815,6 +836,10 @@ body {
 
 /*mobile-small*/
 @media (max-width: 759px) {
+    .locationForm {
+        display: flex;
+        align-items: center;
+    }
     .downbar {
         position: absolute;
         width: 100vw;
@@ -981,7 +1006,7 @@ body {
     }   
     .coming-soon {
         width: 40vw;
-        left: 30w;
+        left: 30vw;
         font-size: 4vh;
         overflow: hidden;
     }
