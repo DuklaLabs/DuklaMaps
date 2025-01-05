@@ -227,11 +227,11 @@
             "id": "s40",
             "neighbors": [
                 {"id": "s39", "distance": 10},
-                {"id": "s41", "distance": 10}
+                {"id": "h2", "distance": 10}
             ]
         },
         {
-            "id": "s41",
+            "id": "h2",
             "neighbors": [
                 {"id": "s40", "distance": 10},
                 {"id": "s42", "distance": 10}
@@ -266,11 +266,11 @@
             "id": "s9",
             "neighbors": [
                 {"id": "s8", "distance": 10},
-                {"id": "s10", "distance": 10}
+                {"id": "h4", "distance": 10}
             ]
         },
         {
-            "id": "s10",
+            "id": "h4",
             "neighbors": [
                 {"id": "s9", "distance": 10},
                 {"id": "s11", "distance": 10}
@@ -279,7 +279,7 @@
         {
             "id": "s11",
             "neighbors": [
-                {"id": "s10", "distance": 10},
+                {"id": "h4", "distance": 10},
                 {"id": "s12", "distance": 10}
             ]
         },
@@ -300,13 +300,13 @@
             "id": "1c5",
             "neighbors": [
                 {"id": "start", "distance": 10},
-                {"id": "s1", "distance": 10},
+                {"id": "h3", "distance": 10},
                 {"id": "1c8", "distance": 10},
                 {"id": 102, "distance": 10}
             ]
         },
         {
-            "id": "s1",
+            "id": "h3",
             "neighbors": [
                 {"id": "1c5", "distance": 10},
                 {"id": "s2", "distance": 10}
@@ -315,7 +315,7 @@
         {
             "id": "s2",
             "neighbors": [
-                {"id": "s1", "distance": 10},
+                {"id": "h3", "distance": 10},
                 {"id": "s3", "distance": 10},
                 {"id": "s4", "distance": 10}
             ]
@@ -441,12 +441,12 @@
                 {"id": 203, "distance": 10},
                 {"id": 204, "distance": 10},
                 {"id": "2c1", "distance": 10},
-                {"id": "s19", "distance": 10},
+                {"id": "h5", "distance": 10},
                 {"id": "Bufet", "distance": 10}
             ]
         },
         {
-            "id": "s19",
+            "id": "h5",
             "neighbors": [
                 {"id": "s18", "distance": 10},
                 {"id": "s20", "distance": 10}
@@ -455,7 +455,7 @@
         {
             "id": "s20",
             "neighbors": [
-                {"id": "s19", "distance": 10},
+                {"id": "h5", "distance": 10},
                 {"id": "s21", "distance": 10}
             ]
         },
@@ -614,11 +614,11 @@
             "id": "s14",
             "neighbors": [
                 {"id": "s13", "distance": 10},
-                {"id": "s15", "distance": 10}
+                {"id": "h6", "distance": 10}
             ]
         },
         {
-            "id": "s15",
+            "id": "h6",
             "neighbors": [
                 {"id": "s14", "distance": 10},
                 {"id": "s16", "distance": 10}
@@ -627,7 +627,7 @@
         {
             "id": "s16",
             "neighbors": [
-                {"id": "s15", "distance": 10},
+                {"id": "h6", "distance": 10},
                 {"id": "s17", "distance": 10}
             ]
         },
@@ -709,11 +709,11 @@
                 {"id": 304, "distance": 10},
                 {"id": 305, "distance": 10},
                 {"id": "3c1", "distance": 10},               
-                {"id": "s24", "distance": 10}
+                {"id": "h8", "distance": 10}
             ]
         },
         {
-            "id": "s24",
+            "id": "h8",
             "neighbors": [
                 {"id": "s23", "distance": 10},
                 {"id": "s30", "distance": 10}
@@ -722,7 +722,7 @@
         {
             "id": "s30",
             "neighbors": [
-                {"id": "s24", "distance": 10},
+                {"id": "h8", "distance": 10},
                 {"id": "s31", "distance": 10}
             ]
         },
@@ -869,11 +869,11 @@
             "neighbors": [
                 {"id": 308, "distance": 10},
                 {"id": "3c4", "distance": 10},
-                {"id": "s29", "distance": 10}
+                {"id": "h7", "distance": 10}
             ]
         },
         {
-            "id": "s29",
+            "id": "h7",
             "neighbors": [
                 {"id": "s28", "distance": 10},
                 {"id": 402, "distance": 10}
@@ -882,7 +882,7 @@
         {
             "id": 402,
             "neighbors": [
-                {"id": "s29", "distance": 10},
+                {"id": "h7", "distance": 10},
                 {"id": 403, "distance": 10},
                 {"id": "4c6", "distance": 10}
             ]
@@ -981,7 +981,7 @@
         {
             "id": "s44",
             "neighbors": [
-                {"id": "s27", "distance": 10},
+                {"id": "h9", "distance": 10},
                 {"id": "4c11", "distance": 10}              
             ]
         },
@@ -996,12 +996,12 @@
             "id": "s35",
             "neighbors": [
                 {"id": "s34", "distance": 10},
-                {"id": "s36", "distance": 10},
+                {"id": "h1", "distance": 10},
                 {"id": "s38", "distance": 10}
             ]
         },
         {
-            "id": "s36",
+            "id": "h1",
             "neighbors": [
                 {"id": "s35", "distance": 10},
                 {"id": "0c1", "distance": 10}
@@ -1010,7 +1010,7 @@
         {
             "id": "0c1",
             "neighbors": [
-                {"id": "s36", "distance": 10},
+                {"id": "h1", "distance": 10},
                 {"id": "0c2", "distance": 10},
                 {"id": "0c11", "distance": 10}
             ]
@@ -1244,7 +1244,7 @@
             "id": "s42",
             "neighbors": [
                 {"id": "s43", "distance": 10},
-                {"id": "s41", "distance": 10}
+                {"id": "h2", "distance": 10}
             ]
         },
         {
@@ -1372,11 +1372,11 @@
             "id": "s26",
             "neighbors": [
                 {"id": "s25", "distance": 10},
-                {"id": "s27", "distance": 10}
+                {"id": "h9", "distance": 10}
             ]
         },
         {
-            "id": "s27",
+            "id": "h9",
             "neighbors": [
                 {"id": "s26", "distance": 10},
                 {"id": "s44", "distance": 10}

@@ -4,6 +4,7 @@ body {
     height: 100vh;
     overflow: hidden;
     font-family: Inter, sans-serif;
+    user-select: none;
 }
 /* scrollbar zamýšlený pro mapu */
 ::-webkit-scrollbar {
@@ -125,7 +126,6 @@ body {
     border-radius: 0.8vh;
     margin: 0.5vh;
     cursor: pointer;
-    user-select: none;
 }
 .zoom-mobile div {
     display: flex;
@@ -138,7 +138,6 @@ body {
     border-color: #d9d9d9;
     margin: 0.5vh;
     cursor: pointer;
-    user-select: none;   
 }
 .patradilny {
     display: flex;
@@ -155,7 +154,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    user-select: none;
 }
 .patro-number {
     border: 1.5px solid;
@@ -228,7 +226,6 @@ body {
     margin: 0.5vh;
     font-size: 2.5vh;
     cursor: pointer;
-    user-select: none;
     padding-left: 1vw;
     padding-right: 1vw  ;
 }
@@ -331,16 +328,16 @@ body {
     background-color: #d9d9d9;
     border-radius: 2.5vh;
     cursor: pointer;
-    user-select: none;
 }
 .teachers {
     height: 80vh;
     width: 100vw;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    flex-direction: column;
     overflow-y: scroll;
     justify-items: center;
+    padding-left: 7vw;
+    padding-right: 7vw;
 }
 
 .teachers td {
@@ -355,7 +352,6 @@ body {
     background-color: #d9d9d9;
     border-radius: 2.5vh;
     cursor: pointer;
-    user-select: none;
 }
 
 .teachers-spacer {
@@ -388,7 +384,6 @@ body {
     background-color: #d9d9d9;
     border-radius: 2.5vh;
     cursor: pointer;
-    user-select: none;
 }
 .ucebny-table  {
     display: flex;
@@ -411,7 +406,6 @@ body {
     background-color: #d9d9d9;
     border-radius: 2.5vh;
     cursor: pointer;
-    user-select: none;
 }
 .dilny-table {
     display: flex;
@@ -434,7 +428,6 @@ body {
     background-color: #d9d9d9;
     border-radius: 2.5vh;
     cursor: pointer;
-    user-select: none;
 }
 .other-table  {
     display: flex;
@@ -459,7 +452,6 @@ body {
     background-color: #d9d9d9;
     border-radius: 2.5vh;
     cursor: pointer;
-    user-select: none;
 }
 .rooms-ucebny {
     display: flex;
@@ -517,7 +509,6 @@ body {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 3;
-    user-select: none;
 }
 
 .classes-groups {
@@ -538,7 +529,6 @@ body {
     margin: 0.5vh;
     font-size: 2.5vh;
     cursor: pointer;
-    user-select: none;
 }
 
 .classes-groups li.active {
@@ -660,7 +650,6 @@ body {
     background-color: #d9d9d9;
     border-radius: 2vh;
     cursor: pointer;
-    user-select: none;
 }
 .QR-window button {
     width: 10vw;
@@ -674,7 +663,6 @@ body {
     background-color: #d9d9d9;
     border-radius: 2vh;
     cursor: pointer;
-    user-select: none;
 }
 .route-options {
     display: none;
@@ -956,6 +944,10 @@ body {
     .rooms-other {
         width: 100vw;
         height: 20vh;
+    }
+    .other-table td {
+        min-width:fit-content;
+        height: 3vh;
     }
     .dilny-table {
         overflow-x: scroll;

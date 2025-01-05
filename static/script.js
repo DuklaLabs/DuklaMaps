@@ -759,7 +759,7 @@ function drawLine(svgDoc, startNode, endNode) {
         line.setAttribute('x2', endX);
         line.setAttribute('y2', endY);
         line.setAttribute('stroke', '#d24b49');
-        line.setAttribute('stroke-width', '4');
+        line.setAttribute('stroke-width', '2');
         line.setAttribute('stroke-linecap', 'round');
 
         svgDoc.documentElement.appendChild(line);
@@ -781,6 +781,10 @@ function clearMap() {
         } else {
             console.error('SVG document for patro' + i + ' is not available.');
         }
+
+        const wayPointElements = svgDoc.querySelectorAll('#wayPoint');
+        wayPointElements.forEach(element => element.remove());
+
         document.getElementById("route-options").style.display = "none";
     }
 }
@@ -797,7 +801,44 @@ function displayRoute(route) {
             clearLines(svgDoc);
 
             for (let j = 0; j < route.length - 1; j++) {
+                //spojí dva body čarou
                 drawLine(svgDoc, route[j], route[j + 1]);
+
+                //označí start a cíl
+                const startELement = svgDoc.getElementById(route[0]);
+                if (startELement) {
+                    const startBBox = startELement.getBBox();
+                    const startX = startBBox.x + startBBox.width / 2;
+                    const startY = startBBox.y + startBBox.height / 2;
+
+                    const startCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                    startCircle.setAttribute('cx', startX);
+                    startCircle.setAttribute('cy', startY);
+                    startCircle.setAttribute('r', 2);
+                    startCircle.setAttribute('fill', '#d24b49');
+                    startCircle.setAttribute('id', 'wayPoint');
+
+                    svgDoc.documentElement.appendChild(startCircle);
+
+                    const innerCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                    innerCircle.setAttribute('cx', startX);
+                    innerCircle.setAttribute('cy', startY);
+                    innerCircle.setAttribute('r', 1);
+                    innerCircle.setAttribute('fill', '#fff');
+                    innerCircle.setAttribute('id', 'wayPoint');
+
+                    svgDoc.documentElement.appendChild(innerCircle);
+
+                    const startLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                    startLabel.setAttribute('x', startX - 15);
+                    startLabel.setAttribute('y', startY - 10);
+                    startLabel.setAttribute('font-size', 6);
+                    startLabel.setAttribute('fill', '#2f2f2f');
+                    startLabel.textContent = 'Zde stojíte';
+                    startLabel.setAttribute('id', 'wayPoint');
+
+                    svgDoc.documentElement.appendChild(startLabel);
+                }
             }
         } else {
             console.error('SVG document for patro' + i + ' is not available.');
