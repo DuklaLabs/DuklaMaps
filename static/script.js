@@ -785,6 +785,9 @@ function clearMap() {
         const wayPointElements = svgDoc.querySelectorAll('#wayPoint');
         wayPointElements.forEach(element => element.remove());
 
+        const wayPointBackgrounds = svgDoc.querySelectorAll('#wayPointBackground');
+        wayPointBackgrounds.forEach(element => element.remove());
+
         document.getElementById("route-options").style.display = "none";
     }
 }
@@ -804,7 +807,7 @@ function displayRoute(route) {
                 //spojí dva body čarou
                 drawLine(svgDoc, route[j], route[j + 1]);
 
-                //označí start a cíl
+                //označí start
                 const startELement = svgDoc.getElementById(route[0]);
                 if (startELement) {
                     const startBBox = startELement.getBBox();
@@ -837,9 +840,78 @@ function displayRoute(route) {
                     startLabel.textContent = 'Zde stojíte';
                     startLabel.setAttribute('id', 'wayPoint');
 
+                    // Create a rect background for the startLabel
+                    const bbox = startLabel.getBBox();
+                    const startrect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                    startrect.setAttribute('x', startX - 16);
+                    startrect.setAttribute('y', 81);
+                    startrect.setAttribute('width', 28);
+                    startrect.setAttribute('height', 8);
+                    startrect.setAttribute('fill', 'white');
+                    startrect.setAttribute('id', 'wayPointBackground');
+                    startrect.setAttribute('rx', 2); // Zaoblene rohy
+                    startrect.setAttribute('ry', 2); // Zaoblene rohy
+                    startrect.setAttribute('stroke', 'black');
+                    startrect.setAttribute('stroke-width', 0.2); 
+
+                    // Append the rect before the startLabel
+                    svgDoc.documentElement.appendChild(startrect);
                     svgDoc.documentElement.appendChild(startLabel);
                 }
             }
+
+            //označí cíl
+            const endElement = svgDoc.getElementById(route[route.length - 1]);
+            if (endElement) {
+                const endBBox = endElement.getBBox();
+                const endX = endBBox.x + endBBox.width / 2;
+                const endY = endBBox.y + endBBox.height / 2;
+
+                const endCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                endCircle.setAttribute('cx', endX);
+                endCircle.setAttribute('cy', endY);
+                endCircle.setAttribute('r', 2);
+                endCircle.setAttribute('fill', '#d24b49');
+                endCircle.setAttribute('id', 'wayPoint');
+
+                svgDoc.documentElement.appendChild(endCircle);
+
+                const innerCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                innerCircle.setAttribute('cx', endX);
+                innerCircle.setAttribute('cy', endY);
+                innerCircle.setAttribute('r', 1);
+                innerCircle.setAttribute('fill', '#fff');
+                innerCircle.setAttribute('id', 'wayPoint');
+
+                svgDoc.documentElement.appendChild(innerCircle);
+
+                const endLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                endLabel.setAttribute('x', endX - 3);
+                endLabel.setAttribute('y', endY - 3);
+                endLabel.setAttribute('font-size', 6);
+                endLabel.setAttribute('fill', '#2f2f2f');
+                endLabel.textContent = 'Cíl';
+                endLabel.setAttribute('id', 'wayPoint');
+
+                // Create a rect background for the endLabel
+                const bbox = endLabel.getBBox();
+                const endrect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                endrect.setAttribute('x', endX - 4);
+                endrect.setAttribute('y', endY - 9);
+                endrect.setAttribute('width', 10);
+                endrect.setAttribute('height', 8);
+                endrect.setAttribute('fill', 'white');
+                endrect.setAttribute('id', 'wayPointBackground');
+                endrect.setAttribute('rx', 2); // Zaoblene rohy
+                endrect.setAttribute('ry', 2); // Zaoblene rohy
+                endrect.setAttribute('stroke', 'black');
+                endrect.setAttribute('stroke-width', 0.2); 
+
+                // Append the rect before the endLabel
+                svgDoc.documentElement.appendChild(endrect);
+                svgDoc.documentElement.appendChild(endLabel);
+            }
+
         } else {
             console.error('SVG document for patro' + i + ' is not available.');
         }
