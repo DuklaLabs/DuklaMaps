@@ -30,23 +30,8 @@
             <h2 style="margin-right: 1.5vw;" id="time" class="datetime"></h2>
             <h2 style="margin-right: 1.5vw;" id="date" class="datetime"></h2>
         </div>
-        <div class="locationForm" >
-            <div style="height: 5vh; display: flex; align-items: flex-end;">Vaše Lokace:</div>
-            <div style="display: flex; flex-direction: row;">
-                <form id="locForm" style="height: 5vh;">
-                    <input type="text" class="roomInput" id="roomInput">
-                    <button type="submit" style="display: none;">Submit</button>
-                </form>
-                <img src="../static/assets/help-icon.svg" style="height: 4vh; padding: 0.5vh; padding-left: 0;" onclick="comingSoon()">
-            </div>
-            <script>            
-                // Function to handle form submission
-                document.getElementById('locForm').addEventListener('submit', function(event) {
-                    event.preventDefault(); // Prevent the form from submitting the traditional way
-                    startLocation = document.getElementById('roomInput').value; // Change the variable
-                    console.log('Variable changed to:', startLocation); // Log the new value
-                });
-            </script>
+        <div onclick="locWindow()" class="roomInput" style="font-size: 100%; height: 5vh; padding: 2vw;">
+            Navigovat z vaší pozice
         </div>
     </nav>
 
@@ -321,7 +306,7 @@
             </div>
         </div>
         
-        <div id="darken" onclick="closeTeacherWindow(), closeClassWindow(), closeRoomWindow(), closeComingSoon(), closeQR()"></div>
+        <div id="darken" onclick="closeTeacherWindow(), closeClassWindow(), closeRoomWindow(), closeComingSoon(), closeQR(), closeLocWindow()"></div>
 
         <div class="coming-soon">
             Coming soon
@@ -331,6 +316,24 @@
         <div class="QR-window">
             <img id='QRcode' src="https://api.qrserver.com/v1/create-qr-code/?data=http://192.168.0.151:5000" style="width: 100%; margin-top: 0.5vh;"/>
             <button onclick="closeQR()">OK</button>
+        </div>
+
+        <div class="location-window">
+            <div>Zadejte číslo nejbližších dveří:</div>
+            <div style="display: flex; flex-direction: row;">
+                <form id="locForm" style="display: flex; flex-direction: row; width: 100%; justify-content: space-evenly;">
+                    <input type="text" class="roomInput" id="roomInput">
+                    <button type="submit" onclick="closeLocWindow(), clearMap()" class="roomInput">Potvrdit</button>
+                </form>
+            </div>
+            <script>            
+                // Function to handle form submission
+                document.getElementById('locForm').addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent the form from submitting the traditional way
+                    startLocation = document.getElementById('roomInput').value; // Change the variable
+                    console.log('Variable changed to:', startLocation); // Log the new value
+                });
+            </script>
         </div>
     </div>
 

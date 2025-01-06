@@ -970,6 +970,16 @@ function closeQR() {
     document.getElementById("darken").style.display = "none";
 }
 
+function locWindow() {
+    document.querySelector(".location-window").style.display = "flex";
+    document.getElementById("darken").style.display = "block";
+}
+
+function closeLocWindow() {
+    document.querySelector(".location-window").style.display = "none";
+    document.getElementById("darken").style.display = "none";
+}
+
 
 updateTime();
 getSchoolHour();

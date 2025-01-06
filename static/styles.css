@@ -37,16 +37,17 @@ body {
     font-size: 2.5vh;
 }
 .roomInput {
+    display: none;
     margin: 1vh;
     border-radius: 3vh;
-    width: 15vw;
+    width: 24vw;
     font-weight: 700;
     font-size: x-large;
     text-align: center;
     background-color: #d9d9d9;
     font-family: Inter, sans-serif;
     border: none;
-    height: 3vh;
+    height: 5vh;
 }
 .close-button {
     display: none;
@@ -638,6 +639,24 @@ body {
     padding: 1vh;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }
+.location-window {
+    display: none;
+    position: absolute;
+    width: 70vw;
+    left: 15vw;
+    height: 20vh;
+    bottom: 35vh;
+    background-color: #2f2f2f;
+    z-index: 10;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5pc;
+    font-size: 5vh;
+    color: white;
+    padding: 1vh;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
 .coming-soon button {
     width: 25vw;
     height: 7vh;
@@ -824,6 +843,9 @@ body {
 
 /*mobile-small*/
 @media (max-width: 759px) {
+    .roomInput {
+        display: block;
+    }
     .locationForm {
         display: flex;
         align-items: center;
