@@ -844,7 +844,7 @@ function displayRoute(route) {
                     const bbox = startLabel.getBBox();
                     const startrect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
                     startrect.setAttribute('x', startX - 16);
-                    startrect.setAttribute('y', 81);
+                    startrect.setAttribute('y', startY - 16);
                     startrect.setAttribute('width', 28);
                     startrect.setAttribute('height', 8);
                     startrect.setAttribute('fill', 'white');
