@@ -789,10 +789,13 @@ function clearMap() {
         wayPointBackgrounds.forEach(element => element.remove());
 
         document.getElementById("route-options").style.display = "none";
+        document.getElementById("patrobutton" + i).style.display = "none";
     }
 }
 
 function displayRoute(route) {
+    const floors = []; // Array to store the floors
+
     for (let i = 0; i <= 4; i++) {
         const svgEmbed = document.getElementById(`patro${i}`);
         const originalDisplay = svgEmbed.style.display;
@@ -806,58 +809,64 @@ function displayRoute(route) {
             for (let j = 0; j < route.length - 1; j++) {
                 //spojí dva body čarou
                 drawLine(svgDoc, route[j], route[j + 1]);
+            }
 
-                //označí start
-                const startELement = svgDoc.getElementById(route[0]);
-                if (startELement) {
-                    const startBBox = startELement.getBBox();
-                    const startX = startBBox.x + startBBox.width / 2;
-                    const startY = startBBox.y + startBBox.height / 2;
+            // Add the floor to the array if it is part of the route
+            if (route.some(point => svgDoc.getElementById(point))) {
+                floors.push(i);
+                document.getElementById("patrobutton" + i).style.display = "block";
+            }
 
-                    const startCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-                    startCircle.setAttribute('cx', startX);
-                    startCircle.setAttribute('cy', startY);
-                    startCircle.setAttribute('r', 2);
-                    startCircle.setAttribute('fill', '#d24b49');
-                    startCircle.setAttribute('id', 'wayPoint');
+            //označí start
+            const startELement = svgDoc.getElementById(route[0]);
+            if (startELement) {
+                const startBBox = startELement.getBBox();
+                const startX = startBBox.x + startBBox.width / 2;
+                const startY = startBBox.y + startBBox.height / 2;
 
-                    svgDoc.documentElement.appendChild(startCircle);
+                const startCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                startCircle.setAttribute('cx', startX);
+                startCircle.setAttribute('cy', startY);
+                startCircle.setAttribute('r', 2);
+                startCircle.setAttribute('fill', '#d24b49');
+                startCircle.setAttribute('id', 'wayPoint');
 
-                    const innerCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-                    innerCircle.setAttribute('cx', startX);
-                    innerCircle.setAttribute('cy', startY);
-                    innerCircle.setAttribute('r', 1);
-                    innerCircle.setAttribute('fill', '#fff');
-                    innerCircle.setAttribute('id', 'wayPoint');
+                svgDoc.documentElement.appendChild(startCircle);
 
-                    svgDoc.documentElement.appendChild(innerCircle);
+                const innerCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                innerCircle.setAttribute('cx', startX);
+                innerCircle.setAttribute('cy', startY);
+                innerCircle.setAttribute('r', 1);
+                innerCircle.setAttribute('fill', '#fff');
+                innerCircle.setAttribute('id', 'wayPoint');
 
-                    const startLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-                    startLabel.setAttribute('x', startX - 15);
-                    startLabel.setAttribute('y', startY - 10);
-                    startLabel.setAttribute('font-size', 6);
-                    startLabel.setAttribute('fill', '#2f2f2f');
-                    startLabel.textContent = 'Zde stojíte';
-                    startLabel.setAttribute('id', 'wayPoint');
+                svgDoc.documentElement.appendChild(innerCircle);
 
-                    // Create a rect background for the startLabel
-                    const bbox = startLabel.getBBox();
-                    const startrect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-                    startrect.setAttribute('x', startX - 16);
-                    startrect.setAttribute('y', startY - 16);
-                    startrect.setAttribute('width', 28);
-                    startrect.setAttribute('height', 8);
-                    startrect.setAttribute('fill', 'white');
-                    startrect.setAttribute('id', 'wayPointBackground');
-                    startrect.setAttribute('rx', 2); // Zaoblene rohy
-                    startrect.setAttribute('ry', 2); // Zaoblene rohy
-                    startrect.setAttribute('stroke', 'black');
-                    startrect.setAttribute('stroke-width', 0.2); 
+                const startLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                startLabel.setAttribute('x', startX - 15);
+                startLabel.setAttribute('y', startY - 10);
+                startLabel.setAttribute('font-size', 6);
+                startLabel.setAttribute('fill', '#2f2f2f');
+                startLabel.textContent = 'Zde stojíte';
+                startLabel.setAttribute('id', 'wayPoint');
 
-                    // Append the rect before the startLabel
-                    svgDoc.documentElement.appendChild(startrect);
-                    svgDoc.documentElement.appendChild(startLabel);
-                }
+                // Create a rect background for the startLabel
+                const bbox = startLabel.getBBox();
+                const startrect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                startrect.setAttribute('x', startX - 16);
+                startrect.setAttribute('y', startY - 16);
+                startrect.setAttribute('width', 28);
+                startrect.setAttribute('height', 8);
+                startrect.setAttribute('fill', 'white');
+                startrect.setAttribute('id', 'wayPointBackground');
+                startrect.setAttribute('rx', 2); // Zaoblene rohy
+                startrect.setAttribute('ry', 2); // Zaoblene rohy
+                startrect.setAttribute('stroke', 'black');
+                startrect.setAttribute('stroke-width', 0.2); 
+
+                // Append the rect before the startLabel
+                svgDoc.documentElement.appendChild(startrect);
+                svgDoc.documentElement.appendChild(startLabel);
             }
 
             //označí cíl
@@ -918,6 +927,7 @@ function displayRoute(route) {
 
         svgEmbed.style.display = originalDisplay; // Revert the display property back to its original value
     }
+    console.log('floors:', floors);
 }
 
 //Navigace

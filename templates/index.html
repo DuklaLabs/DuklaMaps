@@ -82,45 +82,59 @@
                         <h1 style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;">Patra:</h1>
                         <div class="patra-buttons">
                             <button onclick="showFloor(0)" class="patro">
-                                <div class="patro-number">3</div>
-                                <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                                <div class="patro-name">patro</div>
+                                <div style="display: flex;">
+                                    <div class="patro-number">3</div>
+                                    <div class="patro-name">patro</div>
+                                </div>
+                                <div class="usedfloor" id="patrobutton0"></div>
                             </button>
                             <button onclick="showFloor(1)" class="patro">
-                                <div class="patro-number">2</div>
-                                <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                                <div class="patro-name">patro</div>
+                                <div style="display: flex;">
+                                    <div class="patro-number">2</div>
+                                    <div class="patro-name">patro</div>
+                                </div>
+                                <div class="usedfloor" id="patrobutton1"></div>
                             </button>
                             <button onclick="showFloor(2)" class="patro">
-                                <div class="patro-number">1</div>
-                                <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                                <div class="patro-name">patro</div>
+                                <div style="display: flex;">
+                                    <div class="patro-number">1</div>
+                                    <div class="patro-name">patro</div>
+                                </div>
+                                <div class="usedfloor" id="patrobutton2"></div>
                             </button>
                             <button onclick="showFloor(3)" class="patro selected">
-                                <div class="patro-number">0</div>
-                                <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                                <div class="patro-name">přízemí</div>
+                                <div style="display: flex;">
+                                    <div class="patro-number">0</div>
+                                    <div class="patro-name">přízemí</div>
+                                </div>
+                                <div class="usedfloor" id="patrobutton3"></div>
                             </button>
                             <button onclick="showFloor(4)" class="patro">
-                                <div class="patro-number">-1</div>
-                                <div style="width: 1vh;"></div> <!-- Menší mezera -->
-                                <div class="patro-name">šatny</div>
+                                <div style="display: flex;">
+                                    <div class="patro-number">-1</div>
+                                    <div class="patro-name">šatny</div>
+                                </div>
+                                <div class="usedfloor" id="patrobutton4"></div>
                             </button>
                         </div>                    
                     </div>                
                     <div class="patra">
                         <h1 style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;">Dílny:</h1>
                         <div class="patra-buttons">
-                        <button onclick="comingSoon()" class="patro">
-                            <div class="patro-number">1</div>
-                            <div style="width: 1vh;"></div>
-                            <div class="patro-name">patro</div>
-                        </button>
-                        <button onclick="comingSoon()" class="patro">
-                            <div class="patro-number">0</div>
-                            <div style="width: 1vh;"></div>
-                            <div class="patro-name">přízemí</div>
-                        </button>
+                            <button onclick="comingSoon()" class="patro">
+                                <div style="display: flex;">
+                                    <div class="patro-number">1</div>
+                                    <div class="patro-name">patro</div>
+                                </div>
+                                <div class="usedfloor" id="patrobutton"></div>
+                            </button>
+                            <button onclick="comingSoon()" class="patro">
+                                <div style="display: flex;">
+                                    <div class="patro-number">0</div>
+                                    <div class="patro-name">přízemí</div>
+                                </div>
+                                <div class="usedfloor" id="patrobutton"></div>
+                            </button>
                         </div>
                     </div>
                 </div>
