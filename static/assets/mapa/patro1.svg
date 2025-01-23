@@ -28,7 +28,7 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg2029" />
+     inkscape:current-layer="nodes" />
   <desc
      id="desc1">Produce by Acme CAD Converter</desc>
   <g
@@ -12217,284 +12217,288 @@
        stroke-width="0.526294"
        id="path1-4" />
   </g>
-  <rect
-     style="fill:#00ff00"
-     id="107"
-     width="1"
-     height="1"
-     x="152.00999"
-     y="79.825256" />
-  <rect
-     style="fill:#00ff00"
-     id="118"
-     width="1"
-     height="1"
-     x="197"
-     y="114" />
-  <rect
-     style="fill:#00ff00"
-     id="117"
-     width="1"
-     height="1"
-     x="184"
-     y="111" />
-  <rect
-     style="fill:#00ff00"
-     id="115"
-     width="1"
-     height="1"
-     x="461"
-     y="191" />
-  <rect
-     style="fill:#00ff00"
-     id="113"
-     width="1"
-     height="1"
-     x="384.30429"
-     y="158.0625" />
-  <rect
-     style="fill:#00ff00"
-     id="114"
-     width="1"
-     height="1"
-     x="436.61523"
-     y="170.12524" />
-  <rect
-     style="fill:#00ff00"
-     id="111"
-     width="1"
-     height="1"
-     x="313.65518"
-     y="134.27411" />
-  <rect
-     style="fill:#00ff00"
-     id="112"
-     width="1"
-     height="1"
-     x="330.41159"
-     y="140.03024" />
-  <rect
-     style="fill:#00ff00"
-     id="116"
-     width="1"
-     height="1"
-     x="143.97496"
-     y="117.32025" />
-  <rect
-     style="fill:#00ff00"
-     id="108"
-     width="1"
-     height="1"
-     x="185.58"
-     y="91.152107" />
-  <rect
-     style="fill:#ff0000"
-     id="wc1"
-     width="1"
-     height="1"
-     x="249.86629"
-     y="112.10584" />
-  <rect
-     style="fill:#00ff00"
-     id="106"
-     width="1"
-     height="1"
-     x="116.22"
-     y="79.825256" />
-  <rect
-     style="fill:#00ff00"
-     id="105"
-     width="1"
-     height="1"
-     x="87.525078"
-     y="67.60025" />
-  <rect
-     style="fill:#00ff00"
-     id="103"
-     width="1"
-     height="1"
-     x="57.089882"
-     y="73.755333" />
-  <rect
-     style="fill:#00ff00"
-     id="104"
-     width="1"
-     height="1"
-     x="57.089882"
-     y="68.100258" />
-  <rect
-     style="fill:#00ff00"
-     id="102"
-     width="1"
-     height="1"
-     x="56.589882"
-     y="105.37025" />
-  <rect
-     style="fill:#00ffff"
-     id="start"
-     width="1"
-     height="1"
-     x="87.525078"
-     y="96.230423" />
-  <rect
-     style="fill:#00ffff"
-     id="h3"
-     width="1"
-     height="1"
-     x="71.870003"
-     y="129.59026" />
-  <rect
-     style="fill:#00ffff"
-     id="1c5"
-     width="1"
-     height="1"
-     x="71.875"
-     y="118.38525" />
-  <rect
-     style="fill:#00ffff"
-     id="s37"
-     width="1"
-     height="1"
-     x="87.559998"
-     y="118.38525" />
-  <rect
-     style="fill:#00ffff"
-     id="s33"
-     width="1"
-     height="1"
-     x="56.190002"
-     y="118.38525" />
-  <rect
-     style="fill:#00ffff"
-     id="s34"
-     width="1"
-     height="1"
-     x="56.190002"
-     y="150.22025" />
-  <rect
-     style="fill:#00ffff"
-     id="s38"
-     width="1"
-     height="1"
-     x="87.559998"
-     y="150.22025" />
-  <rect
-     style="fill:#00ffff"
-     id="s35"
-     width="1"
-     height="1"
-     x="71.875"
-     y="150.22025" />
-  <rect
-     style="fill:#00ffff"
-     id="h1"
-     width="1"
-     height="1"
-     x="71.870003"
-     y="139.48026" />
-  <rect
-     style="fill:#00ffff"
-     id="1c4"
-     width="1"
-     height="1"
-     x="87.525078"
-     y="79.825256" />
-  <rect
-     style="fill:#00ffff"
-     id="1c6"
-     width="1"
-     height="1"
-     x="395.80847"
-     y="161.9397" />
-  <rect
-     style="fill:#00ffff"
-     id="1c7"
-     width="1"
-     height="1"
-     x="428.31"
-     y="166.80025" />
-  <rect
-     style="fill:#00ffff"
-     id="1c3"
-     width="1"
-     height="1"
-     x="185"
-     y="108" />
-  <rect
-     style="fill:#00ffff"
-     id="1c2"
-     width="1"
-     height="1"
-     x="160.97382"
-     y="99.714874" />
-  <rect
-     style="fill:#00ffff"
-     id="1c1"
-     width="1"
-     height="1"
-     x="167.11501"
-     y="84.676208" />
-  <rect
-     style="fill:#00ff00"
-     id="D9"
-     width="1"
-     height="1"
-     x="461.0293"
-     y="197.47279" />
-  <rect
-     style="fill:#00ffff"
-     id="s8"
-     width="1"
-     height="1"
-     x="421.00626"
-     y="157.36205" />
-  <rect
-     style="fill:#00ffff"
-     id="s9"
-     width="1"
-     height="1"
-     x="432.09378"
-     y="128.07808" />
-  <rect
-     style="fill:#00ffff"
-     id="h4"
-     width="1"
-     height="1"
-     x="424.92499"
-     y="125.64651" />
-  <rect
-     style="fill:#00ffff"
-     id="1c9"
-     width="1"
-     height="1"
-     x="403.97375"
-     y="164.70782" />
-  <rect
-     style="fill:#00ffff"
-     id="s40"
-     width="1"
-     height="1"
-     x="419.16174"
-     y="122.07654" />
-  <rect
-     style="fill:#00ffff"
-     id="h2"
-     width="1"
-     height="1"
-     x="425.42499"
-     y="124.11644" />
-  <rect
-     style="fill:#00ffff"
-     id="s39"
-     width="1"
-     height="1"
-     x="409.35501"
-     y="153.40399" />
-  <rect
-     style="fill:#00ffff"
-     id="1c8"
-     width="1"
-     height="1"
-     x="71.875"
-     y="105.37025" />
+  <g
+     id="nodes"
+     style="display:none">
+    <rect
+       style="fill:#00ff00"
+       id="107"
+       width="1"
+       height="1"
+       x="152.00999"
+       y="79.825256" />
+    <rect
+       style="fill:#00ff00"
+       id="118"
+       width="1"
+       height="1"
+       x="197"
+       y="114" />
+    <rect
+       style="fill:#00ff00"
+       id="117"
+       width="1"
+       height="1"
+       x="184"
+       y="111" />
+    <rect
+       style="fill:#00ff00"
+       id="115"
+       width="1"
+       height="1"
+       x="461"
+       y="191" />
+    <rect
+       style="fill:#00ff00"
+       id="113"
+       width="1"
+       height="1"
+       x="384.30429"
+       y="158.0625" />
+    <rect
+       style="fill:#00ff00"
+       id="114"
+       width="1"
+       height="1"
+       x="436.61523"
+       y="170.12524" />
+    <rect
+       style="fill:#00ff00"
+       id="111"
+       width="1"
+       height="1"
+       x="313.65518"
+       y="134.27411" />
+    <rect
+       style="fill:#00ff00"
+       id="112"
+       width="1"
+       height="1"
+       x="330.41159"
+       y="140.03024" />
+    <rect
+       style="fill:#00ff00"
+       id="116"
+       width="1"
+       height="1"
+       x="143.97496"
+       y="117.32025" />
+    <rect
+       style="fill:#00ff00"
+       id="108"
+       width="1"
+       height="1"
+       x="185.58"
+       y="91.152107" />
+    <rect
+       style="fill:#ff0000"
+       id="wc1"
+       width="1"
+       height="1"
+       x="249.86629"
+       y="112.10584" />
+    <rect
+       style="fill:#00ff00"
+       id="106"
+       width="1"
+       height="1"
+       x="116.22"
+       y="79.825256" />
+    <rect
+       style="fill:#00ff00"
+       id="105"
+       width="1"
+       height="1"
+       x="87.525078"
+       y="67.60025" />
+    <rect
+       style="fill:#00ff00"
+       id="103"
+       width="1"
+       height="1"
+       x="57.089882"
+       y="73.755333" />
+    <rect
+       style="fill:#00ff00"
+       id="104"
+       width="1"
+       height="1"
+       x="57.089882"
+       y="68.100258" />
+    <rect
+       style="fill:#00ff00"
+       id="102"
+       width="1"
+       height="1"
+       x="56.589882"
+       y="105.37025" />
+    <rect
+       style="fill:#00ffff"
+       id="start"
+       width="1"
+       height="1"
+       x="87.525078"
+       y="96.230423" />
+    <rect
+       style="fill:#00ffff"
+       id="h3"
+       width="1"
+       height="1"
+       x="71.870003"
+       y="129.59026" />
+    <rect
+       style="fill:#00ffff"
+       id="1c5"
+       width="1"
+       height="1"
+       x="71.875"
+       y="118.38525" />
+    <rect
+       style="fill:#00ffff"
+       id="s37"
+       width="1"
+       height="1"
+       x="87.559998"
+       y="118.38525" />
+    <rect
+       style="fill:#00ffff"
+       id="s33"
+       width="1"
+       height="1"
+       x="56.190002"
+       y="118.38525" />
+    <rect
+       style="fill:#00ffff"
+       id="s34"
+       width="1"
+       height="1"
+       x="56.190002"
+       y="150.22025" />
+    <rect
+       style="fill:#00ffff"
+       id="s38"
+       width="1"
+       height="1"
+       x="87.559998"
+       y="150.22025" />
+    <rect
+       style="fill:#00ffff"
+       id="s35"
+       width="1"
+       height="1"
+       x="71.875"
+       y="150.22025" />
+    <rect
+       style="fill:#00ffff"
+       id="h1"
+       width="1"
+       height="1"
+       x="71.870003"
+       y="139.48026" />
+    <rect
+       style="fill:#00ffff"
+       id="1c4"
+       width="1"
+       height="1"
+       x="87.525078"
+       y="79.825256" />
+    <rect
+       style="fill:#00ffff"
+       id="1c6"
+       width="1"
+       height="1"
+       x="395.80847"
+       y="161.9397" />
+    <rect
+       style="fill:#00ffff"
+       id="1c7"
+       width="1"
+       height="1"
+       x="428.31"
+       y="166.80025" />
+    <rect
+       style="fill:#00ffff"
+       id="1c3"
+       width="1"
+       height="1"
+       x="185"
+       y="108" />
+    <rect
+       style="fill:#00ffff"
+       id="1c2"
+       width="1"
+       height="1"
+       x="160.97382"
+       y="99.714874" />
+    <rect
+       style="fill:#00ffff"
+       id="1c1"
+       width="1"
+       height="1"
+       x="167.11501"
+       y="84.676208" />
+    <rect
+       style="fill:#00ff00"
+       id="D9"
+       width="1"
+       height="1"
+       x="461.0293"
+       y="197.47279" />
+    <rect
+       style="fill:#00ffff"
+       id="s8"
+       width="1"
+       height="1"
+       x="421.00626"
+       y="157.36205" />
+    <rect
+       style="fill:#00ffff"
+       id="s9"
+       width="1"
+       height="1"
+       x="432.09378"
+       y="128.07808" />
+    <rect
+       style="fill:#00ffff"
+       id="h4"
+       width="1"
+       height="1"
+       x="424.92499"
+       y="125.64651" />
+    <rect
+       style="fill:#00ffff"
+       id="1c9"
+       width="1"
+       height="1"
+       x="403.97375"
+       y="164.70782" />
+    <rect
+       style="fill:#00ffff"
+       id="s40"
+       width="1"
+       height="1"
+       x="419.16174"
+       y="122.07654" />
+    <rect
+       style="fill:#00ffff"
+       id="h2"
+       width="1"
+       height="1"
+       x="425.42499"
+       y="124.11644" />
+    <rect
+       style="fill:#00ffff"
+       id="s39"
+       width="1"
+       height="1"
+       x="409.35501"
+       y="153.40399" />
+    <rect
+       style="fill:#00ffff"
+       id="1c8"
+       width="1"
+       height="1"
+       x="71.875"
+       y="105.37025" />
+  </g>
 </svg>
