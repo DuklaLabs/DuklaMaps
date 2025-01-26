@@ -652,6 +652,12 @@ function closeRoomWindow() {
 
 //získání dat z json
 function getJsonData() {
+    //přednačte všechny svg obrázky, MOŽNÁ BY TO CHTĚLO LEPŠÍ ŘEŠENÍ
+    for (let i = 0; i <= 6; i++) {
+        document.getElementById(`patro${i}`).style.display = "block";
+    }
+    showFloor(3);
+
     fetch('/jsons')
         .then(response => {
             if (!response.ok) {
@@ -710,9 +716,34 @@ function getJsonData() {
                 console.log('Rooms array is empty or not populated.');
             }
 
+            for (let i = 0; i <= 6; i++) {
+                //make svg elements clickable
+                const svgEmbed = document.getElementById(`patro${i}`);
+                const svgDoc = svgEmbed ? svgEmbed.getSVGDocument() : null; // Access the SVG document
+                /*
+                if (svgDoc) {
+                    console.log('SVG document for patro' + i + ' is available.');
+                    const pathElement = svgDoc.getElementById("u104");
+                    if (pathElement) {
+                        pathElement.addEventListener('click', function() {
+                            console.log('Clicked on patro' + i);
+                        });
+                    }
+                }*/
+                if (svgDoc) {
+                    ucebnyList.forEach((room) => {
+                        const roomElement = svgDoc.getElementById("u" + room[0]);
+                        if (roomElement) {
+                            roomElement.addEventListener('click', function() {
+                                console.log('Clicked on ' + room[0]);
+                            });
+                        }
+                    });
+                }
+            }
+
             // Call function to generate table
             generateRoomsTable(ucebnyList, dilnyList);
-
 
         })
         .catch(error => {
@@ -1069,11 +1100,6 @@ getJsonData();
 generateDocumentsTable();
 setTimeout(navigateOnStart, 2000); // zpoždění 2s, aby se stihly načíst data
 
-//přednačte všechny svg obrázky, MOŽNÁ BY TO CHTĚLO LEPŠÍ ŘEŠENÍ
-for (let i = 0; i <= 6; i++) {
-    document.getElementById(`patro${i}`).style.display = "block";
-}
-showFloor(3);
 
 setInterval(updateTime, 10000); // Update time every 10 seconds
 setInterval(getSchoolHour, 60000); // Update school hour every 60 seconds
