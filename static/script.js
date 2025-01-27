@@ -568,6 +568,46 @@ function fetchClasses(className) {
         });
 }
 
+function fetchRooms(room) {
+    return fetch(`/rooms/${room}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        });
+}
+
+function openRoomsWindow(room) {
+    console.log('Clicked room:', room);
+    fetchRooms(room)
+        .then(data => {
+            const actual = data[0];
+
+            document.getElementById("room-window").style.display = "flex";
+            document.getElementById("darken").style.display = "block";
+            document.getElementById("room-name").innerText = room;
+            document.getElementById("rooms-ucebna").onclick = () => navigate(startLocation, room);
+            timetabletype = 'rooms';
+            timetablename = room;
+            document.getElementById("rooms-timetable").onclick = () => showTimetable(room);
+
+            if (typeof actual[schoolHour] !== 'undefined') {
+                if (actual[schoolHour][0].subject_text == '') {
+                    document.getElementById("room-actual").innerText = actual[schoolHour][0].change_info;
+                } else {
+                    document.getElementById("room-actual").innerText = actual[schoolHour][0].subject_text + " " + actual[schoolHour][0].group + ", " + actual[schoolHour][0].teacher;
+                }
+            } else {
+                console.log('Místnost právě není obsazena');
+                document.getElementById("room-actual").innerText = 'Místnost právě není obsazena';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching room data:', error);
+        });
+}
+
 //rooms table
 function generateRoomsTable(ucebnyList, dilnyList) {
     const ucebnyTable = document.getElementById('ucebnyTable');
@@ -591,45 +631,7 @@ function generateRoomsTable(ucebnyList, dilnyList) {
         row.appendChild(cell);
     });
 
-    function openRoomsWindow(room) {
-        console.log('Clicked room:', room);
-        fetchRooms(room)
-            .then(data => {
-                const actual = data[0];
-
-                document.getElementById("room-window").style.display = "flex";
-                document.getElementById("darken").style.display = "block";
-                document.getElementById("room-name").innerText = room;
-                document.getElementById("rooms-ucebna").onclick = () => navigate(startLocation, room);
-                timetabletype = 'rooms';
-                timetablename = room;
-                document.getElementById("rooms-timetable").onclick = () => showTimetable(room);
-
-                if (typeof actual[schoolHour] !== 'undefined') {
-                    if (actual[schoolHour][0].subject_text == '') {
-                        document.getElementById("room-actual").innerText = actual[schoolHour][0].change_info;
-                    } else {
-                        document.getElementById("room-actual").innerText = actual[schoolHour][0].subject_text + " " + actual[schoolHour][0].group + ", " + actual[schoolHour][0].teacher;
-                    }
-                } else {
-                    console.log('Místnost právě není obsazena');
-                    document.getElementById("room-actual").innerText = 'Místnost právě není obsazena';
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching room data:', error);
-            });
-    }
-
-    function fetchRooms(room) {
-        return fetch(`/rooms/${room}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            });
-    }
+    
 
     // Dilny
     dilnyList.forEach((room, index) => {
@@ -716,34 +718,25 @@ function getJsonData() {
                 console.log('Rooms array is empty or not populated.');
             }
 
+            // Call function to generate table
+            generateRoomsTable(ucebnyList, dilnyList);
+
             for (let i = 0; i <= 6; i++) {
                 //make svg elements clickable
                 const svgEmbed = document.getElementById(`patro${i}`);
                 const svgDoc = svgEmbed ? svgEmbed.getSVGDocument() : null; // Access the SVG document
-                /*
-                if (svgDoc) {
-                    console.log('SVG document for patro' + i + ' is available.');
-                    const pathElement = svgDoc.getElementById("u104");
-                    if (pathElement) {
-                        pathElement.addEventListener('click', function() {
-                            console.log('Clicked on patro' + i);
-                        });
-                    }
-                }*/
+
                 if (svgDoc) {
                     ucebnyList.forEach((room) => {
                         const roomElement = svgDoc.getElementById("u" + room[0]);
                         if (roomElement) {
                             roomElement.addEventListener('click', function() {
-                                console.log('Clicked on ' + room[0]);
+                                openRoomsWindow(room[0]); 
                             });
                         }
                     });
                 }
             }
-
-            // Call function to generate table
-            generateRoomsTable(ucebnyList, dilnyList);
 
         })
         .catch(error => {
