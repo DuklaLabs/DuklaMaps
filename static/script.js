@@ -142,10 +142,15 @@ function showTimetable(name) {
     document.getElementById("timetable-name").innerText = name;
     displayTimetable(timetabletype, name, 'actual');
 }
+
+let isFromMap = false; // určuje, zda bylo okno otevřeno z mapy
 function closeTimetable() {
     document.getElementById("timetable-viewer").style.display = "none";
-    document.getElementById("close-button").style.display = "flex";
     document.getElementById("close-timetable").style.display = "none";
+    if (isFromMap == false) {
+        document.getElementById("close-button").style.display = "flex";
+    }
+    isFromMap = false;
 }
 
 function fetchTimetable(type, name, week) {
@@ -732,6 +737,7 @@ function getJsonData() {
                         if (roomElement) {
                             roomElement.addEventListener('click', function() {
                                 openRoomsWindow(room[0]); 
+                                isFromMap = true;
                             });
                         }
                     });
