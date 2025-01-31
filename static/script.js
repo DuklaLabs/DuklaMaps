@@ -361,6 +361,7 @@ function openTeacherWindow(teacher) {
             document.getElementById("teachers-ucebna").style.display = 'flex'; // show the classroom button again
             document.getElementById("darken").style.display = "block";
             document.getElementById("teacher-name").innerText = teacher;
+            document.getElementById("teacher-room-name").innerText = "";
             document.getElementById("teachers-cabinet").onclick = () => navigateKabinet(teacher);
             timetabletype = 'teachers';
             timetablename = teacher;
@@ -962,6 +963,7 @@ function displayRoute(route) {
 
 //Navigace
 function navigate(start, destination) {
+    clearMap();
     fetchRoute(start, destination)
         .then(route => {
             console.log(route);
@@ -973,6 +975,11 @@ function navigate(start, destination) {
         })
         .catch(error => {
             console.error('Error fetching route:', error);
+            closeTeacherWindow();
+            closeClassWindow();
+            closeRoomWindow();
+            comingSoon();
+            clearMap();
         });
         document.getElementById("destination-name").innerText = destination + ":";
         //generateQRcode

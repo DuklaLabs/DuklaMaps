@@ -40,7 +40,7 @@ body {
     display: none;
     margin: 1vh;
     border-radius: 3vh;
-    width: 24vw;
+    width: 25vw;
     font-weight: 700;
     font-size: x-large;
     text-align: center;
@@ -656,7 +656,7 @@ body {
     position: absolute;
     width: 70vw;
     left: 15vw;
-    height: 20vh;
+    height: 25vh;
     bottom: 35vh;
     background-color: #2f2f2f;
     z-index: 10;
