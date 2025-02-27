@@ -1098,6 +1098,52 @@ function closeLocWindow() {
     document.querySelector(".location-window").style.display = "none";
     document.getElementById("darken").style.display = "none";
 }
+/*
+let idleTime = 0;
+const idleLimit = 10; // Čas v sekundách před přesměrováním
+
+// Získání hostname a pathname klienta
+const hostname = window.location.hostname;
+const pathname = window.location.pathname;
+
+// Regulární výraz pro detekci "table<číslo>"
+const tableMatch = pathname.match(/^\/table(\d+)$/);
+
+let idleUrl = "/idle";  // Výchozí URL pro neaktivní režim
+let activeUrl = pathname; // Výchozí URL pro návrat
+
+if (tableMatch) {
+    const tableNumber = tableMatch[1]; // Extrahujeme číslo ze jména
+    idleUrl = `/idle/table${tableNumber}`;  // Přesměrování na neaktivní stránku
+    activeUrl = `/table${tableNumber}`;  // Návrat na původní stránku
+}
+
+// Funkce pro resetování časovače a návrat na aktivní stránku
+function resetTimer() {
+    if (window.location.pathname.startsWith("/idle")) {
+        window.location.href = activeUrl; // Návrat na původní stránku
+    }
+    idleTime = 0;
+}
+
+// Funkce pro kontrolu neaktivity
+function checkIdleTime() {
+    idleTime++;
+    if (idleTime >= idleLimit) {
+        window.location.href = idleUrl;
+    }
+}
+
+//detekce aktivity
+document.addEventListener('mousemove', resetTimer);
+document.addEventListener('keypress', resetTimer);
+document.addEventListener('touchstart', resetTimer);
+document.addEventListener('touchmove', resetTimer);
+document.addEventListener('touchend', resetTimer);
+
+// Interval pro kontrolu neaktivity
+setInterval(checkIdleTime, 1000); // Každou sekundu se kontroluje neaktivita
+*/
 
 
 updateTime();
