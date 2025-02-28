@@ -645,6 +645,7 @@
         {
             "id": 302,
             "neighbors": [
+                {"id": "wc4", "distance": 10},
                 {"id": 303, "distance": 10},
                 {"id": 305, "distance": 10},
                 {"id": "3c1", "distance": 10},
@@ -696,6 +697,7 @@
         {
             "id": "wc4",
             "neighbors": [
+                {"id": 302, "distance": 10},
                 {"id": 303, "distance": 15},
                 {"id": 304, "distance": 15},
                 {"id": "3c1", "distance": 10},

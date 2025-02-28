@@ -50,11 +50,11 @@ def find_wc(start):
     print("nearest wc: ", wc)  # Print the nearest WC to the console
     return jsonify(wc)
 
-@app.route('/dukla_data')
-def get_dukla_data():
-    with open('static/dukla_data.json', encoding='utf-8') as json_file:
-        dukla_data = json.load(json_file)
-    return jsonify(dukla_data)
+@app.route('/data')
+def get_data():
+    with open('static/data.json', encoding='utf-8') as json_file:
+        data = json.load(json_file)
+    return jsonify(data)
 
 @app.route('/getTimetable/<string:type>/<string:name>/<string:week>')
 def get_timetable(type, name, week):

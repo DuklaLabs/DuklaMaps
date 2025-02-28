@@ -325,7 +325,7 @@ function generateTeachersTable(teachersList) {
 }
 
 function fetchDuklaData() {
-    return fetch(`/dukla_data`)
+    return fetch(`/data`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -1076,6 +1076,15 @@ function comingSoon() {
 }
 function closeComingSoon() {
     document.querySelector(".coming-soon").style.display = "none";
+    document.getElementById("darken").style.display = "none";
+}
+
+function credits() {
+    document.querySelector(".credits").style.display = "flex";
+    document.getElementById("darken").style.display = "block";
+}
+function closeCredits() {
+    document.querySelector(".credits").style.display = "none";
     document.getElementById("darken").style.display = "none";
 }
 

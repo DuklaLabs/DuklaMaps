@@ -75,7 +75,7 @@
                 <div id="route-options" class="route-options">
                     <h1 id="destination-name" style="font-size: 4.2vh; margin-bottom: 0vh; margin-top: 0vh;"></h1>
                     <div class="routeButton" onclick="clearMap()">Zavřít trasu</div>
-                    <div class="QrButton" onclick="QRwindow()">Zobrazit v telefonu</div>
+                    <div class="QrButton" onclick="QRwindow()">Otevřít v telefonu</div>
                 </div>
                 <div class="patradilny">
                     <div class="patra">
@@ -320,11 +320,38 @@
             </div>
         </div>
         
-        <div id="darken" onclick="closeTeacherWindow(), closeClassWindow(), closeRoomWindow(), closeComingSoon(), closeQR(), closeLocWindow()"></div>
+        <div id="darken" onclick="closeTeacherWindow(), closeClassWindow(), closeRoomWindow(), closeComingSoon(), closeQR(), closeLocWindow(), closeCredits()"></div>
 
         <div class="coming-soon">
             Coming soon
             <button onclick="closeComingSoon()">OK</button>
+        </div>
+
+        <div class="credits">
+            <div style="display: flex; width: -webkit-fill-available; justify-content: space-between;">
+                <div></div>
+                <div>
+                    DuklaLabs
+                </div>
+                <div>
+                    <img src="../static/assets/ExitButton.svg" onclick="closeCredits()">
+                </div>
+            </div>
+            <div>
+                <div style="font-size: x-large;">
+                    Matěj Ferebauer
+                </div>
+                <div style="font-size: x-large;">
+                    Pro více info se obraťte na DuklaLabs CEO - Jan Petrášek
+                </div>
+            </div>
+            <div style="display: flex; width: -webkit-fill-available; justify-content: space-between; align-items: flex-end;">
+                <div>
+                    <img src="../static/assets/spsse.svg">
+                    <img src="../static/assets/DuklaLabs.svg">
+                </div>
+                <img style="height: 15vh; border-radius: 1.5vh;" src="../static/assets/qrcode_labs.spssecb.cz.png">
+            </div>
         </div>
 
         <div class="QR-window">
@@ -364,7 +391,8 @@
             <div style="height: 5vh; width: 5vh; border-width: 0.3vh;" onclick="zoom('+')">+</div>
             <div style="height: 5vh; width: 5vh; border-width: 0.3vh;" onclick="zoom('-')">-</div>
         </div>
-        <a class="logo-button" onclick="comingSoon()"><img src="../static/assets/CreditsButton.svg"></a>
+        <a class="logo-button" onclick="credits()"><img src="../static/assets/CreditsButton.svg"></a>
+        <a class="logo-button-mobile"><img src="../static/assets/CreditsButton.svg"></a>
     </nav>
 
     <script>
