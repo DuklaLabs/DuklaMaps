@@ -18,15 +18,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="2.603125"
-     inkscape:cx="271.02041"
-     inkscape:cy="192.65306"
+     inkscape:zoom="5.20625"
+     inkscape:cx="50.516207"
+     inkscape:cy="100.7443"
      inkscape:window-width="1920"
-     inkscape:window-height="986"
-     inkscape:window-x="-11"
-     inkscape:window-y="-11"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg1515" />
+     inkscape:current-layer="g1" />
   <defs
      id="defs1515" />
   <desc
@@ -736,10 +736,10 @@
        stroke-width="0.5"
        id="path119" />
     <path
-       d="M 46.36,64.506983 H 6.31"
+       d="M 67.75,64.506983 H 6.31"
        fill="none"
        stroke="#000000"
-       stroke-width="0.5"
+       stroke-width="0.619291"
        id="path120" />
     <path
        d="m 6.31,64.506983 v 5.92 z"
@@ -754,12 +754,6 @@
        stroke-width="0.5"
        id="path122" />
     <path
-       d="m 6.31,85.156983 v 2.24 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path123" />
-    <path
        d="m 6.31,88.336983 v 0.81 z"
        fill="none"
        stroke="#000000"
@@ -772,16 +766,10 @@
        stroke-width="0.5"
        id="path125" />
     <path
-       d="m 6.31,103.86698 v 4.93 z"
+       d="m 6.31,103.61698 v 54.65 z"
        fill="none"
        stroke="#000000"
-       stroke-width="0.5"
-       id="path126" />
-    <path
-       d="m 6.31,109.73698 v 48.53 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
+       stroke-width="0.530591"
        id="path127" />
     <path
        d="M 6.31,158.26698 H 62.7"
@@ -813,12 +801,6 @@
        stroke="#000000"
        stroke-width="0.5"
        id="path132" />
-    <path
-       d="M 68,64.506983 H 49.48"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path133" />
     <path
        d="m 82.79,159.20698 h -5.3"
        fill="none"
@@ -921,96 +903,6 @@
        stroke="#000000"
        stroke-width="0.5"
        id="path150" />
-    <path
-       d="M 6.31,109.73698 H 49.48"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path151" />
-    <path
-       d="m 49.48,109.73698 v -7.49 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path152" />
-    <path
-       d="m 49.48,95.696983 v -9.67 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path153" />
-    <path
-       d="m 49.48,86.026983 h 0.81"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path154" />
-    <path
-       d="m 50.29,86.026983 v -8.11 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path155" />
-    <path
-       d="M 50.29,77.916983 H 49.48"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path156" />
-    <path
-       d="m 49.48,77.916983 v -3.55 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path157" />
-    <path
-       d="m 49.48,67.806983 v -3.3 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path158" />
-    <path
-       d="M 6.31,108.79698 H 46.36"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path159" />
-    <path
-       d="m 46.36,108.79698 v -6.55 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path160" />
-    <path
-       d="m 46.36,95.696983 v -7.36 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path161" />
-    <path
-       d="m 46.36,87.396983 v -13.03 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path162" />
-    <path
-       d="m 46.36,67.806983 v -3.3 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path163" />
-    <path
-       d="M 46.36,88.336983 H 6.31"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path164" />
-    <path
-       d="M 46.36,87.396983 H 6.31"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path165" />
     <path
        d="m 84.16,62.006983 v -44.98 z"
        fill="none"
@@ -2338,126 +2230,6 @@
        stroke-width="0.5"
        id="path399" />
     <path
-       d="m 46.36,95.696983 v 0.31 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path408" />
-    <path
-       d="m 46.36,96.006983 h 3.12"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path409" />
-    <path
-       d="m 49.48,96.006983 v -0.31 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path410" />
-    <path
-       d="m 46.36,102.24698 v -0.31 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path411" />
-    <path
-       d="m 46.36,101.93698 h 3.12"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path412" />
-    <path
-       d="m 49.48,101.93698 v 0.31 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path413" />
-    <path
-       d="m 46.36,95.696983 h 3.12"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path414" />
-    <path
-       d="m 46.36,102.24698 h 3.12"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path415" />
-    <path
-       d="M 49.48,101.93698 A 5.926,5.926 0 0 0 55.4,96.006983"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path416" />
-    <path
-       d="M 49.48,96.006983 H 55.4"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path417" />
-    <path
-       d="m 46.36,67.806983 v 0.32 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path418" />
-    <path
-       d="m 46.36,68.126983 h 3.12"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path419" />
-    <path
-       d="m 49.48,68.126983 v -0.32 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path420" />
-    <path
-       d="m 46.36,74.366983 v -0.32 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path421" />
-    <path
-       d="m 46.36,74.046983 h 3.12"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path422" />
-    <path
-       d="m 49.48,74.046983 v 0.32 z"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path423" />
-    <path
-       d="m 46.36,67.806983 h 3.12"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path424" />
-    <path
-       d="m 46.36,74.366983 h 3.12"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path425" />
-    <path
-       d="m 49.48,74.046983 a 5.926,5.926 0 0 0 5.92,-5.92"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path426" />
-    <path
-       d="M 49.48,68.126983 H 55.4"
-       fill="none"
-       stroke="#000000"
-       stroke-width="0.5"
-       id="path427" />
-    <path
        d="M 6.31,98.506983 H 3.75"
        fill="none"
        stroke="#000000"
@@ -2524,10 +2296,10 @@
        stroke-width="0.5"
        id="path438" />
     <path
-       d="m 6.31,89.146983 v 5.36 z"
+       d="m 6.31,85.156983 v 9.35 z"
        fill="none"
        stroke="#000000"
-       stroke-width="0.5"
+       stroke-width="0.660379"
        id="path439" />
     <path
        d="m 3.75,75.796983 v 3.99 z"

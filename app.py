@@ -6,11 +6,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', start="start")
 
-@app.route('/navigate/<string:destination>')
-def navigate(destination):
-    return render_template('index.html', destination=destination,)
+@app.route('/start:<string:start>', defaults={'destination': None})
+@app.route('/start:<string:start>,end:<string:destination>')
+def navigate(start, destination):
+    if destination:
+        return render_template('index.html', start=start, destination=destination)
+    else:
+        return render_template('index.html', start=start)
 
 @app.route('/jsons')
 def get_json():

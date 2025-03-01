@@ -41,8 +41,6 @@ function getSchoolHour() {
         //schoolHour = 1; //nafejkovat hodinu
         //console.log('school hour:', schoolHour);
 }
-startLocation = 'start';
-//startLocation = 406;
 
 //přepínání pater
 function showFloor(floor) {
@@ -984,7 +982,7 @@ function navigate(start, destination) {
         document.getElementById("destination-name").innerText = destination + ":";
         //generateQRcode
         document.getElementById("route-options").style.display = "flex";
-        document.getElementById("QRcode").src = 'https://api.qrserver.com/v1/create-qr-code/?data=http://192.168.0.151:5000/navigate/' + destination;
+        document.getElementById("QRcode").src = 'https://api.qrserver.com/v1/create-qr-code/?data=http://192.168.0.151:5000/start:' + start + ',end:' + destination;
 }
 
 window.navigate = navigate; // Make the function available in the browser console
