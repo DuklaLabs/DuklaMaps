@@ -77,8 +77,9 @@ body {
 .name {
     color:#d3d3d3;
     font-size:5.5vh;
-    font-weight:400;
+    font-weight:550;
     margin-left: 1.5vh;
+    display: flex;
 }
 .datetime {
     color:#b2babc;
@@ -885,6 +886,9 @@ body {
         display: none;
     }
     .rozvrh-button {
+        display: none;
+    }
+    .zoom-mobile {
         display: none;
     }
 }

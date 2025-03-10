@@ -19,7 +19,10 @@
         <a class="close-button" style="margin-right: 16vw;" id="close-button" onclick="closeMenu()"><img src="../static/assets/ExitButton.svg"></a>
         <a class="close-pdf" style="margin-right: 16vw;" id="close-pdf" onclick="closePDFviewer()"><img src="../static/assets/ExitButton.svg"></a>
         <a class="close-timetable" style="margin-right: 16vw;" id="close-timetable" onclick="closeTimetable()"><img src="../static/assets/ExitButton.svg"></a>
-        <h1 class="name" id="name">DuklaMaps</h1>
+        <h1 class="name" id="name">
+            Dukla
+            <div style="font-weight: 250;">Maps</div>
+        </h1>
         
         <div class="menu-name" id="documents-name">Dokumenty</div>
         <div class="menu-name" id="teachers-name">Učitelé</div>
@@ -246,7 +249,7 @@
                 <div class="rooms-name">Ostatní</div>
                 <table class="other-table" id="otherTable">
                     <tr>
-                        <td onclick="nearestWC(startLocation)">Toalety</td>
+                        <td onclick="nearestWC(startLocation)">Nejbližší toalety</td>
                         <td onclick="navigate(startLocation, 102)">Ředitelna</td>
                         <td onclick="navigate(startLocation, 102)">Kancelář</td>
                         <!--<td onclick="navigate(105)">Správa školní pokladny, kopírování</td>-->
@@ -330,9 +333,10 @@
         <div class="credits">
             <div style="display: flex; width: -webkit-fill-available; justify-content: space-between;">
                 <div></div>
-                <div>
-                    DuklaLabs
-                </div>
+                <h1 class="name" style="margin: 0vh; align-items: center;">
+                    Dukla
+                    <div style="font-weight: 250;">Maps</div>
+                </h1>
                 <div>
                     <img src="../static/assets/ExitButton.svg" onclick="closeCredits()">
                 </div>
@@ -355,7 +359,7 @@
         </div>
 
         <div class="QR-window">
-            <img id='QRcode' src="https://api.qrserver.com/v1/create-qr-code/?data=http://192.168.0.151:5000" style="width: 100%; margin-top: 0.5vh;"/>
+            <img id='QRcode' src="" style="width: 100%; margin-top: 0.5vh;"/>
             <button onclick="closeQR()">OK</button>
         </div>
 

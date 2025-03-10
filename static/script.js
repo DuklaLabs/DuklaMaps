@@ -38,7 +38,7 @@ function getSchoolHour() {
             break;
         }}
 
-        //schoolHour = 1; //nafejkovat hodinu
+        //schoolHour = 1; //simulovat aktuální hodinu
         //console.log('school hour:', schoolHour);
 }
 
@@ -645,8 +645,8 @@ function generateRoomsTable(ucebnyList, dilnyList) {
         }
         const cell = document.createElement('td');
         cell.textContent = room[0]; // Room name
-        cell.onclick = () => comingSoon();
-        //cell.onclick = () => openRoomsWindow(room[0]);
+        //cell.onclick = () => comingSoon();
+        cell.onclick = () => openRoomsWindow(room[0]);
         row.appendChild(cell);
     });
 }
@@ -725,8 +725,8 @@ function getJsonData() {
             // Call function to generate table
             generateRoomsTable(ucebnyList, dilnyList);
 
+            //make svg elements clickable
             for (let i = 0; i <= 6; i++) {
-                //make svg elements clickable
                 const svgEmbed = document.getElementById(`patro${i}`);
                 const svgDoc = svgEmbed ? svgEmbed.getSVGDocument() : null; // Access the SVG document
 
@@ -925,7 +925,7 @@ function displayRoute(route) {
 
                 const endLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
                 endLabel.setAttribute('x', endX - 3);
-                endLabel.setAttribute('y', endY - 3);
+                endLabel.setAttribute('y', endY - 7);
                 endLabel.setAttribute('font-size', 6);
                 endLabel.setAttribute('fill', '#2f2f2f');
                 endLabel.textContent = 'Cíl';
@@ -935,7 +935,7 @@ function displayRoute(route) {
                 const bbox = endLabel.getBBox();
                 const endrect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
                 endrect.setAttribute('x', endX - 4);
-                endrect.setAttribute('y', endY - 9);
+                endrect.setAttribute('y', endY - 13);
                 endrect.setAttribute('width', 10);
                 endrect.setAttribute('height', 8);
                 endrect.setAttribute('fill', 'white');
@@ -982,7 +982,7 @@ function navigate(start, destination) {
         document.getElementById("destination-name").innerText = destination + ":";
         //generateQRcode
         document.getElementById("route-options").style.display = "flex";
-        document.getElementById("QRcode").src = 'https://api.qrserver.com/v1/create-qr-code/?data=http://192.168.0.151:5000/start:' + start + ',end:' + destination;
+        document.getElementById("QRcode").src = 'https://api.qrserver.com/v1/create-qr-code/?data=http://' + serverURL + '/start:' + start + ',end:' + destination;
 }
 
 window.navigate = navigate; // Make the function available in the browser console
@@ -1063,7 +1063,7 @@ function closeMenu() {
     document.getElementById("classes-name").style.display = "none";
     
     document.getElementById("center-container").style.display = "flex";
-    document.getElementById("name").style.display = "block";
+    document.getElementById("name").style.display = "flex";
     document.getElementById("close-button").style.display = "none";
     selectedMenu = null;    
 }
@@ -1152,6 +1152,9 @@ document.addEventListener('touchend', resetTimer);
 setInterval(checkIdleTime, 1000); // Každou sekundu se kontroluje neaktivita
 */
 
+
+
+serverURL = "192.168.0.151:5000"; //adresa serveru
 
 updateTime();
 getSchoolHour();
