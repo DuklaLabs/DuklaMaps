@@ -1,3 +1,6 @@
+serverURL = "192.168.0.151:5000"; //adresa serveru
+
+
 let teachersList = [];
 let classesList = [];
 let ucebnyList = [];
@@ -1154,7 +1157,6 @@ setInterval(checkIdleTime, 1000); // Každou sekundu se kontroluje neaktivita
 
 
 
-serverURL = "192.168.0.151:5000"; //adresa serveru
 
 updateTime();
 getSchoolHour();
