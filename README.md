@@ -10,12 +10,15 @@ Projekt je spravován členy DuklaLabs. Pro více info: www.labs.spssecb.cz
 
 ## Ukázka rozhraní:
 
-![Zobrazení trasy](images/image013.png)<br>
-![Výběr místností](images/image023.png)<br>
-![Rozvrh](images/image029.png)
+**Zobrazení trasy**<br>
+<img src="images/image013.png" alt="Zobrazení trasy" width="700"><br>
+**Výběr místností**<br>
+<img src="images/image023.png" alt="Výběr místností" width="700"><br>
+**Rozvrh**<br>
+<img src="images/image029.png" alt="Rozvrh" width="700">
 
 ## Instalace:
-**Požadavky**: Python (doporučená verze: 3.11.9), internetový prohlížeč
+**Požadavky**: Python, internetový prohlížeč
 
 1. Nainstalujte potřebné knihovny příkazem `pip install -r requirements.txt`
 2. Příkazem `python getTimetableData.py` získáte aktuální rozvrhová data. Stahování může trvat několik minut. Můžete případně rozbalit soubor `timetableData.zip`, kde ovšem nejsou aktuální data.
