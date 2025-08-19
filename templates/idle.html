@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <title>Idle</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+  <style>
+    :root{
+      --brand:#d24b49; --text:#1f2937; --muted:#6b7280; --bg:#fff; --grid:rgba(17,24,39,.06);
+
+      /* responzivní „knoby“ */
+      --pad: clamp(12px, 4vmin, 48px);
+      --gap: clamp(10px, 2.5vmin, 36px);
+      --img-h: clamp(80px, 12vmin, 160px);      /* výška log v carouselu */
+      --wrap-max: clamp(500px, 92vw, 1600px);   /* max šířka boxu */
+    }
+
+    html,body{height:100%;margin:0}
+    *{box-sizing:border-box}
+
+    /* pozadí s jemnou mřížkou */
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        linear-gradient(0deg,transparent 24%,var(--grid) 25%,var(--grid) 26%,transparent 27%,transparent 74%,var(--grid) 75%,var(--grid) 76%,transparent 77%),
+        linear-gradient(90deg,transparent 24%,var(--grid) 25%,var(--grid) 26%,transparent 27%,transparent 74%,var(--grid) 75%,var(--grid) 76%,transparent 77%),
+        var(--bg);
+      background-size:40px 40px,40px 40px,auto;
+      color:var(--text);
+      display:grid; grid-template-rows:4px 1fr auto; min-height:100%;
+    }
+
+    .brand-bar{
+      background:linear-gradient(90deg,var(--brand),#ef4444,var(--brand));
+      background-size:200% 100%; animation:slide 6s ease-in-out infinite;
+    }
+    @keyframes slide{0%{background-position:0 0}50%{background-position:100% 0}100%{background-position:0 0}}
+
+    main.center{
+      display:flex; align-items:center; justify-content:center; text-align:center;
+      padding: var(--pad);
+    }
+    .wrap{
+      width:100%; max-width: var(--wrap-max);
+      background: rgba(255,255,255,.85);
+      backdrop-filter: blur(3px);
+      border:1px solid rgba(0,0,0,.05);
+      border-radius:16px;
+      padding: var(--pad);
+      box-shadow: 0 10px 30px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.04);
+      display:grid; gap: clamp(12px, 3vmin, 28px);
+    }
+
+    .badge{
+      justify-self:center;
+      display:inline-flex; gap:.5rem; font-weight:600; font-size:clamp(12px,1.6vmin,16px);
+      color:var(--brand);
+      background:rgba(210,75,73,.08); border:1px solid rgba(210,75,73,.25);
+      padding:.35rem .6rem; border-radius:999px; user-select:none
+    }
+    .room{
+      justify-self:center;
+      font-size: clamp(38px, 4.8vmin, 36px);
+      font-weight:700; letter-spacing:.01em; margin:0;
+    }
+    h1{
+      margin:0;
+      font-size: clamp(48px, 10vmin, 96px);
+      line-height:1.05; letter-spacing:.08em; text-transform:uppercase
+    }
+    p{
+      margin:0; color:var(--muted);
+      font-size: clamp(26px, 2.6vmin, 18px);
+    }
+
+    /* ====== RESPONSIVNÍ CAROUSEL ====== */
+    .carousel{
+      width:100%;
+      overflow:hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+              mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+      justify-self:stretch;
+    }
+    .carousel__track{
+      display:flex; align-items:center; gap: var(--gap);
+      will-change: transform;
+      animation: scroll var(--duration, 40s) linear infinite;
+    }
+    .carousel__track:hover{ animation-play-state: paused; }
+
+    .carousel img{
+      height: var(--img-h); width:auto; flex:0 0 auto; object-fit:contain;
+      filter: grayscale(.05) opacity(.95);
+      transition: transform .25s, filter .25s;
+    }
+    .carousel img:hover{ transform: scale(1.04); filter:none; }
+
+    @keyframes scroll{ to { transform: translateX(-50%); } }
+
+    /* ====== SPODNÍ LOADER (brand barva) ====== */
+    footer.footer{display:flex;align-items:center;justify-content:center; padding: calc(var(--pad)/2) }
+
+    .loader{
+      height: clamp(10px, 1.6vmin, 18px);
+      aspect-ratio: 4;
+      --_g: no-repeat radial-gradient(farthest-side, var(--brand) 90%, #0000);
+      background:
+        var(--_g) left,
+        var(--_g) right;
+      background-size: 25% 100%;
+      display: grid;
+    }
+    .loader:before,
+    .loader:after {
+      content:"";
+      height: inherit;
+      aspect-ratio: 1;
+      grid-area: 1/1;
+      margin: auto;
+      border-radius: 50%;
+      transform-origin: -100% 50%;
+      background: var(--brand);
+      animation: l49 1s infinite linear;
+    }
+    .loader:after { transform-origin: 200% 50%; --s:-1; animation-delay: -.5s; }
+    @keyframes l49 { 58%,100%{ transform: rotate(calc(var(--s,1)*1turn)) } }
+
+    /* ====== MALÁ VÝŠKA (např. 1024×600, horizontální tablety) ====== */
+    @media (max-height: 620px){
+      .wrap{ padding: calc(var(--pad) * .75); gap: clamp(8px, 2.2vmin, 18px); }
+      h1{ font-size: clamp(24px, 8.5vmin, 72px); }
+      .room{ font-size: clamp(16px, 4vmin, 28px); }
+      .carousel{ -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+                 mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent); }
+      :root{ --img-h: clamp(36px, 11vmin, 120px); }
+    }
+
+    /* ====== ÚZKÁ ŠÍŘKA (telefony) ====== */
+    @media (max-width: 420px){
+      .wrap{ border-radius:12px; }
+      .badge{ font-size: 12px; }
+    }
+
+    /* ====== VELKÉ OBRAZOVKY / 4K ====== */
+    @media (min-width: 2560px){
+      :root{ --wrap-max: 1800px; --img-h: clamp(48px, 10vmin, 200px); }
+      .carousel{ -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+                 mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
+    }
+
+    /* přístupnost: méně pohybu */
+    @media (prefers-reduced-motion: reduce){
+      .carousel__track, .brand-bar, .loader:before, .loader:after { animation: none; }
+      .carousel{ -webkit-mask-image:none; mask-image:none; }
+      .carousel__track{ overflow-x:auto; scroll-snap-type:x mandatory; }
+      .carousel img{ scroll-snap-align:center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="brand-bar" aria-hidden="true"></div>
+
+  <main class="center">
+    <section class="wrap">
+      <div class="badge">DuklaMaps</div>
+      <h2 class="room" id="roomLabel">Učebna</h2>
+      <h1>IDLE</h1>
+      <p>Dotkněte se obrazovky pro pokračování.</p>
+
+      <!-- Nekonečný posuv obrázků -->
+      <div class="carousel" aria-label="galerie" data-speed="120">
+        <!-- data-speed = px/s (80–160 je příjemné) -->
+        <div class="carousel__track" id="carouselTrack">
+          <img src="/static/eon.jpg" alt="E.ON" loading="lazy" decoding="async">
+          <img src="/static/ege.jpg" alt="EGE" loading="lazy" decoding="async">
+          <!-- přidej další loga podle potřeby -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" aria-hidden="true">
+    <div class="loader"></div>
+  </footer>
+
+  <script>
+    // návratová cesta & host z Flasku
+    const returnPath = "{{ return_path|e if return_path is defined else '/' }}";
+    const host = "{{ host|e if host is defined else '' }}";
+
+    // „Učebna XYZ“ podle hosta
+    (function setRoomLabel(){
+      const el = document.getElementById('roomLabel');
+      const m = (host||"").match(/\b(\d{3})\b/);
+      if (m) el.textContent = `Učebna ${m[1]}`;
+      else if (host) el.textContent = host; else el.textContent = "Učebna";
+    })();
+
+    // návrat po aktivitě (idle není v historii)
+    let returned = false;
+    function goBackOnce(){
+      if (returned) return;
+      returned = true;
+      console.log(`[IDLE] Aktivita → návrat na '${returnPath || "/"}'`);
+      window.location.replace(returnPath || "/");
+    }
+    ["mousemove","mousedown","click","keypress","keydown","touchstart","touchmove","touchend","wheel"]
+      .forEach(ev => window.addEventListener(ev, goBackOnce, { passive:true }));
+
+    console.log(`[IDLE] Idle screen pro hosta '${host}', návrat='${returnPath || "/"}'`);
+
+    // ====== RESPONSIVNÍ CAROUSEL (duplikace + adaptivní rychlost) ======
+    const track = document.getElementById('carouselTrack');
+    const container = track.closest('.carousel');
+    const pxPerSec = parseFloat(container.dataset.speed) || 120; // px/s
+
+    function duplicateOnce(){
+      if (!track.dataset.duplicated){
+        track.innerHTML += track.innerHTML;
+        track.dataset.duplicated = "1";
+      }
+    }
+
+    async function waitImages(){
+      const imgs = [...track.querySelectorAll('img')];
+      await Promise.all(imgs.map(img =>
+        (img.decode?.().catch(()=>{})) ||
+        new Promise(res => img.complete ? res() : img.addEventListener('load', res, {once:true}))
+      ));
+    }
+
+    function setDuration(){
+      const halfWidth = track.scrollWidth / 2;            // jedna „sada“ (protože je zdvojena)
+      const duration = halfWidth / pxPerSec;              // s = px / (px/s)
+      track.style.setProperty('--duration', `${duration}s`);
+    }
+
+    // pauza mimo viewport (šetří CPU)
+    const io = ('IntersectionObserver' in window) ? new IntersectionObserver(([e])=>{
+      track.style.animationPlayState = e.isIntersecting ? 'running' : 'paused';
+    }, {threshold: 0}) : null;
+    if (io) io.observe(container);
+
+    // přepočet délky při změně rozměrů
+    const ro = ('ResizeObserver' in window) ? new ResizeObserver(()=> setDuration()) : null;
+    if (ro) ro.observe(track);
+    window.addEventListener('resize', setDuration);
+
+    // init
+    (async function initCarousel(){
+      await waitImages();
+      duplicateOnce();
+      setDuration();
+    })();
+
+    // pauza, když okno není aktivní
+    document.addEventListener('visibilitychange', () => {
+      track.style.animationPlayState = document.hidden ? 'paused' : 'running';
+    });
+  </script>
+</body>
+</html>

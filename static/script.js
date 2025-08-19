@@ -1108,53 +1108,103 @@ function closeLocWindow() {
     document.querySelector(".location-window").style.display = "none";
     document.getElementById("darken").style.display = "none";
 }
-/*
-let idleTime = 0;
-const idleLimit = 10; // Čas v sekundách před přesměrováním
+// === [IDLE / DEFAULT SCREEN] – BACKEND-DRIVEN ===
+function detectHostName() {
+  const p = new URLSearchParams(window.location.search);
+  const qHost = p.get("host");
+  if (qHost) return qHost;
 
-// Získání hostname a pathname klienta
-const hostname = window.location.hostname;
-const pathname = window.location.pathname;
-
-// Regulární výraz pro detekci "table<číslo>"
-const tableMatch = pathname.match(/^\/table(\d+)$/);
-
-let idleUrl = "/idle";  // Výchozí URL pro neaktivní režim
-let activeUrl = pathname; // Výchozí URL pro návrat
-
-if (tableMatch) {
-    const tableNumber = tableMatch[1]; // Extrahujeme číslo ze jména
-    idleUrl = `/idle/table${tableNumber}`;  // Přesměrování na neaktivní stránku
-    activeUrl = `/table${tableNumber}`;  // Návrat na původní stránku
+  const h = window.location.hostname || "";
+  const short = h.split(".")[0];
+  return short || null;
 }
 
-// Funkce pro resetování časovače a návrat na aktivní stránku
-function resetTimer() {
-    if (window.location.pathname.startsWith("/idle")) {
-        window.location.href = activeUrl; // Návrat na původní stránku
-    }
-    idleTime = 0;
+function goHome() {
+  try { closePDFviewer(); } catch {}
+  try { closeTimetable(); } catch {}
+  try { closeTeacherWindow(); } catch {}
+  try { closeClassWindow(); } catch {}
+  try { closeRoomWindow(); } catch {}
+  try { closeComingSoon(); } catch {}
+  try { closeCredits(); } catch {}
+  try { closeQR(); } catch {}
+  try { closeLocWindow(); } catch {}
+  try { clearMap(); } catch {}
+  try { closeMenu(); } catch {}
 }
 
-// Funkce pro kontrolu neaktivity
-function checkIdleTime() {
-    idleTime++;
-    if (idleTime >= idleLimit) {
-        window.location.href = idleUrl;
-    }
+function goToDefaultForHost(config) {
+  if (!config) return;
+  switch (config.kind) {
+    case "home":
+      goHome();
+      break;
+    case "menu":
+      if (typeof showMenu === "function" && config.menu) {
+        showMenu(config.menu);
+      } else {
+        goHome();
+      }
+      break;
+    case "route":
+      if (typeof navigate === "function" && config.start && config.dest) {
+        navigate(config.start, config.dest);
+      } else if (typeof navigate === "function" && typeof startLocation !== "undefined" && config.dest) {
+        navigate(startLocation, config.dest);
+      } else {
+        goHome();
+      }
+      break;
+    case "idlePage": {
+        const hostName = detectHostName();
+        const returnPath = window.location.pathname + window.location.search;
+        console.log(`[IDLE] Neaktivita → přechod na idle screen (host='${hostName}', return='${returnPath}')`);
+        window.location.href = `/idle/${encodeURIComponent(hostName)}?return=${encodeURIComponent(returnPath)}`;
+        break;
+        }
+    default:
+      goHome();
+  }
 }
 
-//detekce aktivity
-document.addEventListener('mousemove', resetTimer);
-document.addEventListener('keypress', resetTimer);
-document.addEventListener('touchstart', resetTimer);
-document.addEventListener('touchmove', resetTimer);
-document.addEventListener('touchend', resetTimer);
+(async function setupInactivityByHost() {
+  const hostName = detectHostName();
 
-// Interval pro kontrolu neaktivity
-setInterval(checkIdleTime, 1000); // Každou sekundu se kontroluje neaktivita
-*/
+  let hostConfig = null;
+  try {
+    const res = await fetch(`/host-default/${encodeURIComponent(hostName)}`);
+    hostConfig = await res.json();
+  } catch (e) {
+    console.warn("[IDLE] Nepodařilo se načíst host-default:", e);
+  }
 
+  // Fallback: i kdyby backend selhal, defaultně přejdi na idle
+  if (!hostConfig) hostConfig = { kind: "idlePage" };
+
+  // Speciální vypínač: když dáš na serveru kind:"none", nedělej nic
+  if (hostConfig.kind === "none") {
+    console.log(`[IDLE] Host '${hostName}' má kind='none' → timeout se nespouští`);
+    return;
+  }
+
+  const IDLE_MS = (hostConfig.idle_ms) ? hostConfig.idle_ms : 3_000;
+  let timer;
+
+  const resetTimer = () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      console.log(`[IDLE] Timeout ${IDLE_MS} ms vypršel → přechod na default (host='${hostName}', kind='${hostConfig.kind}')`);
+      goToDefaultForHost(hostConfig);
+      // resetTimer(); // odkomentuj, pokud chceš hned začít měřit další interval
+    }, IDLE_MS);
+  };
+
+  ["mousemove","keypress","click","scroll","touchstart","touchmove"].forEach(ev =>
+    window.addEventListener(ev, resetTimer, { passive: true })
+  );
+
+  resetTimer();
+})();
 
 
 

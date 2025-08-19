@@ -1,3 +1,4 @@
+import re
 from flask import Flask, render_template, jsonify, request
 from getWay import get_way, locate_wc
 import json
@@ -65,6 +66,92 @@ def get_timetable(type, name, week):
     with open(f'timetableData/{type}/{name}/{week}.json', encoding='utf-8') as json_file:
         timetable = json.load(json_file)
     return jsonify(timetable)
+
+# --- HOST DEFAULTS (můžeš časem přesunout do JSONu) ---
+IDLE_SCREENS = {
+    "Room104": {"kind": "IDLE"},
+    "Room106": {"kind": "IDLE"},
+    "Room108": {"kind": "IDLE"},
+    "Room111": {"kind": "IDLE"},
+    "Room113": {"kind": "IDLE"},
+    "Room115": {"kind": "IDLE"},
+    "Room117": {"kind": "IDLE"},
+    "Room118": {"kind": "IDLE"},
+    "Room201": {"kind": "IDLE"},
+    "Room203": {"kind": "IDLE"},
+    "Room205": {"kind": "IDLE"},
+    "Room206": {"kind": "IDLE"},
+    "Room207": {"kind": "IDLE"},
+    "Room210": {"kind": "IDLE"},
+    "Room212": {"kind": "IDLE"},
+    "Room213": {"kind": "IDLE"},
+    "Room215": {"kind": "IDLE"},
+    "Room216": {"kind": "IDLE"},
+    "Room220": {"kind": "IDLE"},
+    "Room302": {"kind": "IDLE"},
+    "Room304": {"kind": "IDLE"},
+    "Room306": {"kind": "IDLE"},
+    "Room307": {"kind": "IDLE"},
+    "Room308": {"kind": "IDLE"},
+    "Room311": {"kind": "IDLE"},
+    "UNKNOWN": {"kind": "IDLE"},
+}
+
+# Barevné motivy podle 1. číslice místnosti (patra)
+FLOOR_THEMES = {
+    "0": {"grad1":"#64748b","grad2":"#94a3b8","bg1":"#0f172a","bg2":"#111827"},  # přízemí
+    "1": {"grad1":"#0ea5e9","grad2":"#22d3ee","bg1":"#0f172a","bg2":"#111827"},
+    "2": {"grad1":"#22c55e","grad2":"#84cc16","bg1":"#0f172a","bg2":"#111827"},
+    "3": {"grad1":"#f59e0b","grad2":"#f97316","bg1":"#111827","bg2":"#0b1320"},
+    "4": {"grad1":"#a855f7","grad2":"#6366f1","bg1":"#0f172a","bg2":"#111827"},
+}
+
+def auto_idle_config_for_host(host: str) -> dict:
+    """
+    Z hosta (např. 'Room104', 'Ucebna203', '104') vytáhne číslo místnosti
+    a připraví headline + theme podle patra. Fallbacky jsou bezpečné.
+    """
+    # Najdi trojčíslí místnosti kdekoli v názvu
+    m = re.search(r'(\d{3})', host or "", flags=re.IGNORECASE)
+    if m:
+        room = m.group(1)
+        floor_digit = room[0]
+        theme = FLOOR_THEMES.get(floor_digit, FLOOR_THEMES.get("1"))
+        headline = f"Učebna {room}"
+    else:
+        # když číslo nenajdeme, prostě použijeme název hosta
+        room = None
+        theme = FLOOR_THEMES.get("1")
+        headline = host or "Učebna"
+
+    cfg = {
+        "headline": headline,
+        "sub": "Dotkněte se obrazovky pro pokračování",
+        "theme": theme,
+        "room": room,
+    }
+    return cfg
+
+@app.route("/idle/<string:host>")
+def idle(host):
+    return_path = request.args.get("return", "/")
+    # ruční override má přednost, jinak auto z názvu hosta
+    cfg = IDLE_SCREENS.get(host) or auto_idle_config_for_host(host)
+    return render_template(
+        "idle.html",
+        host=host,
+        return_path=return_path,
+        headline=cfg.get("headline"),
+        sub=cfg.get("sub"),
+        theme=cfg.get("theme", {}),
+        room=cfg.get("room"),
+    )
+
+@app.route('/host-default/<string:host>')
+def host_default(host):
+    # default pro jakéhokoliv hosta: přejdi na idle
+    cfg = IDLE_SCREENS.get(host, {"kind": "idlePage"})
+    return jsonify(cfg)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0') # for running on a server
