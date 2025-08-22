@@ -164,20 +164,19 @@
 
   <main class="center">
     <section class="wrap">
-      <div class="badge">DuklaMaps</div>
-      <h2 class="room" id="roomLabel">Učebna</h2>
-      <h1>IDLE</h1>
-      <p>Dotkněte se obrazovky pro pokračování.</p>
+         <!-- dynamický headline (např. „Učebna 311“) -->
+    <h2 class="room" id="roomLabel">{{ headline or 'Učebna' }}</h2>
 
-      <!-- Nekonečný posuv obrázků -->
-      <div class="carousel" aria-label="galerie" data-speed="120">
-        <!-- data-speed = px/s (80–160 je příjemné) -->
-        <div class="carousel__track" id="carouselTrack">
-          <img src="/static/eon.jpg" alt="E.ON" loading="lazy" decoding="async">
-          <img src="/static/ege.jpg" alt="EGE" loading="lazy" decoding="async">
-          <!-- přidej další loga podle potřeby -->
-        </div>
-      </div>
+    <!-- dynamické jméno učebny; fallback na číslo místnosti; nakonec IDLE -->
+    <h1>{{ name or ('Učebna ' ~ room) or 'IDLE' }}</h1>
+
+    {% if sup %}<p class="sup">{{ sup }}</p>{% endif %}
+    <p>{{ sub or 'Dotkněte se obrazovky pro pokračování.' }}</p>
+
+    {% if logo %}
+      <img src="{{ logo }}" alt="Logo" style="max-height:60px; margin-top:8px;">
+    {% endif %}
+
     </section>
   </main>
 
