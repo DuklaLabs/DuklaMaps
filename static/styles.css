@@ -345,7 +345,7 @@ body {
 }
 .teachers {
     height: 80vh;
-    width: 100vw;
+    width: 90vw;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     overflow-y: scroll;
@@ -576,7 +576,7 @@ body {
 
 .window-button {
     display: flex;
-    height: 7vh;
+    height: 7.5vh;
     margin: 0.8vh;
     cursor: pointer;
 }
@@ -880,13 +880,13 @@ body {
         flex-direction: column;
     }
     #DocumentsButton {
-        display: none;
+        display: block;
     }
     .QRcode {
         display: none;
     }
     .rozvrh-button {
-        display: none;
+        display: block;
     }
     .zoom-mobile {
         display: none;

@@ -168,47 +168,47 @@
                     <div style="width: 3vw;"></div>
                     <div class="timetable-numbers">
                         <div style="font-size: 2vh;">0</div>
-                        7:10 - 7:55
+                        <div style="font-size: 2vh;">7:10-7:55</div>
                     </div>
                     <div class="timetable-numbers">
                         <div style="font-size: 2vh;">1</div>
-                        8:00 - 8:45
+                        <div style="font-size: 2vh;">8:00-8:45</div>
                     </div>
                     <div class="timetable-numbers">
                         <div style="font-size: 2vh;">2</div>
-                        8:50 - 9:35
+                        <div style="font-size: 2vh;">8:50-9:35</div>
                     </div>
                     <div class="timetable-numbers">
                         <div style="font-size: 2vh;">3</div>
-                        9:55 - 10:40
+                        <div style="font-size: 2vh;">9:55-10:40</div>
                     </div>
                     <div class="timetable-numbers">
                         <div style="font-size: 2vh;">4</div>
-                        10:45 - 11:30
+                        <div style="font-size: 2vh;">10:45-11:30</div>
                     </div>
                     <div class="timetable-numbers">
                         <div style="font-size: 2vh;">5</div>
-                        11:40 - 12:25
+                        <div style="font-size: 2vh;">11:40-12:25</div>
                     </div>
                     <div class="timetable-numbers">
                         <div style="font-size: 2vh;">6</div>
-                        12:30 - 13:15
+                        <div style="font-size: 2vh;">12:30-13:15</div>
                     </div>
                     <div class="timetable-numbers">
                         <div style="font-size: 2vh;">7</div>
-                        13:20 - 14:05
+                        <div style="font-size: 2vh;">13:20-14:05</div>
                     </div>
                     <div class="timetable-numbers">
                         <div style="font-size: 2vh;">8</div>
-                        14:10 - 14:55
+                        <div style="font-size: 2vh;">14:10-14:55</div>
                     </div>
                     <div class="timetable-numbers">
                         <div style="font-size: 2vh;">9</div>
-                        15:00 - 15:45
+                        <div style="font-size: 2vh;">15:00-15:45</div>
                     </div>
                     <div class="timetable-numbers">
                         <div style="font-size: 2vh;">10</div>
-                        15:50 - 16:35
+                        <div style="font-size: 2vh;">15:50-16:35</div>
                     </div>
                 </div>
                 <div style="display: flex; flex-direction: row;">
@@ -411,5 +411,114 @@
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <!--pro live server-->
     <script src="../static/script.js"></script>
+
+
+<!-- ===== IDLE OVERLAY (inline; merged from idle.html) ===== -->
+<style>
+  #idle-overlay { position: fixed; inset: 0; display: none; z-index: 9999; background: #fff; }
+  #idle-overlay .brand-bar{
+    height:4px;
+    background:linear-gradient(90deg,#d24b49,#ef4444,#d24b49);
+    background-size:200% 100%; animation:idle-slide 6s ease-in-out infinite;
+  }
+  @keyframes idle-slide{0%{background-position:0 0}50%{background-position:100% 0}100%{background-position:0 0}}
+
+  #idle-overlay main.center{
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    padding: clamp(12px, 4vmin, 48px);
+    min-height: calc(100vh - 4px);
+    background:
+      linear-gradient(0deg,transparent 24%,rgba(17,24,39,.06) 25%,rgba(17,24,39,.06) 26%,transparent 27%,transparent 74%,rgba(17,24,39,.06) 75%,rgba(17,24,39,.06) 76%,transparent 77%),
+      linear-gradient(90deg,transparent 24%,rgba(17,24,39,.06) 25%,rgba(17,24,39,.06) 26%,transparent 27%,transparent 74%,rgba(17,24,39,.06) 75%,rgba(17,24,39,.06) 76%,transparent 77%),
+      #fff;
+    background-size:40px 40px,40px 40px,auto;
+  }
+  #idle-overlay .wrap{
+    width:100%; max-width: clamp(500px, 92vw, 1600px);
+    background: rgba(255,255,255,.85);
+    backdrop-filter: blur(3px);
+    border:1px solid rgba(0,0,0,.05);
+    border-radius:16px;
+    padding: clamp(12px, 4vmin, 48px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.04);
+    display:grid; gap: clamp(12px, 3vmin, 28px);
+  }
+  #idle-overlay .badge{
+    justify-self:center; display:inline-flex; gap:.5rem; font-weight:600;
+    font-size:clamp(12px,1.6vmin,16px); color:#d24b49;
+    background:rgba(210,75,73,.08); border:1px solid rgba(210,75,73,.25);
+    padding:.35rem .6rem; border-radius:999px; user-select:none
+  }
+  #idle-overlay .room{ justify-self:center; font-size: clamp(38px, 4.8vmin, 36px); font-weight:700; letter-spacing:.01em; margin:0; }
+  #idle-overlay h1{ margin:0; font-size: clamp(48px, 10vmin, 96px); line-height:1.05; letter-spacing:.08em; text-transform:uppercase }
+  #idle-overlay p{ margin:0; color:#6b7280; font-size: clamp(26px, 2.6vmin, 18px); }
+
+  #idle-overlay .carousel{
+    width:100%; overflow:hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+    justify-self:stretch;
+  }
+  #idle-overlay .carousel__track{
+    display:flex; align-items:center; gap: clamp(10px, 2.5vmin, 36px);
+    will-change: transform;
+    animation: idle-scroll var(--duration, 40s) linear infinite;
+  }
+  #idle-overlay .carousel__track:hover{ animation-play-state: paused; }
+  #idle-overlay .carousel img{
+    height: clamp(80px, 12vmin, 160px); width:auto; flex:0 0 auto; object-fit:contain;
+    filter: grayscale(.05) opacity(.95);
+    transition: transform .25s, filter .25s;
+  }
+  #idle-overlay .carousel img:hover{ transform: scale(1.04); filter:none; }
+  @keyframes idle-scroll{ to { transform: translateX(-50%); } }
+
+  #idle-overlay footer.footer{display:flex;align-items:center;justify-content:center; padding: clamp(6px, 2vmin, 24px) }
+  #idle-overlay .loader{
+    height: clamp(10px, 1.6vmin, 18px);
+    aspect-ratio: 4;
+    --_g: no-repeat radial-gradient(farthest-side, #d24b49 90%, #0000);
+    background: var(--_g) left, var(--_g) right;
+    background-size: 25% 100%;
+    display: grid; position: relative; top: -20px;
+  }
+  #idle-overlay .loader:before,
+  #idle-overlay .loader:after {
+    content:""; height: inherit; aspect-ratio: 1; grid-area: 1/1; margin: auto;
+    border-radius: 50%; transform-origin: -100% 50%; background: #d24b49; animation: idle-l49 1s infinite linear;
+  }
+  #idle-overlay .loader:after { transform-origin: 200% 50%; --s:-1; animation-delay: -.5s; }
+  @keyframes idle-l49 { 58%,100%{ transform: rotate(calc(var(--s,1)*1turn)) } }
+
+  @media (prefers-reduced-motion: reduce){
+    #idle-overlay .carousel__track, #idle-overlay .brand-bar, #idle-overlay .loader:before, #idle-overlay .loader:after { animation: none; }
+    #idle-overlay .carousel{ -webkit-mask-image:none; mask-image:none; }
+    #idle-overlay .carousel__track{ overflow-x:auto; scroll-snap-type:x mandatory; }
+    #idle-overlay .carousel img{ scroll-snap-align:center; }
+  }
+</style>
+
+<div id="idle-overlay" role="dialog" aria-label="Idle screen">
+  <div class="brand-bar" aria-hidden="true"></div>
+  <main class="center">
+    <section class="wrap">
+      <div class="badge">DuklaMaps</div>
+      <h2 class="room" id="idle-roomLabel">Učebna</h2>
+      <h1 id="idle-name">IDLE</h1>
+      <p class="sup" id="idle-sup" style="display:none"></p>
+      <p id="idle-sub">Dotkněte se obrazovky pro pokračování.</p>
+      <img id="idle-logo" alt="Logo" style="max-height:60px; margin-top:8px; display:none;">
+      <div class="carousel" aria-label="galerie" data-speed="120">
+        <div class="carousel__track" id="idle-carouselTrack">
+          <img src="/static/eon.jpg" alt="E.ON" loading="lazy" decoding="async">
+          <img src="/static/ege.jpg" alt="EGE"  loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer" aria-hidden="true"><div class="loader"></div></footer>
+</div>
+<!-- ===== /IDLE OVERLAY ===== -->
+
 </body>
 </html>

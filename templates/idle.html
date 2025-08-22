@@ -106,10 +106,12 @@
       aspect-ratio: 4;
       --_g: no-repeat radial-gradient(farthest-side, var(--brand) 90%, #0000);
       background:
-        var(--_g) left,
-        var(--_g) right;
+      var(--_g) left,
+      var(--_g) right;
       background-size: 25% 100%;
       display: grid;
+      position: relative;
+      top: -20px;
     }
     .loader:before,
     .loader:after {
@@ -162,33 +164,48 @@
   <div class="brand-bar" aria-hidden="true"></div>
 
   <main class="center">
-    <section class="wrap">
-      <div class="badge">DuklaMaps</div>
-      <h2 class="room" id="roomLabel">Učebna</h2>
-      <h1>IDLE</h1>
-      <p>Dotkněte se obrazovky pro pokračování.</p>
+  <section class="wrap">
+    <div class="badge">DuklaMaps</div>
 
-      <!-- Nekonečný posuv obrázků -->
-      <div class="carousel" aria-label="galerie" data-speed="120">
-        <!-- data-speed = px/s (80–160 je příjemné) -->
-        <div class="carousel__track" id="carouselTrack">
-          <img src="/static/eon.jpg" alt="E.ON" loading="lazy" decoding="async">
-          <img src="/static/ege.jpg" alt="EGE" loading="lazy" decoding="async">
-          <!-- přidej další loga podle potřeby -->
-        </div>
+    <!-- dynamický headline (např. „Učebna 311“) -->
+    <h2 class="room" id="roomLabel">{{ headline or 'Učebna' }}</h2>
+
+    <!-- dynamické jméno učebny; fallback na číslo místnosti; nakonec IDLE -->
+    <h1>{{ name or ('Učebna ' ~ room) or 'IDLE' }}</h1>
+
+    {% if sup %}<p class="sup">{{ sup }}</p>{% endif %}
+    <p>{{ sub or 'Dotkněte se obrazovky pro pokračování.' }}</p>
+
+    {% if logo %}
+      <img src="{{ logo }}" alt="Logo" style="max-height:60px; margin-top:8px;">
+    {% endif %}
+
+    <!-- Jednotný carousel -->
+    <div class="carousel" aria-label="galerie" data-speed="120">
+      <div class="carousel__track" id="carouselTrack">
+        <img src="/static/eon.jpg" alt="E.ON" loading="lazy" decoding="async">
+        <img src="/static/ege.jpg" alt="EGE"  loading="lazy" decoding="async">
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
+
 
   <footer class="footer" aria-hidden="true">
     <div class="loader"></div>
   </footer>
 
+   <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <!--pro live server-->
+    <script src="../static/script.js"></script>
+{% raw %}
   <script>
-    // návratová cesta & host z Flasku
-    const returnPath = "{{ return_path|e if return_path is defined else '/' }}";
-    const host = "{{ host|e if host is defined else '' }}";
 
+ 
+     // návratová cesta & host z Flasku
+    const returnPath = "{{ return_path or '/'' }}";
+    const host = "{{ host|e if host is defined else '' }}";
+    const roomHost = "{{ host }}";
     // „Učebna XYZ“ podle hosta
     (function setRoomLabel(){
       const el = document.getElementById('roomLabel');
@@ -198,15 +215,13 @@
     })();
 
     // návrat po aktivitě (idle není v historii)
-    let returned = false;
-    function goBackOnce(){
-      if (returned) return;
-      returned = true;
-      console.log(`[IDLE] Aktivita → návrat na '${returnPath || "/"}'`);
-      window.location.replace(returnPath || "/");
-    }
-    ["mousemove","mousedown","click","keypress","keydown","touchstart","touchmove","touchend","wheel"]
-      .forEach(ev => window.addEventListener(ev, goBackOnce, { passive:true }));
+    function returnFromIdle() {
+      console.log("Click detected. Returning to timetable for room:", roomHost);
+      showTimetable(roomHost);
+  }
+    ["touchstart","touchmove","touchend","mousedown","mousemove","mouseup",
+     "keydown","keyup","click","wheel","pointerdown","pointermove","pointerup"]
+      .forEach(ev => window.addEventListener(ev, returnFromIdle, { passive:true }));
 
     console.log(`[IDLE] Idle screen pro hosta '${host}', návrat='${returnPath || "/"}'`);
 
@@ -221,6 +236,7 @@
         track.dataset.duplicated = "1";
       }
     }
+     
 
     async function waitImages(){
       const imgs = [...track.querySelectorAll('img')];
@@ -259,5 +275,6 @@
       track.style.animationPlayState = document.hidden ? 'paused' : 'running';
     });
   </script>
+{% endraw %}
 </body>
 </html>

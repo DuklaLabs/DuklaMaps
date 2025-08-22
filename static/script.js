@@ -1187,7 +1187,7 @@ function goToDefaultForHost(config) {
     return;
   }
 
-  const IDLE_MS = (hostConfig.idle_ms) ? hostConfig.idle_ms : 3_000;
+  const IDLE_MS = (hostConfig.idle_ms) ? hostConfig.idle_ms : 10_000;
   let timer;
 
   const resetTimer = () => {
@@ -1217,3 +1217,151 @@ setTimeout(navigateOnStart, 2000); // zpoždění 2s, aby se stihly načíst dat
 
 setInterval(updateTime, 10000); // Update time every 10 seconds
 setInterval(getSchoolHour, 60000); // Update school hour every 60 seconds
+
+// ===== [IDLE OVERLAY LOGIC] – merged from idle.html into index/script.js =====
+
+(function(){
+  // Helpers
+  function _idleDetectRoomFromHost(hostStr){
+    if (!hostStr) return null;
+    const m = String(hostStr).match(/\b(\d{3})\b/);
+    return m ? m[1] : null;
+  }
+  function _idleGetHostName(){
+    try{
+      if (typeof detectHostName === "function") return detectHostName();
+    }catch(e){}
+    const p = new URLSearchParams(window.location.search);
+    const qHost = p.get("host");
+    if (qHost) return qHost;
+    const h = window.location.hostname || "";
+    const short = h.split(".")[0];
+    return short || null;
+  }
+
+  // Build/refresh overlay content
+  function _idleFillOverlay(cfg){
+    const el = document.getElementById("idle-overlay");
+    if (!el) return;
+
+    const host = _idleGetHostName();
+    const roomNum = _idleDetectRoomFromHost(host);
+
+    const roomEl = document.getElementById("idle-roomLabel");
+    const nameEl = document.getElementById("idle-name");
+    const supEl  = document.getElementById("idle-sup");
+    const subEl  = document.getElementById("idle-sub");
+    const logoEl = document.getElementById("idle-logo");
+
+    if (roomEl) roomEl.textContent = (cfg && cfg.headline) || (roomNum ? `Učebna ${roomNum}` : (host || "Učebna"));
+    if (nameEl) nameEl.textContent = (cfg && cfg.name) || (roomNum ? `Učebna ${roomNum}` : "IDLE");
+
+    if (supEl){
+      if (cfg && cfg.sup){ supEl.style.display = ""; supEl.textContent = cfg.sup; }
+      else { supEl.style.display = "none"; supEl.textContent = ""; }
+    }
+    if (subEl) subEl.textContent = (cfg && cfg.sub) || "Dotkněte se obrazovky pro pokračování.";
+
+    if (logoEl){
+      if (cfg && cfg.logo){ logoEl.src = cfg.logo; logoEl.style.display = ""; }
+      else { logoEl.removeAttribute("src"); logoEl.style.display = "none"; }
+    }
+  }
+
+  // Carousel (duplicate content once + adaptive speed)
+  let _idleCarouselInit = false;
+  async function _idleInitCarousel(){
+    if (_idleCarouselInit) return;
+    const track = document.getElementById("idle-carouselTrack");
+    if (!track) return;
+
+    function duplicateOnce(){
+      if (!track.dataset.duplicated){
+        track.innerHTML += track.innerHTML;
+        track.dataset.duplicated = "1";
+      }
+    }
+    function setDuration(){
+      const container = track.closest(".carousel");
+      const pxPerSec = parseFloat(container?.dataset?.speed) || 120;
+      const halfWidth = track.scrollWidth / 2;
+      const duration = halfWidth / pxPerSec;
+      track.style.setProperty('--duration', `${duration}s`);
+    }
+    function waitImages(){
+      const imgs = Array.from(track.querySelectorAll('img'));
+      return Promise.all(imgs.map(img =>
+        (img.decode?.().catch(()=>{})) ||
+        new Promise(res => img.complete ? res() : img.addEventListener('load', res, {once:true}))
+      ));
+    }
+
+    const io = ('IntersectionObserver' in window) ? new IntersectionObserver(([e])=>{
+      track.style.animationPlayState = e.isIntersecting ? 'running' : 'paused';
+    }, {threshold: 0}) : null;
+    if (io) io.observe(track.closest('.carousel'));
+
+    const ro = ('ResizeObserver' in window) ? new ResizeObserver(()=> setDuration()) : null;
+    if (ro) ro.observe(track);
+    window.addEventListener('resize', setDuration);
+
+    await waitImages();
+    duplicateOnce();
+    setDuration();
+    document.addEventListener('visibilitychange', () => {
+      track.style.animationPlayState = document.hidden ? 'paused' : 'running';
+    });
+
+    _idleCarouselInit = true;
+  }
+
+  // Show/hide overlay
+  let _idleReturnHandlerAttached = false;
+  window.showIdleOverlay = function(cfg){
+    _idleFillOverlay(cfg);
+    const el = document.getElementById("idle-overlay");
+    if (!el) return;
+    el.style.display = "block";
+    _idleInitCarousel();
+
+    function returnFromIdle(){
+      window.hideIdleOverlay();
+      const host = _idleGetHostName();
+      const roomNum = _idleDetectRoomFromHost(host);
+
+      if (cfg && typeof window.showTimetable === "function"){
+        if (cfg.return_path){
+          const m = cfg.return_path.match(/\\/rooms\\/(\\d{3})\\//);
+          const room = m ? m[1] : (roomNum || null);
+          if (room){ window.showTimetable(room); return; }
+        }
+        if (roomNum){ window.showTimetable(roomNum); return; }
+      }
+      if (typeof window.goHome === "function") window.goHome();
+    }
+
+    if (!_idleReturnHandlerAttached){
+      ["touchstart","touchmove","touchend","mousedown","mousemove","mouseup","keydown","keyup","click","wheel","pointerdown","pointermove","pointerup"]
+        .forEach(ev => window.addEventListener(ev, returnFromIdle, { passive:true }));
+      _idleReturnHandlerAttached = true;
+    }
+  };
+  window.hideIdleOverlay = function(){
+    const el = document.getElementById("idle-overlay");
+    if (el) el.style.display = "none";
+  };
+
+  // Soft override: intercept kind:"idlePage" and show overlay instead of redirect
+  (function patchGoToDefaultForHost(){
+    if (typeof window.goToDefaultForHost !== "function") return;
+    const original = window.goToDefaultForHost;
+    window.goToDefaultForHost = function(config){
+      if (config && config.kind === "idlePage"){
+        window.showIdleOverlay(config);
+        return;
+      }
+      return original(config);
+    };
+  })();
+})();
+// ===== [/IDLE OVERLAY LOGIC] =====
