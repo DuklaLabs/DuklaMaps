@@ -576,7 +576,7 @@ body {
 
 .window-button {
     display: flex;
-    height: 7vh;
+    height: 7.5vh;
     margin: 0.8vh;
     cursor: pointer;
 }
@@ -880,13 +880,13 @@ body {
         flex-direction: column;
     }
     #DocumentsButton {
-        display: none;
+        display: block;
     }
     .QRcode {
         display: none;
     }
     .rozvrh-button {
-        display: none;
+        display: block;
     }
     .zoom-mobile {
         display: none;
@@ -1078,7 +1078,7 @@ body {
         display: none;
     }
     #DocumentsButton {
-        display: none;
+        display: block;
     }
     .rozvrh-button {
         display: none;
