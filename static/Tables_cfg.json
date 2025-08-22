@@ -1,0 +1,237 @@
+{
+    "_comment": "Per-host nastavení idle obrazovky",
+    "Table104": {
+        "kind": "idlePage",
+        "headline": "Učebna 104",
+        "name": "Kmenová třída 3.ER",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/104/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table106": {
+        "kind": "idlePage",
+        "headline": "Učebna 106",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/106/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table108": {
+        "kind": "idlePage",
+        "headline": "Učebna 108",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/108/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table111": { 
+        "kind": "idlePage",
+        "headline": "Učebna 111",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/111/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table113": {
+        "kind": "idlePage",
+        "headline": "Učebna 113",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/113/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table115": {
+        "kind": "idlePage",
+        "headline": "Učebna 115",
+        "name": "Laboratoř Dukla Labs",
+        "sup": "Bc. Jan Petrášek",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/115/actual",
+        "logo": "/static/assets/DuklaLabs.svg" 
+    },
+    "Table117": {
+        "kind": "idlePage",
+        "headline": "Učebna 117",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/117/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table118": {
+        "kind": "idlePage",
+        "headline": "Učebna 118",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/118/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table201": {
+        "kind": "idlePage",
+        "headline": "Učebna 201",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/201/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table203": {
+        "kind": "idlePage",
+        "headline": "Učebna 203",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/203/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table205": {
+        "kind": "idlePage",
+        "headline": "Učebna 205",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/205/actual",        
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table206": {
+        "kind": "idlePage",
+        "headline": "Učebna 206",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/206/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table207": {
+        "kind": "idlePage",
+        "headline": "Učebna 207",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/207/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table210": {
+        "kind": "idlePage",
+        "headline": "Učebna 210",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/210/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table212": {
+        "kind": "idlePage",
+        "headline": "Učebna 212",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/212/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table213": {
+        "kind": "idlePage",
+        "headline": "Učebna 213",   
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/213/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table215": {
+        "kind": "idlePage",
+        "headline": "Učebna 215",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/215/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table216": { 
+        "kind": "idlePage",
+        "headline": "Učebna 216",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/216/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table220": {
+        "kind": "idlePage",
+        "headline": "Učebna 220",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/220/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table302": {
+        "kind": "idlePage",
+        "headline": "Učebna 302",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/302/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table304": {
+        "kind": "idlePage",
+        "headline": "Učebna 304",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/304/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table306": {
+        "kind": "idlePage",
+        "headline": "Učebna 306",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/306/actual",
+        "logo": "/static/logos/ucebna115.svg" 
+    },
+    "Table307": { 
+        "kind": "idlePage",
+        "headline": "Učebna 307",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/307/actual",
+        "logo": "/static/logos/ucebna115.svg"
+    },
+    "Table308": {
+        "kind": "idlePage",
+        "headline": "Učebna 308",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/308/actual",
+        "logo": "/static/logos/ucebna115.svg"
+    },
+    "Table311": {
+        "kind": "idlePage",
+        "headline": "Učebna 311",
+        "name": "Doplnit název učebny",
+        "sup": "Doplnit jmeno supervizora",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/311/actual",
+        "logo": "/static/logos/ucebna115.svg"
+    },
+    "UNKNOWN": {
+        "kind": "idlePage",
+        "headline": "Učebna 115",
+        "name": "Laboratoř Dukla Labs",
+        "sup": "Bc. Jan Petrášek",
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/getTimetable/rooms/115/actual",
+        "logo": "/static/assets/DuklaLabs.svg"
+    }
+}
