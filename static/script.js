@@ -1187,7 +1187,7 @@ function goToDefaultForHost(config) {
     return;
   }
 
-  const IDLE_MS = (hostConfig.idle_ms) ? hostConfig.idle_ms : 3_000;
+  const IDLE_MS = (hostConfig.idle_ms) ? hostConfig.idle_ms : 300_000;
   let timer;
 
   const resetTimer = () => {
