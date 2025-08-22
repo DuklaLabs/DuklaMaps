@@ -110,6 +110,7 @@
         var(--_g) right;
       background-size: 25% 100%;
       display: grid;
+      top: -30px;
     }
     .loader:before,
     .loader:after {
@@ -205,7 +206,7 @@
       console.log(`[IDLE] Aktivita → návrat na '${returnPath || "/"}'`);
       window.location.replace(returnPath || "/");
     }
-    ["mousemove","mousedown","click","keypress","keydown","touchstart","touchmove","touchend","wheel"]
+    ["click","touchstart","touchmove","touchend"]
       .forEach(ev => window.addEventListener(ev, goBackOnce, { passive:true }));
 
     console.log(`[IDLE] Idle screen pro hosta '${host}', návrat='${returnPath || "/"}'`);
