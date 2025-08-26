@@ -5,8 +5,8 @@
     <meta name="theme-color" content="#2f2f2f">
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-    <!--pro live server-->
-    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <!--pro live server-
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">-->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,33 +14,56 @@
     <title>DuklaMaps</title>
 </head>
 <body>
-    <nav class="upbar">
-        <!-- <a class="buttons" href="#home"><img src="../static/assets/InfoButton.svg"></a> -->
-        <a class="close-button" style="margin-right: 16vw;" id="close-button" onclick="closeMenu()"><img src="../static/assets/ExitButton.svg"></a>
-        <a class="close-pdf" style="margin-right: 16vw;" id="close-pdf" onclick="closePDFviewer()"><img src="../static/assets/ExitButton.svg"></a>
-        <a class="close-timetable" style="margin-right: 16vw;" id="close-timetable" onclick="closeTimetable()"><img src="../static/assets/ExitButton.svg"></a>
-        <h1 class="name" id="name">
-            Dukla
-            <div style="font-weight: 250;">Maps</div>
-        </h1>
-        
-        <div class="menu-name" id="documents-name">Dokumenty</div>
-        <div class="menu-name" id="teachers-name">Učitelé</div>
-        <div class="menu-name" id="classes-name">Třídy</div>
-        <div class="menu-name" id="rooms-name">Místnosti</div>
-        
-        <div class = "info">
-            <h2 style="margin-right: 1.5vw;" id="time" class="datetime"></h2>
-            <h2 style="margin-right: 1.5vw;" id="date" class="datetime"></h2>
-        </div>
-        <div onclick="locWindow()" class="roomInput" style="font-size: 100%; height: 5vh; padding: 2vw;">
-            Navigovat z vaší pozice
-        </div>
-    </nav>
+        <nav class="upbar">
+            <!-- <a class="buttons" href="#home"><img src="../static/assets/InfoButton.svg"></a> -->
+            <a class="close-button" style="margin-right: 16vw;" id="close-button" onclick="closeMenu()"><img src="../static/assets/ExitButton.svg"></a>
+            <a class="close-pdf" style="margin-right: 16vw;" id="close-pdf" onclick="closePDFviewer()"><img src="../static/assets/ExitButton.svg"></a>
+            <a class="close-timetable" style="margin-right: 16vw;" id="close-timetable" onclick="closeTimetable()"><img src="../static/assets/ExitButton.svg"></a>
+            <h1 class="name" id="name">
+                Dukla
+                <div style="font-weight: 250;">Maps</div>
+            </h1>
+            
+            <div class="menu-name" id="documents-name">Dokumenty</div>
+            <div class="menu-name" id="teachers-name">Učitelé</div>
+            <div class="menu-name" id="classes-name">Třídy</div>
+            <div class="menu-name" id="rooms-name">Místnosti</div>
+            
+            <div class = "info">
+                <h2 style="margin-right: 1.5vw;" id="time" class="datetime"></h2>
+                <h2 style="margin-right: 1.5vw;" id="date" class="datetime"></h2>
+            </div>
+            <div onclick="locWindow()" class="roomInput" style="font-size: 100%; height: 5vh; padding: 2vw;">
+                Navigovat z vaší pozice
+            </div>
+        </nav>
 
-    <div>     
-        <div class="center-container" id="center-container">
-            <div style="display: flex; justify-content: center;">
+        <div>     
+            <div class="center-container" id="center-container">
+                <div style="display: flex; justify-content: center;">
+                    <!-- 
+                    0 - 3. patro
+                    1 - 2. patro
+                    2 - 1. patro
+                    3 - přízemí
+                    4 - šatny
+                    5 - dílny 1. patro
+                    6 - dílny 0. patro
+                    -->
+                    <div class="map">
+                        <embed id="patro0" class="map-content" src="../static/assets/mapa/patro4.svg" type="image/svg+xml"></embed>
+                        <embed id="patro1" class="map-content" src="../static/assets/mapa/patro3.svg" type="image/svg+xml"></embed>
+                        <embed id="patro2" class="map-content" src="../static/assets/mapa/patro2.svg" type="image/svg+xml"></embed>
+                        <embed id="patro3" class="map-content" src="../static/assets/mapa/patro1.svg" type="image/svg+xml" style="display: block;"></embed>
+                        <embed id="patro4" class="map-content" src="../static/assets/mapa/patro0.svg" type="image/svg+xml"></embed>
+                        <embed id="patro5" class="map-content" src="../static/assets/mapa/dilny1.svg" type="image/svg+xml"></embed>
+                        <embed id="patro6" class="map-content" src="../static/assets/mapa/dilny2.svg" type="image/svg+xml"></embed>
+                    </div>
+                    <div class="zoom">
+                        <button style="height: 5vh; width: 5vh; border-width: 0.3vh;" onclick="zoom('+')">+</button>
+                        <button style="height: 5vh; width: 5vh; border-width: 0.3vh;" onclick="zoom('-')">-</button>
+                    </div>
+                </div>
                 <!-- 
                 0 - 3. patro
                 1 - 2. patro
@@ -50,342 +73,319 @@
                 5 - dílny 1. patro
                 6 - dílny 0. patro
                 -->
-                <div class="map">
-                    <embed id="patro0" class="map-content" src="../static/assets/mapa/patro4.svg" type="image/svg+xml"></embed>
-                    <embed id="patro1" class="map-content" src="../static/assets/mapa/patro3.svg" type="image/svg+xml"></embed>
-                    <embed id="patro2" class="map-content" src="../static/assets/mapa/patro2.svg" type="image/svg+xml"></embed>
-                    <embed id="patro3" class="map-content" src="../static/assets/mapa/patro1.svg" type="image/svg+xml" style="display: block;"></embed>
-                    <embed id="patro4" class="map-content" src="../static/assets/mapa/patro0.svg" type="image/svg+xml"></embed>
-                    <embed id="patro5" class="map-content" src="../static/assets/mapa/dilny1.svg" type="image/svg+xml"></embed>
-                    <embed id="patro6" class="map-content" src="../static/assets/mapa/dilny2.svg" type="image/svg+xml"></embed>
-                </div>
-                <div class="zoom">
-                    <button style="height: 5vh; width: 5vh; border-width: 0.3vh;" onclick="zoom('+')">+</button>
-                    <button style="height: 5vh; width: 5vh; border-width: 0.3vh;" onclick="zoom('-')">-</button>
-                </div>
-            </div>
-            <!-- 
-            0 - 3. patro
-            1 - 2. patro
-            2 - 1. patro
-            3 - přízemí
-            4 - šatny
-            5 - dílny 1. patro
-            6 - dílny 0. patro
-            -->
 
-            <div class="patra-container">
-                <div id="route-options" class="route-options">
-                    <h1 id="destination-name" style="font-size: 4.2vh; margin-bottom: 0vh; margin-top: 0vh;"></h1>
-                    <div class="routeButton" onclick="clearMap()">Zavřít trasu</div>
-                    <div class="QrButton" onclick="QRwindow()">Otevřít v telefonu</div>
-                </div>
-                <div class="patradilny">
-                    <div class="patra">
-                        <h1 style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;">Patra:</h1>
-                        <div class="patra-buttons">
-                            <button onclick="showFloor(0)" class="patro">
-                                <div style="display: flex;">
-                                    <div class="patro-number">3</div>
-                                    <div class="patro-name">patro</div>
-                                </div>
-                                <div class="usedfloor" id="patrobutton0"></div>
-                            </button>
-                            <button onclick="showFloor(1)" class="patro">
-                                <div style="display: flex;">
-                                    <div class="patro-number">2</div>
-                                    <div class="patro-name">patro</div>
-                                </div>
-                                <div class="usedfloor" id="patrobutton1"></div>
-                            </button>
-                            <button onclick="showFloor(2)" class="patro">
-                                <div style="display: flex;">
-                                    <div class="patro-number">1</div>
-                                    <div class="patro-name">patro</div>
-                                </div>
-                                <div class="usedfloor" id="patrobutton2"></div>
-                            </button>
-                            <button onclick="showFloor(3)" class="patro selected">
-                                <div style="display: flex;">
-                                    <div class="patro-number">0</div>
-                                    <div class="patro-name">přízemí</div>
-                                </div>
-                                <div class="usedfloor" id="patrobutton3"></div>
-                            </button>
-                            <button onclick="showFloor(4)" class="patro">
-                                <div style="display: flex;">
-                                    <div class="patro-number">-1</div>
-                                    <div class="patro-name">šatny</div>
-                                </div>
-                                <div class="usedfloor" id="patrobutton4"></div>
-                            </button>
-                        </div>                    
-                    </div>                
-                    <div class="patra">
-                        <h1 style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;">Dílny:</h1>
-                        <div class="patra-buttons">
-                            <button onclick="comingSoon()" class="patro">
-                                <div style="display: flex;">
-                                    <div class="patro-number">1</div>
-                                    <div class="patro-name">patro</div>
-                                </div>
-                                <div class="usedfloor" id="patrobutton"></div>
-                            </button>
-                            <button onclick="comingSoon()" class="patro">
-                                <div style="display: flex;">
-                                    <div class="patro-number">0</div>
-                                    <div class="patro-name">přízemí</div>
-                                </div>
-                                <div class="usedfloor" id="patrobutton"></div>
-                            </button>
+                <div class="patra-container">
+                    <div id="route-options" class="route-options">
+                        <h1 id="destination-name" style="font-size: 4.2vh; margin-bottom: 0vh; margin-top: 0vh;"></h1>
+                        <div class="routeButton" onclick="clearMap()">Zavřít trasu</div>
+                        <div class="QrButton" onclick="QRwindow()">Otevřít v telefonu</div>
+                    </div>
+                    <div class="patradilny">
+                        <div class="patra">
+                            <h1 style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;">Patra:</h1>
+                            <div class="patra-buttons">
+                                <button onclick="showFloor(0)" class="patro">
+                                    <div style="display: flex;">
+                                        <div class="patro-number">3</div>
+                                        <div class="patro-name">patro</div>
+                                    </div>
+                                    <div class="usedfloor" id="patrobutton0"></div>
+                                </button>
+                                <button onclick="showFloor(1)" class="patro">
+                                    <div style="display: flex;">
+                                        <div class="patro-number">2</div>
+                                        <div class="patro-name">patro</div>
+                                    </div>
+                                    <div class="usedfloor" id="patrobutton1"></div>
+                                </button>
+                                <button onclick="showFloor(2)" class="patro">
+                                    <div style="display: flex;">
+                                        <div class="patro-number">1</div>
+                                        <div class="patro-name">patro</div>
+                                    </div>
+                                    <div class="usedfloor" id="patrobutton2"></div>
+                                </button>
+                                <button onclick="showFloor(3)" class="patro selected">
+                                    <div style="display: flex;">
+                                        <div class="patro-number">0</div>
+                                        <div class="patro-name">přízemí</div>
+                                    </div>
+                                    <div class="usedfloor" id="patrobutton3"></div>
+                                </button>
+                                <button onclick="showFloor(4)" class="patro">
+                                    <div style="display: flex;">
+                                        <div class="patro-number">-1</div>
+                                        <div class="patro-name">šatny</div>
+                                    </div>
+                                    <div class="usedfloor" id="patrobutton4"></div>
+                                </button>
+                            </div>                    
+                        </div>                
+                        <div class="patra">
+                            <h1 style="font-size: 4.5vh; margin-bottom: 0vh; margin-top: 0vh;">Dílny:</h1>
+                            <div class="patra-buttons">
+                                <button onclick="comingSoon()" class="patro">
+                                    <div style="display: flex;">
+                                        <div class="patro-number">1</div>
+                                        <div class="patro-name">patro</div>
+                                    </div>
+                                    <div class="usedfloor" id="patrobutton"></div>
+                                </button>
+                                <button onclick="comingSoon()" class="patro">
+                                    <div style="display: flex;">
+                                        <div class="patro-number">0</div>
+                                        <div class="patro-name">přízemí</div>
+                                    </div>
+                                    <div class="usedfloor" id="patrobutton"></div>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--documents-->
-        <!--https://www.spssecb.cz/dokumenty/ -->
-        <div class="menu" id="documents">
-            <div class="documents" id="documentsList">
+            <!--documents-->
+            <!--https://www.spssecb.cz/dokumenty/ -->
+            <div class="menu" id="documents">
+                <div class="documents" id="documentsList">
+                </div>
             </div>
-        </div>
 
-        <!--pdf viewer-->
-        <div id="pdf-viewer">
-            <iframe id="pdfFrame" style="z-index: 3; position: absolute; top: 10vh; background-color: #2f2f2f; border-width: 0; width: 100vw; height: 80vh; "></iframe>
-        </div>
+            <!--pdf viewer-->
+            <div id="pdf-viewer">
+                <iframe id="pdfFrame" style="z-index: 3; position: absolute; top: 10vh; background-color: #2f2f2f; border-width: 0; width: 100vw; height: 80vh; "></iframe>
+            </div>
 
-        <!--timetable-->
-        <div id="timetable-viewer">
-            <div class="menu" style="z-index: 3; position: absolute; top: 10vh; display: flex; justify-content: flex-start; flex-direction: column;">
-                <div style="margin-left: 1vh; display: flex; flex-direction: row; height: 5vh;">
-                    <div class="timetable-name" id="timetable-name"></div>
-                    <div class="timetable-state" id="permanent" onclick="displayTimetable(timetabletype, timetablename, 'permanent');">Stálý</div>
-                    <div class="timetable-state" id="actual" onclick="displayTimetable(timetabletype, timetablename, 'actual');">Tento týden</div>
-                    <div class="timetable-state" id="next" onclick="displayTimetable(timetabletype, timetablename, 'next');">Příští týden</div>
+            <!--timetable-->
+            <div id="timetable-viewer">
+                <div class="menu" style="z-index: 3; position: absolute; top: 10vh; display: flex; justify-content: flex-start; flex-direction: column;">
+                    <div style="margin-left: 1vh; display: flex; flex-direction: row; height: 5vh;">
+                        <div class="timetable-name" id="timetable-name"></div>
+                        <div class="timetable-state" id="permanent" onclick="displayTimetable(timetabletype, timetablename, 'permanent');">Stálý</div>
+                        <div class="timetable-state" id="actual" onclick="displayTimetable(timetabletype, timetablename, 'actual');">Tento týden</div>
+                        <div class="timetable-state" id="next" onclick="displayTimetable(timetabletype, timetablename, 'next');">Příští týden</div>
+                    </div>
+                    <div style="display: flex; flex-direction: row; height: 5vh;">
+                        <div style="width: 3vw;"></div>
+                        <div class="timetable-numbers">
+                            <div style="font-size: 2vh;">0</div>
+                            <div style="font-size: 2vh;">7:10-7:55</div>
+                        </div>
+                        <div class="timetable-numbers">
+                            <div style="font-size: 2vh;">1</div>
+                            <div style="font-size: 2vh;">8:00 -8:45</div>
+                        </div>
+                        <div class="timetable-numbers">
+                            <div style="font-size: 2vh;">2</div>
+                            <div style="font-size: 2vh;">8:50-9:35</div>
+                        </div>
+                        <div class="timetable-numbers">
+                            <div style="font-size: 2vh;">3</div>
+                            <div style="font-size: 2vh;">9:55-10:40</div>
+                        </div>
+                        <div class="timetable-numbers">
+                            <div style="font-size: 2vh;">4</div>
+                            <div style="font-size: 2vh;">10:45-11:30</div>
+                        </div>
+                        <div class="timetable-numbers">
+                            <div style="font-size: 2vh;">5</div>
+                            <div style="font-size: 2vh;">11:40-12:25</div>
+                        </div>
+                        <div class="timetable-numbers">
+                            <div style="font-size: 2vh;">6</div>
+                            <div style="font-size: 2vh;">12:30-13:15</div>
+                        </div>
+                        <div class="timetable-numbers">
+                            <div style="font-size: 2vh;">7</div>
+                            <div style="font-size: 2vh;">13:20-14:05</div>
+                        </div>
+                        <div class="timetable-numbers">
+                            <div style="font-size: 2vh;">8</div>
+                            <div style="font-size: 2vh;">14:10-14:55</div>
+                        </div>
+                        <div class="timetable-numbers">
+                            <div style="font-size: 2vh;">9</div>
+                            <div style="font-size: 2vh;">15:00-15:45</div>
+                        </div>
+                        <div class="timetable-numbers">
+                            <div style="font-size: 2vh;">10</div>
+                            <div style="font-size: 2vh;">15:50-16:35</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: row;">
+                        <div style="display: flex; flex-direction: column; width: 3vw;">
+                            <div class="timetable-day">Po</div>
+                            <div class="timetable-day">Út</div>
+                            <div class="timetable-day">St</div>
+                            <div class="timetable-day">Čt</div>
+                            <div class="timetable-day">Pá</div>
+                        </div>
+                        <div class="timetable" id="timetable"></div>
+                    </div>
                 </div>
-                <div style="display: flex; flex-direction: row; height: 5vh;">
-                    <div style="width: 3vw;"></div>
-                    <div class="timetable-numbers">
-                        <div style="font-size: 2vh;">0</div>
-                        <div style="font-size: 2vh;">7:10-7:55</div>
-                    </div>
-                    <div class="timetable-numbers">
-                        <div style="font-size: 2vh;">1</div>
-                        <div style="font-size: 2vh;">8:00 -8:45</div>
-                    </div>
-                    <div class="timetable-numbers">
-                        <div style="font-size: 2vh;">2</div>
-                        <div style="font-size: 2vh;">8:50-9:35</div>
-                    </div>
-                    <div class="timetable-numbers">
-                        <div style="font-size: 2vh;">3</div>
-                        <div style="font-size: 2vh;">9:55-10:40</div>
-                    </div>
-                    <div class="timetable-numbers">
-                        <div style="font-size: 2vh;">4</div>
-                        <div style="font-size: 2vh;">10:45-11:30</div>
-                    </div>
-                    <div class="timetable-numbers">
-                        <div style="font-size: 2vh;">5</div>
-                        <div style="font-size: 2vh;">11:40-12:25</div>
-                    </div>
-                    <div class="timetable-numbers">
-                        <div style="font-size: 2vh;">6</div>
-                        <div style="font-size: 2vh;">12:30-13:15</div>
-                    </div>
-                    <div class="timetable-numbers">
-                        <div style="font-size: 2vh;">7</div>
-                        <div style="font-size: 2vh;">13:20-14:05</div>
-                    </div>
-                    <div class="timetable-numbers">
-                        <div style="font-size: 2vh;">8</div>
-                        <div style="font-size: 2vh;">14:10-14:55</div>
-                    </div>
-                    <div class="timetable-numbers">
-                        <div style="font-size: 2vh;">9</div>
-                        <div style="font-size: 2vh;">15:00-15:45</div>
-                    </div>
-                    <div class="timetable-numbers">
-                        <div style="font-size: 2vh;">10</div>
-                        <div style="font-size: 2vh;">15:50-16:35</div>
+            </div>
+
+            <!--teachers-->
+            <div class="menu" id="teachers">
+                <div class="teachers" id="teachersTable"></div>
+                <div class="teachers-spacer"></div>
+            </div>
+
+            <!--classes-->
+            <div class="menu" id="classes" style="align-items: center;">
+                <div class="classes" id="classesTable"></div>
+            </div>
+
+            <!--rooms-->
+            <div class="menu" id="rooms">
+                <div class="rooms-ucebny">
+                    <div class="rooms-name">Učebny</div>
+                    <table class="ucebny-table" id="ucebnyTable"></table>
+                </div>
+                <div class="rooms-dilny">
+                    <div class="rooms-name">Dílny</div>
+                    <table class="dilny-table" id="dilnyTable"></table>
+                </div>
+                <div class="rooms-other">
+                    <div class="rooms-name">Ostatní</div>
+                    <table class="other-table" id="otherTable">
+                        <tr>
+                            <td onclick="nearestWC(startLocation)">Nejbližší toalety</td>
+                            <td onclick="navigate(startLocation, 102)">Ředitelna</td>
+                            <td onclick="navigate(startLocation, 102)">Kancelář</td>
+                            <!--<td onclick="navigate(105)">Správa školní pokladny, kopírování</td>-->
+                            <td onclick="navigate(startLocation, 115)">DuklaLabs</td>
+                            <td onclick="navigate(startLocation, 'D9')">Dílenská sborovna</td>
+                            <td onclick="navigate(startLocation, 202)">Odpočinková místnost</td>
+                        </tr>
+                        <tr>
+                            <td onclick="navigate(startLocation, 'Bufet')">Bufet</td>
+                            <!--kopírka-->
+                            <td onclick="navigate(startLocation, 213)">Tělocvična</td>
+                            <td onclick="navigate(startLocation, 305)">Zástupce ředitele</td>
+                            <td onclick="navigate(startLocation, 314)">Sborovna</td>
+                            <td onclick="navigate(startLocation, 402)">Studovna</td>
+                            <td onclick="navigate(startLocation, 407)">Posluchárna</td>
+                            <td onclick="navigate(startLocation, 505)">Školní psycholožka</td>	
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="sub-nav-mobile">
+                <a class="downbar-button" style="margin-top: 1.6vh;" onclick="showMenu('teachers')"><img style="height: 5vh;" src="../static/assets/TeachersButton.svg"></a>
+                <a class="downbar-button" onclick="showMenu('classes')"><img style="height: 5vh;" src="../static/assets/ClassesButton.svg"></a>
+                <a class="downbar-button" onclick="showMenu('rooms')"><img style="height: 5vh;" src="../static/assets/RoomsButton.svg"></a>
+            </div>
+
+            <!--teacher window-->
+            <div class="select-window" id="teacher-window">
+                <div class="window-top">
+                    <div id="teacher-name"></div>
+                    <div class="close-button" style="display: flex;" onclick="closeTeacherWindow()"><img src="../static/assets/ExitButton.svg"></div>
+                </div>
+                <div class="window-info" id="teacher-actual"></div>
+                <div class="window-info" id="teacher-room-name"></div>
+                <div class="window-content">
+                    <a class="window-button", id="teachers-ucebna"><img src="../static/assets/ucebnaButton.svg"></a>
+                    <a class="window-button", id="teachers-cabinet"><img src="../static/assets/cabinetButton.svg"></a>
+                    <a class="window-button rozvrh-button", id="teachers-timetable"><img src="../static/assets/timetableButton.svg"></a>
+                </div>
+            </div>
+
+            <!--class window-->
+            <div class="select-window" id="class-window">
+                <div class="window-top">
+                    <div id="class-name"></div>
+                    <div class="close-button" style="display: flex;" onclick="closeClassWindow()"><img src="../static/assets/ExitButton.svg"></div>
+                </div>
+                <div class="classes-groups" id="groupsSelector">
+                </div>
+                <div class="window-info" id="class-actual"></div>
+                <div class="window-info" id="class-room-name"></div>
+                <div class="window-content">
+                    <a class="window-button", id="classes-ucebna"><img src="../static/assets/ucebnaButton.svg"></a>
+                    <a class="window-button", id="classes-kmenova"><img src="../static/assets/kmenovaButton.svg"></a>
+                    <a class="window-button", id="classes-satna"><img src="../static/assets/satnaButton.svg"></a>
+                    <a class="window-button rozvrh-button", id="classes-timetable"><img src="../static/assets/timetableButton.svg"></a>
+                </div>
+            </div>
+
+            <!--rooms window-->
+            <div class="select-window" id="room-window">
+                <div class="window-top">
+                    <div id="room-name"></div>
+                    <div class="close-button" style="display: flex;" onclick="closeRoomWindow()"><img src="../static/assets/ExitButton.svg"></div>
+                </div>
+                <div class="window-info" id="room-actual"></div>
+                <div class="window-content">
+                    <a class="window-button", id="rooms-ucebna"><img src="../static/assets/navigateButton.svg"></a>
+                    <a class="window-button rozvrh-button", id="rooms-timetable"><img src="../static/assets/timetableButton.svg"></a>
+                </div>
+            </div>
+            
+            <div id="darken" onclick="closeTeacherWindow(), closeClassWindow(), closeRoomWindow(), closeComingSoon(), closeQR(), closeLocWindow(), closeCredits()"></div>
+
+            <div class="coming-soon">
+                Coming soon
+                <button onclick="closeComingSoon()">OK</button>
+            </div>
+
+            <div class="credits">
+                <div style="display: flex; width: -webkit-fill-available; justify-content: space-between;">
+                    <div></div>
+                    <h1 class="name" style="margin: 0vh; align-items: center;">
+                        Dukla
+                        <div style="font-weight: 250;">Maps</div>
+                    </h1>
+                    <div>
+                        <img src="../static/assets/ExitButton.svg" onclick="closeCredits()">
                     </div>
                 </div>
+                <div style="padding-left: 1.5vw; padding-right: 1.5vw;">
+                    <div style="font-size: x-large;">
+                        Projekt interaktivní mapy školy vytvořený jako součást maturitní práce
+                        <br>
+                        <br>
+                        Použité technologie: <br>
+                        HTML, CSS, JavaScript, Python, Flask <br>
+                        <br>
+                        Pro více info se obraťte na DuklaLabs CEO - Jan Petrášek
+                    </div>
+                </div>
+                <div style="display: flex; width: -webkit-fill-available; justify-content: space-between; align-items: flex-end;">
+                    <div>
+                        <img src="../static/assets/spsse.svg">
+                        <img src="../static/assets/DuklaLabs.svg">
+                    </div>
+                    <img style="height: 15vh; border-radius: 1.5vh;" src="../static/assets/QRcode.svg">
+                </div>
+            </div>
+
+            <div class="QR-window">
+                <img id='QRcode' src="" style="width: 100%; margin-top: 0.5vh;"/>
+                <button onclick="closeQR()">OK</button>
+            </div>
+
+            <div class="location-window">
+                <div>Zadejte číslo nejbližších dveří:</div>
                 <div style="display: flex; flex-direction: row;">
-                    <div style="display: flex; flex-direction: column; width: 3vw;">
-                        <div class="timetable-day">Po</div>
-                        <div class="timetable-day">Út</div>
-                        <div class="timetable-day">St</div>
-                        <div class="timetable-day">Čt</div>
-                        <div class="timetable-day">Pá</div>
-                    </div>
-                    <div class="timetable" id="timetable"></div>
+                    <form id="locForm" style="display: flex; flex-direction: row; width: 100%; justify-content: space-evenly;">
+                        <input type="text" class="roomInput" id="roomInput">
+                        <button type="submit" onclick="closeLocWindow(), clearMap()" class="roomInput">Potvrdit</button>
+                    </form>
                 </div>
+                <script>            
+                    // Function to handle form submission
+                    document.getElementById('locForm').addEventListener('submit', function(event) {
+                        event.preventDefault(); // Prevent the form from submitting the traditional way
+                        startLocation = document.getElementById('roomInput').value; // Change the variable
+                        console.log('Variable changed to:', startLocation); // Log the new value
+                    });
+                </script>
             </div>
         </div>
 
-        <!--teachers-->
-        <div class="menu" id="teachers">
-            <div class="teachers" id="teachersTable"></div>
-            <div class="teachers-spacer"></div>
-        </div>
-
-        <!--classes-->
-        <div class="menu" id="classes" style="align-items: center;">
-            <div class="classes" id="classesTable"></div>
-        </div>
-
-        <!--rooms-->
-        <div class="menu" id="rooms">
-            <div class="rooms-ucebny">
-                <div class="rooms-name">Učebny</div>
-                <table class="ucebny-table" id="ucebnyTable"></table>
-            </div>
-            <div class="rooms-dilny">
-                <div class="rooms-name">Dílny</div>
-                <table class="dilny-table" id="dilnyTable"></table>
-            </div>
-            <div class="rooms-other">
-                <div class="rooms-name">Ostatní</div>
-                <table class="other-table" id="otherTable">
-                    <tr>
-                        <td onclick="nearestWC(startLocation)">Nejbližší toalety</td>
-                        <td onclick="navigate(startLocation, 102)">Ředitelna</td>
-                        <td onclick="navigate(startLocation, 102)">Kancelář</td>
-                        <!--<td onclick="navigate(105)">Správa školní pokladny, kopírování</td>-->
-                        <td onclick="navigate(startLocation, 115)">DuklaLabs</td>
-                        <td onclick="navigate(startLocation, 'D9')">Dílenská sborovna</td>
-                        <td onclick="navigate(startLocation, 202)">Odpočinková místnost</td>
-                    </tr>
-                    <tr>
-                        <td onclick="navigate(startLocation, 'Bufet')">Bufet</td>
-                        <!--kopírka-->
-                        <td onclick="navigate(startLocation, 213)">Tělocvična</td>
-                        <td onclick="navigate(startLocation, 305)">Zástupce ředitele</td>
-                        <td onclick="navigate(startLocation, 314)">Sborovna</td>
-                        <td onclick="navigate(startLocation, 402)">Studovna</td>
-                        <td onclick="navigate(startLocation, 407)">Posluchárna</td>
-                        <td onclick="navigate(startLocation, 505)">Školní psycholožka</td>	
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="sub-nav-mobile">
-            <a class="downbar-button" style="margin-top: 1.6vh;" onclick="showMenu('teachers')"><img style="height: 5vh;" src="../static/assets/TeachersButton.svg"></a>
-            <a class="downbar-button" onclick="showMenu('classes')"><img style="height: 5vh;" src="../static/assets/ClassesButton.svg"></a>
-            <a class="downbar-button" onclick="showMenu('rooms')"><img style="height: 5vh;" src="../static/assets/RoomsButton.svg"></a>
-        </div>
-
-        <!--teacher window-->
-        <div class="select-window" id="teacher-window">
-            <div class="window-top">
-                <div id="teacher-name"></div>
-                <div class="close-button" style="display: flex;" onclick="closeTeacherWindow()"><img src="../static/assets/ExitButton.svg"></div>
-            </div>
-            <div class="window-info" id="teacher-actual"></div>
-            <div class="window-info" id="teacher-room-name"></div>
-            <div class="window-content">
-                <a class="window-button", id="teachers-ucebna"><img src="../static/assets/ucebnaButton.svg"></a>
-                <a class="window-button", id="teachers-cabinet"><img src="../static/assets/cabinetButton.svg"></a>
-                <a class="window-button rozvrh-button", id="teachers-timetable"><img src="../static/assets/timetableButton.svg"></a>
-            </div>
-        </div>
-
-        <!--class window-->
-        <div class="select-window" id="class-window">
-            <div class="window-top">
-                <div id="class-name"></div>
-                <div class="close-button" style="display: flex;" onclick="closeClassWindow()"><img src="../static/assets/ExitButton.svg"></div>
-            </div>
-            <div class="classes-groups" id="groupsSelector">
-            </div>
-            <div class="window-info" id="class-actual"></div>
-            <div class="window-info" id="class-room-name"></div>
-            <div class="window-content">
-                <a class="window-button", id="classes-ucebna"><img src="../static/assets/ucebnaButton.svg"></a>
-                <a class="window-button", id="classes-kmenova"><img src="../static/assets/kmenovaButton.svg"></a>
-                <a class="window-button", id="classes-satna"><img src="../static/assets/satnaButton.svg"></a>
-                <a class="window-button rozvrh-button", id="classes-timetable"><img src="../static/assets/timetableButton.svg"></a>
-            </div>
-        </div>
-
-        <!--rooms window-->
-        <div class="select-window" id="room-window">
-            <div class="window-top">
-                <div id="room-name"></div>
-                <div class="close-button" style="display: flex;" onclick="closeRoomWindow()"><img src="../static/assets/ExitButton.svg"></div>
-            </div>
-            <div class="window-info" id="room-actual"></div>
-            <div class="window-content">
-                <a class="window-button", id="rooms-ucebna"><img src="../static/assets/navigateButton.svg"></a>
-                <a class="window-button rozvrh-button", id="rooms-timetable"><img src="../static/assets/timetableButton.svg"></a>
-            </div>
-        </div>
-        
-        <div id="darken" onclick="closeTeacherWindow(), closeClassWindow(), closeRoomWindow(), closeComingSoon(), closeQR(), closeLocWindow(), closeCredits()"></div>
-
-        <div class="coming-soon">
-            Coming soon
-            <button onclick="closeComingSoon()">OK</button>
-        </div>
-
-        <div class="credits">
-            <div style="display: flex; width: -webkit-fill-available; justify-content: space-between;">
-                <div></div>
-                <h1 class="name" style="margin: 0vh; align-items: center;">
-                    Dukla
-                    <div style="font-weight: 250;">Maps</div>
-                </h1>
-                <div>
-                    <img src="../static/assets/ExitButton.svg" onclick="closeCredits()">
-                </div>
-            </div>
-            <div style="padding-left: 1.5vw; padding-right: 1.5vw;">
-                <div style="font-size: x-large;">
-                    Projekt interaktivní mapy školy vytvořený jako součást maturitní práce
-                    <br>
-                    <br>
-                    Použité technologie: <br>
-                    HTML, CSS, JavaScript, Python, Flask <br>
-                    <br>
-                    Pro více info se obraťte na DuklaLabs CEO - Jan Petrášek
-                </div>
-            </div>
-            <div style="display: flex; width: -webkit-fill-available; justify-content: space-between; align-items: flex-end;">
-                <div>
-                    <img src="../static/assets/spsse.svg">
-                    <img src="../static/assets/DuklaLabs.svg">
-                </div>
-                <img style="height: 15vh; border-radius: 1.5vh;" src="../static/assets/QRcode.svg">
-            </div>
-        </div>
-
-        <div class="QR-window">
-            <img id='QRcode' src="" style="width: 100%; margin-top: 0.5vh;"/>
-            <button onclick="closeQR()">OK</button>
-        </div>
-
-        <div class="location-window">
-            <div>Zadejte číslo nejbližších dveří:</div>
-            <div style="display: flex; flex-direction: row;">
-                <form id="locForm" style="display: flex; flex-direction: row; width: 100%; justify-content: space-evenly;">
-                    <input type="text" class="roomInput" id="roomInput">
-                    <button type="submit" onclick="closeLocWindow(), clearMap()" class="roomInput">Potvrdit</button>
-                </form>
-            </div>
-            <script>            
-                // Function to handle form submission
-                document.getElementById('locForm').addEventListener('submit', function(event) {
-                    event.preventDefault(); // Prevent the form from submitting the traditional way
-                    startLocation = document.getElementById('roomInput').value; // Change the variable
-                    console.log('Variable changed to:', startLocation); // Log the new value
-                });
-            </script>
-        </div>
-    </div>
-
-    <nav class="downbar">
+        <nav class="downbar">
         <!--<div class="spacer" style="width: 10vh;"></div> <!--prázdný div pro zarovnání tlačítek uprostřed -->
         <a class="downbar-button" id="DocumentsButton" style="width: 8vh;" onclick="showMenu('documents')"><img src="../static/assets/DocumentsButton.svg"></a>
         <div class="downbar-buttons">
@@ -400,7 +400,8 @@
         </div>
         <a class="logo-button" onclick="credits()"><img src="../static/assets/CreditsButton.svg"></a>
         <a class="logo-button-mobile"><img src="../static/assets/CreditsButton.svg"></a>
-    </nav>
+        </nav>
+
 
     <script>
         //získat hodnotu z flasku
