@@ -1,9 +1,48 @@
 import re
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, redirect
 from getWay import get_way, locate_wc
 import json
+import os
 
 app = Flask(__name__)
+
+CLIENTS_FILE = "clients.json"
+TABLES_CFG = "static/Tables_cfg.json"
+
+def load_tables_cfg():
+    if not os.path.exists(TABLES_CFG):
+        return {}
+    with open(TABLES_CFG, "r", encoding="utf-8") as f:
+        try:
+            return json.load(f)
+        except json.JSONDecodeError:
+            return {}
+
+def load_clients():
+    if not os.path.exists(CLIENTS_FILE):
+        return {}
+    with open(CLIENTS_FILE, "r", encoding="utf-8") as f:
+        try:
+            return json.load(f)
+        except json.JSONDecodeError:
+            return {}
+
+def save_clients(clients):
+    with open(CLIENTS_FILE, "w", encoding="utf-8") as f:
+        json.dump(clients, f, indent=4, ensure_ascii=False)
+
+
+def get_client_ip():
+    if request.headers.get("X-Forwarded-For"):
+        # pokud jedeš za reverzní proxy (nginx, traefik…)
+        return request.headers.get("X-Forwarded-For").split(",")[0].strip()
+    return request.remote_addr
+
+def valid_hostname(host: str) -> bool:
+    # základní kontrola – žádné mezery, příliš dlouhé znaky apod.
+    return bool(host) and len(host) < 100 and " " not in host
+
+
 
 @app.route('/')
 def index():
@@ -67,44 +106,7 @@ def get_timetable(type, name, week):
         timetable = json.load(json_file)
     return jsonify(timetable)
 
-# --- HOST DEFAULTS (můžeš časem přesunout do JSONu) ---
-IDLE_SCREENS = {
-    "Room104": {"kind": "IDLE"},
-    "Room106": {"kind": "IDLE"},
-    "Room108": {"kind": "IDLE"},
-    "Room111": {"kind": "IDLE"},
-    "Room113": {"kind": "IDLE"},
-    "Room115": {"kind": "IDLE"},
-    "Room117": {"kind": "IDLE"},
-    "Room118": {"kind": "IDLE"},
-    "Room201": {"kind": "IDLE"},
-    "Room203": {"kind": "IDLE"},
-    "Room205": {"kind": "IDLE"},
-    "Room206": {"kind": "IDLE"},
-    "Room207": {"kind": "IDLE"},
-    "Room210": {"kind": "IDLE"},
-    "Room212": {"kind": "IDLE"},
-    "Room213": {"kind": "IDLE"},
-    "Room215": {"kind": "IDLE"},
-    "Room216": {"kind": "IDLE"},
-    "Room220": {"kind": "IDLE"},
-    "Room302": {"kind": "IDLE"},
-    "Room304": {"kind": "IDLE"},
-    "Room306": {"kind": "IDLE"},
-    "Room307": {"kind": "IDLE"},
-    "Room308": {"kind": "IDLE"},
-    "Room311": {"kind": "IDLE"},
-    "UNKNOWN": {"kind": "IDLE"},
-}
 
-# Barevné motivy podle 1. číslice místnosti (patra)
-FLOOR_THEMES = {
-    "0": {"grad1":"#64748b","grad2":"#94a3b8","bg1":"#0f172a","bg2":"#111827"},  # přízemí
-    "1": {"grad1":"#0ea5e9","grad2":"#22d3ee","bg1":"#0f172a","bg2":"#111827"},
-    "2": {"grad1":"#22c55e","grad2":"#84cc16","bg1":"#0f172a","bg2":"#111827"},
-    "3": {"grad1":"#f59e0b","grad2":"#f97316","bg1":"#111827","bg2":"#0b1320"},
-    "4": {"grad1":"#a855f7","grad2":"#6366f1","bg1":"#0f172a","bg2":"#111827"},
-}
 
 def auto_idle_config_for_host(host: str) -> dict:
     """
@@ -115,43 +117,80 @@ def auto_idle_config_for_host(host: str) -> dict:
     m = re.search(r'(\d{3})', host or "", flags=re.IGNORECASE)
     if m:
         room = m.group(1)
-        floor_digit = room[0]
-        theme = FLOOR_THEMES.get(floor_digit, FLOOR_THEMES.get("1"))
         headline = f"Učebna {room}"
     else:
         # když číslo nenajdeme, prostě použijeme název hosta
         room = None
-        theme = FLOOR_THEMES.get("1")
         headline = host or "Učebna"
 
     cfg = {
         "headline": headline,
         "sub": "Dotkněte se obrazovky pro pokračování",
-        "theme": theme,
         "room": room,
     }
     return cfg
 
-@app.route("/idle/<string:host>")
-def idle(host):
-    return_path = request.args.get("return", "/")
-    # ruční override má přednost, jinak auto z názvu hosta
-    cfg = IDLE_SCREENS.get(host) or auto_idle_config_for_host(host)
+# @app.route("/idle/<string:host>")
+# def idle(host):
+#     return_path = request.args.get("return", "/")
+#     # Načti data z Tables_cfg.json podle hostname
+#     with open('Tables_cfg.json', encoding='utf-8') as json_file:
+#         tables_cfg = json.load(json_file)
+#     # Vyber konfiguraci podle hostname, fallback na auto_idle_config_for_host
+#     cfg = tables_cfg.get(host) or auto_idle_config_for_host(host)
+#     return render_template(
+#         "idle.html",
+#         host=host,
+#         return_path=cfg.get("return_path", return_path),
+#         headline=cfg.get("headline"),
+#         sub=cfg.get("sub"),
+#         room=cfg.get("room"),
+#         kind=cfg.get("kind"),
+#         name=cfg.get("name"),
+#         sup=cfg.get("sup"),
+#         logo=cfg.get("logo"),
+#     )
+@app.route("/idle")
+def idle_screen():
+    ip = get_client_ip()
+    clients = load_clients()
+    host = clients.get(ip)   # podle IP najdeme zaregistrovaný host
+
+    if not host:
+        return f"Host for IP {ip} not registered", 404
+
+    tables_cfg = load_tables_cfg()
+    table = tables_cfg.get(host, {})
+
+    print(f"Host: {host}")
+    print(f"Table: {table}")
+
+    if not table:
+        return f"Config for host {host} not found", 404
+
     return render_template(
         "idle.html",
         host=host,
-        return_path=return_path,
-        headline=cfg.get("headline"),
-        sub=cfg.get("sub"),
-        theme=cfg.get("theme", {}),
-        room=cfg.get("room"),
+        table=table  # předáme celé nastavení do šablony
     )
 
-@app.route('/host-default/<string:host>')
-def host_default(host):
-    # default pro jakéhokoliv hosta: přejdi na idle
-    cfg = IDLE_SCREENS.get(host, {"kind": "idlePage"})
-    return jsonify(cfg)
+@app.route("/register-host")
+def register_host():
+    host = request.args.get("host", "").strip()
+    if not host:
+        return "Missing host parameter", 400
+    place = request.args.get("place", "").strip()
+    if not place:
+        return "Missing placement", 400 
+
+    ip = get_client_ip()
+    clients = load_clients()
+    clients[ip] = host
+    save_clients(clients)
+
+    return redirect("/")
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0') # for running on a server
