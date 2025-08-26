@@ -155,12 +155,27 @@ function closeTimetable() {
 }
 
 function fetchTimetable(type, name, week) {
-    return fetch(`/getTimetable/${type}/${name}/${week}`)
+  const key = `tt:${type}:${name}:${week}`;
+  const TTL = 60 * 1000; // 60 s – jak dlouho považovat prefetch za čerstvý
+
+  try {
+    const raw = sessionStorage.getItem(key);
+    if (raw) {
+      const { data, ts } = JSON.parse(raw);
+      if (Date.now() - ts < TTL && data) {
+        sessionStorage.removeItem(key); // data spotřebuj (ať nejsou zastaralá)
+        return Promise.resolve(data);
+      } else {
+        sessionStorage.removeItem(key);
+      }
+    }
+  } catch {}
+
+  // fallback – klasický fetch
+  return fetch(`/getTimetable/${type}/${name}/${week}`)
     .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
+      if (!response.ok) throw new Error('Network response was not ok');
+      return response.json();
     });
 }
 
@@ -303,27 +318,19 @@ function displayTimetable(type, name, week) { //week - permanent, actual, next, 
 
 //teachers table
 function generateTeachersTable(teachersList) {
-    const teachersTable = document.getElementById('teachersTable');
-    teachersTable.innerHTML = ''; // Clear existing table content
+  const table = document.getElementById('teachersTable');
+  table.innerHTML = '';
+  const frag = document.createDocumentFragment();
 
-    teachersList.forEach((teacher, index) => {
-        fetchTeachers(teacher[0])
-            .then(data => {
-                const permanent = data[2];
-                if (Object.keys(permanent).length === 0) {  // If teacher has no permanent class
-                    console.log(teacher[0] + ' has no permanent class');
-                } else {
-                    const cell = document.createElement('td');
-                    cell.textContent = teacher[0]; // Teacher name
-                    cell.onclick = () => openTeacherWindow(teacher[0]);
-                    teachersTable.appendChild(cell);
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching teacher data:', error);
-            });
-    });
+  for (const [name] of teachersList) {
+    const td = document.createElement('td');
+    td.textContent = name;
+    td.onclick = () => openTeacherWindow(name); // detail až na klik (fetch uvnitř)
+    frag.appendChild(td);
+  }
+  table.appendChild(frag);
 }
+
 
 function fetchDuklaData() {
     return fetch(`/data`)
@@ -1159,7 +1166,7 @@ function goToDefaultForHost(config) {
         const hostName = detectHostName();
         const returnPath = window.location.pathname + window.location.search;
         console.log(`[IDLE] Neaktivita → přechod na idle screen (host='${hostName}', return='${returnPath}')`);
-        window.location.href = `/idle/${encodeURIComponent(hostName)}?return=${encodeURIComponent(returnPath)}`;
+        window.location.href = `/idle`;
         break;
         }
     default:
@@ -1171,12 +1178,7 @@ function goToDefaultForHost(config) {
   const hostName = detectHostName();
 
   let hostConfig = null;
-  try {
-    const res = await fetch(`/host-default/${encodeURIComponent(hostName)}`);
-    hostConfig = await res.json();
-  } catch (e) {
-    console.warn("[IDLE] Nepodařilo se načíst host-default:", e);
-  }
+  
 
   // Fallback: i kdyby backend selhal, defaultně přejdi na idle
   if (!hostConfig) hostConfig = { kind: "idlePage" };
@@ -1187,7 +1189,7 @@ function goToDefaultForHost(config) {
     return;
   }
 
-  const IDLE_MS = (hostConfig.idle_ms) ? hostConfig.idle_ms : 300_000;
+  const IDLE_MS = (hostConfig.idle_ms) ? hostConfig.idle_ms : 60_000;
   let timer;
 
   const resetTimer = () => {
@@ -1205,6 +1207,52 @@ function goToDefaultForHost(config) {
 
   resetTimer();
 })();
+
+
+// --- Deep-link: vykresli rozvrh při návratu z Idle ---
+// Deep-link z idle: napodob "Místnosti → 115 → Rozvrh"
+(() => {
+  function getParam(...keys) {
+    const p = new URLSearchParams(location.search);
+    for (const k of keys) {
+      const v = p.get(k);
+      if (v && v.trim()) return v.trim();
+    }
+    return "";
+  }
+
+  function handleReturnFromIdle() {
+    // staré i nové názvy paramů
+    const typeRaw = getParam("type", "show");      // "rooms" / "teachers" / "classes"
+    const name    = getParam("name", "room", "class", "teacher");
+    const week    = getParam("week") || "actual";
+
+    if (!typeRaw || !name) return;
+
+    const type = (typeRaw === "show") ? "rooms" : typeRaw;
+
+    // 1) nastavit globální stav tak, jako by se kliklo na danou sekci a položku
+    window.timetabletype = type;
+    window.timetablename = name;
+
+    // 2) otevřít viewer stejně jako tlačítko „Rozvrh“
+    if (typeof window.showTimetable === "function") {
+      showTimetable(name);               // to zavolá displayTimetable(type, name, 'actual')
+    }
+
+    // 3) případně přepnout týden, pokud není 'actual'
+    if (week !== "actual" && typeof window.displayTimetable === "function") {
+      displayTimetable(type, name, week);
+    }
+
+    // 4) volitelné: po aplikaci deep-linku URL "očistit"
+    // history.replaceState(null, "", location.pathname);
+  }
+
+  window.addEventListener("DOMContentLoaded", handleReturnFromIdle);
+  window.addEventListener("popstate", handleReturnFromIdle);
+})();
+
 
 
 
