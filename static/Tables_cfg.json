@@ -1,5 +1,16 @@
 {
     "_comment": "Per-host nastavení idle obrazovky",
+    "Vestibul": {
+        "kind": "idlePage",
+        "headline": "Vstupní hala",
+        "name": "Dukla Maps",
+        "sup": "Trvůrce aplikace Matěj Ferebauer",
+        "subtitle": "Vedoucí práce Bc. Jan Petrášek", 
+        "sub": "Dotkněte se obrazovky pro pokračování", 
+        "return_path": "/",
+        "logo": "/static/assets/DuklaMaps.svg" 
+    },
+    
     "Table104": {
         "kind": "idlePage",
         "headline": "Učebna 104",

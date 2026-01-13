@@ -259,6 +259,19 @@ def add_teacher(teacher_name, teacher_info):
 
 
 async def get_timetable_data():
+    global teachers, classes, rooms, conf
+    global network_time, processing_time, runs
+
+    # 🔄 RESET dat (KLÍČOVÉ)
+    teachers = {"teachers": []}
+    classes  = {"classes": []}
+    rooms    = {"rooms": []}
+    conf     = {"hour_time": []}
+
+    network_time = 0
+    processing_time = 0
+    runs = 0
+    
     print("Started fetching data...")
     script_start_time = time.time()
 

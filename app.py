@@ -3,11 +3,19 @@ from flask import Flask, render_template, jsonify, request, redirect
 from getWay import get_way, locate_wc
 import json
 import os
+import time
+from threading import Thread
+from Sync_Doc import sync_data_json_1to1, DOCS_URL
+from getTimetableData import get_timetable_data
+import asyncio
+import logging
 
 app = Flask(__name__)
 
 CLIENTS_FILE = "clients.json"
 TABLES_CFG = "static/Tables_cfg.json"
+JSON_PATH = "static/data.json"
+UPDATE_INTERVAL = 10 * 60  # 10 minutes
 
 def load_tables_cfg():
     if not os.path.exists(TABLES_CFG):
@@ -179,9 +187,9 @@ def register_host():
     host = request.args.get("host", "").strip()
     if not host:
         return "Missing host parameter", 400
-    place = request.args.get("place", "").strip()
-    if not place:
-        return "Missing placement", 400 
+    # place = request.args.get("place", "").strip()
+    # if not place:
+    #     return "Missing placement", 400 
 
     ip = get_client_ip()
     clients = load_clients()
@@ -191,6 +199,45 @@ def register_host():
     return redirect("/")
 
 
+def run_sync_cycle():
+    """Jedna synchronizační dávka"""
+    # 1️⃣ dokumenty
+    try:
+        logging.info("⏳ [SYNC] Dokumenty...")
+        sync_data_json_1to1(str(JSON_PATH), DOCS_URL)
+        logging.info("✅ [SYNC] Dokumenty hotovo")
+    except Exception:
+        logging.exception("❌ [SYNC] Dokumenty selhaly")
+
+    # 2️⃣ rozvrhy
+    try:
+        logging.info("⏳ [SYNC] Rozvrhy...")
+        asyncio.run(get_timetable_data())
+        logging.info("✅ [SYNC] Rozvrhy hotovo")
+    except Exception:
+        logging.exception("❌ [SYNC] Rozvrhy selhaly")
+
+
+def sync_loop():
+    """Nekonečná smyčka běžící každých 10 minut"""
+    logging.info("🔁 Spouštím periodickou synchronizaci (10 min)")
+
+    # první běh hned při startu
+    run_sync_cycle()
+
+    while True:
+        logging.info("⏸️ Čekám 10 minut na další sync...")
+        time.sleep(UPDATE_INTERVAL)
+        run_sync_cycle()
+
+
+def start_background_sync():
+    t = Thread(target=sync_loop, daemon=True)
+    t.start()
+
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0') # for running on a server
+    if os.environ.get("WERKZEUG_RUN_MAIN") == "true" or not os.environ.get("FLASK_DEBUG"):
+        start_background_sync()
+
+    app.run(host="0.0.0.0")
