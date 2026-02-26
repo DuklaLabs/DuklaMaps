@@ -402,12 +402,16 @@
         <a class="logo-button" onclick="credits()"><img src="../static/assets/CreditsButton.svg"></a>
         <a class="logo-button-mobile"><img src="../static/assets/CreditsButton.svg"></a>
         </nav>
-
-
-    <script>
-        //získat hodnotu z flasku
-        var startLocation = "{{ start }}";
-        var destinationOnStart = "{{ destination }}";
+    <script id="server-data" type="application/json">
+        {
+            "start": {{ start | tojson }},
+            "destination": {{ destination | tojson }}
+        }
+    </script>
+    <script type="text/javascript">
+        const serverData = JSON.parse(document.getElementById('server-data').textContent);
+  const startLocation = serverData.start;
+  const destinationOnStart = serverData.destination;
     </script>
     
     <script src="{{ url_for('static', filename='script.js') }}"></script>

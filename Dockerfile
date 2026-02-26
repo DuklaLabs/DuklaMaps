@@ -16,7 +16,7 @@ RUN pip install --no-cache-dir -r requirements.txt gunicorn
 COPY . .
 
 # Adresáře pro runtime data
-RUN mkdir -p timetableData
+RUN mkdir -p timetableData logs
 
 # Port, na kterém Flask/gunicorn naslouchá
 EXPOSE 5000

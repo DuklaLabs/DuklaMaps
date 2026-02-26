@@ -6,4 +6,5 @@ services:
     volumes:
       # Persistentní data mimo kontejner
       - ./timetableData:/app/timetableData
+      - ./logs:/app/logs
     restart: unless-stopped
