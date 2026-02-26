@@ -236,8 +236,9 @@ def start_background_sync():
     t.start()
 
 
-if __name__ == '__main__':
-    if os.environ.get("WERKZEUG_RUN_MAIN") == "true" or not os.environ.get("FLASK_DEBUG"):
-        start_background_sync()
+# Spustí se při importu modulem (gunicorn) i přímém spuštění
+if not os.environ.get("FLASK_DEBUG") or os.environ.get("WERKZEUG_RUN_MAIN") == "true":
+    start_background_sync()
 
+if __name__ == '__main__':
     app.run(host="0.0.0.0")

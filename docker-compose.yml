@@ -1,0 +1,9 @@
+services:
+  duklamaps:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      # Persistentní data mimo kontejner
+      - ./timetableData:/app/timetableData
+    restart: unless-stopped
